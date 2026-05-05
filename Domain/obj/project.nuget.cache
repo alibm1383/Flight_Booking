@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "aTm2vQ2VYVo=",
+  "dgSpecHash": "hN5s7NZBD14=",
   "success": true,
   "projectFilePath": "E:\\Programming\\C#\\Project\\FlightBooking\\FlightBooking\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.15\\microsoft.entityframeworkcore.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.15\\microsoft.entityframeworkcore.abstractions.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.15\\microsoft.entityframeworkcore.analyzers.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.15\\microsoft.extensions.caching.abstractions.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.15\\microsoft.extensions.caching.memory.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.15\\microsoft.extensions.dependencyinjection.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.15\\microsoft.extensions.dependencyinjection.abstractions.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.logging\\9.0.15\\microsoft.extensions.logging.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.15\\microsoft.extensions.logging.abstractions.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.options\\9.0.15\\microsoft.extensions.options.9.0.15.nupkg.sha512",
+    "C:\\Users\\Ali Bakhtiari\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.15\\microsoft.extensions.primitives.9.0.15.nupkg.sha512"
+  ],
   "logs": []
 }

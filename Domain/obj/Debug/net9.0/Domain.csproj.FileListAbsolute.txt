@@ -9,3 +9,4 @@ E:\Programming\C#\Project\FlightBooking\FlightBooking\Domain\obj\Debug\net9.0\Do
 E:\Programming\C#\Project\FlightBooking\FlightBooking\Domain\obj\Debug\net9.0\refint\Domain.dll
 E:\Programming\C#\Project\FlightBooking\FlightBooking\Domain\obj\Debug\net9.0\Domain.pdb
 E:\Programming\C#\Project\FlightBooking\FlightBooking\Domain\obj\Debug\net9.0\ref\Domain.dll
+E:\Programming\C#\Project\FlightBooking\FlightBooking\Domain\obj\Debug\net9.0\Domain.csproj.AssemblyReference.cache
