@@ -12,15 +12,16 @@ namespace Domain.Entities
     [Index(nameof(IataCode), IsUnique = true)]
     public class Airport
     {
-        [Key]
         public int Id { get; set; }
         public int CityId { get; set; }
         [MaxLength(3)]
         public required string IataCode { get; set; }
-        [MaxLength(500)]
+        [MaxLength(1000)]
         public string? ImageUrl { get; set; }
 
-        [ForeignKey(nameof(CityId))]
         public City City { get; set; } = null!;
+        public ICollection<Flight> SourceFlights { get; set; } = [];
+        public ICollection<Flight> DestinationFlights { get; set; } = [];
+
     }
 }

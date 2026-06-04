@@ -1,4 +1,5 @@
 using Data.Context;
+using IOC.Dependencies;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.RegisterServices();
 #region AddDbContext
 
 builder.Services.AddDbContext<FlightBookingContext>(options =>

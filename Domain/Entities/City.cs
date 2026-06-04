@@ -10,13 +10,12 @@ namespace Domain.Entities
     public class City
     {
         #region Properties
-        [Key]
         public int Id { get; set; }
         [MaxLength(100)]
         public required string Name { get; set; }
-        [MaxLength(500)]
+        [MaxLength(1000)]
         public string? ImageUrl { get; set; }
-        public ICollection<Airport> Airports { get; set; } = new List<Airport>();   
+        public ICollection<Airport> Airports { get; set; } = [];  
         #endregion
     }
 }
