@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace Application.Services.Interfaces
 {
     public interface ICityService
     {
-        Task<IEnumerable<City>> GetAllCitiesAsync();
-        Task<City?> GetCityByCityIdAsync(int cityId);
+        Task<IEnumerable<CityDto>> GetAllCitiesAsync();
+        Task<CityDto?> GetCityByCityIdAsync(int cityId);
+        Task AddCityAsync(CreateCityDto createCityDto);
     }
 }

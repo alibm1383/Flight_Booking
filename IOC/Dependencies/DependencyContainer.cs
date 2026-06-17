@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Profiles;
 
 namespace IOC.Dependencies
 {
@@ -21,6 +22,10 @@ namespace IOC.Dependencies
 
             #region Repository
             services.AddScoped<ICityRepository, CityRepository>();
+            #endregion
+
+            #region AutoMapper
+            services.AddAutoMapper(cfg => cfg.AddMaps(typeof(CityProfile).Assembly));
             #endregion
         }
     }

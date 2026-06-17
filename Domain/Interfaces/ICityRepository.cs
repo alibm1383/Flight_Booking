@@ -11,5 +11,7 @@ namespace Domain.Interfaces
     {
         Task<IEnumerable<City>> GetAllCitiesAsync();
         Task<City?> GetCityByCityIdAsync(int cityId);
+        Task AddCityAsync(City city);
+        Task SaveChangesAsync();
     }
 }

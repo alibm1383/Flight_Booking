@@ -33,6 +33,16 @@ namespace Data.Repositories
         {
             return await _context.Cities.FirstOrDefaultAsync(c => c.Id == cityId);
         }
+
+        public async Task AddCityAsync(City city)
+        {
+            await _context.Cities.AddAsync(city);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
         #endregion
     }
 }

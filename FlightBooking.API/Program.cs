@@ -21,6 +21,18 @@ builder.Services.AddDbContext<FlightBookingContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("VuePolicy", policy =>
+    {
+        policy
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+            .WithOrigins("http://localhost:5173");
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,8 +44,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
+
+app.UseCors("VuePolicy");
+
+app.UseStaticFiles();
 
 app.UseAuthorization();
 

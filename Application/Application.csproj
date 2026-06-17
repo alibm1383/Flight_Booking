@@ -15,4 +15,8 @@
     <Folder Include="Senders\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+  </ItemGroup>
+
 </Project>
