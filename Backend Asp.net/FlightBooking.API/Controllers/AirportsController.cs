@@ -42,6 +42,7 @@ namespace FlightBooking.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] CreateAirportDto createAirportDto)
         {
+            //TODO  Check airport doesnt exist
             await _airportService.AddAirportAsync(createAirportDto);
             return Created();
         }

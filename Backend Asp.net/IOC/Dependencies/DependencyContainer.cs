@@ -19,16 +19,18 @@ namespace IOC.Dependencies
             #region Service
             services.AddScoped<ICityService, CityService>();
             services.AddScoped<IAirportService, AirportService>();
+            services.AddScoped<IFlightService, FlightService>();
             services.AddScoped<IFileService, FileService>();
             #endregion
 
             #region Repository
             services.AddScoped<ICityRepository, CityRepository>();
             services.AddScoped<IAirportReposiroty, AirportRepository>();
+            services.AddScoped<IFlightRepository, FlightRepository>();
             #endregion
 
             #region AutoMapper
-            services.AddAutoMapper(cfg => cfg.AddMaps(typeof(CityProfile).Assembly));
+            services.AddAutoMapper(cfg => cfg.AddMaps(typeof(FlightBookingProfile).Assembly));
             #endregion
         }
     }

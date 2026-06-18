@@ -9,12 +9,14 @@ using Domain.Entities;
 
 namespace Application.Profiles
 {
-    public class CityProfile : Profile
+    public class FlightBookingProfile : Profile
     {
-        public CityProfile()
+        public FlightBookingProfile()
         {
             CreateMap<City, CityDto>().ReverseMap();
             CreateMap<Airport, AirportDto>().ReverseMap();
+            CreateMap<Flight, FlightDto>().ReverseMap();
+            CreateMap<Flight, CreateFlightDto>().ReverseMap();
         }
     }
 }
