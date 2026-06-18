@@ -24,4 +24,9 @@
     <ProjectReference Include="..\IOC\IOC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\airports\" />
+    <Folder Include="wwwroot\images\cities\" />
+  </ItemGroup>
+
 </Project>

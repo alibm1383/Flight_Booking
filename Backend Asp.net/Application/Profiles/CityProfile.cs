@@ -14,6 +14,7 @@ namespace Application.Profiles
         public CityProfile()
         {
             CreateMap<City, CityDto>().ReverseMap();
+            CreateMap<Airport, AirportDto>().ReverseMap();
         }
     }
 }
