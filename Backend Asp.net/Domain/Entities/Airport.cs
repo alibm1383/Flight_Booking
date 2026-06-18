@@ -16,6 +16,8 @@ namespace Domain.Entities
         public int CityId { get; set; }
         [MaxLength(3)]
         public required string IataCode { get; set; }
+        [MaxLength(500)]
+        public required string Name { get; set; }
         [MaxLength(1000)]
         public string? ImageUrl { get; set; }
 

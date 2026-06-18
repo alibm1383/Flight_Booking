@@ -18,10 +18,13 @@ namespace IOC.Dependencies
         {
             #region Service
             services.AddScoped<ICityService, CityService>();
+            services.AddScoped<IAirportService, AirportService>();
+            services.AddScoped<IFileService, FileService>();
             #endregion
 
             #region Repository
             services.AddScoped<ICityRepository, CityRepository>();
+            services.AddScoped<IAirportReposiroty, AirportRepository>();
             #endregion
 
             #region AutoMapper

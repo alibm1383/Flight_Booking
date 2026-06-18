@@ -16,20 +16,23 @@ namespace Application.Services.Implementations
     {
         private readonly ICityRepository _cityRepository;
         private readonly IMapper _mapper;
+        private readonly IFileService _fileService;
 
         #region Constructor
-        public CityService(ICityRepository cityRepository, IMapper mapper)
+        public CityService(ICityRepository cityRepository, IMapper mapper, IFileService fileService)
         {
             _cityRepository = cityRepository;
             _mapper = mapper;
+            _fileService = fileService;
         }
+        #endregion
 
         public async Task AddCityAsync(CreateCityDto createCityDto)
         {
             string? imagePath = null;
             if (createCityDto.Image != null)
             {
-                imagePath = await UploadImageAsync(createCityDto.Image);
+                imagePath = await _fileService.UploadImageAsync(createCityDto.Image , "cities");
             }
 
             var city = new City()
@@ -42,8 +45,6 @@ namespace Application.Services.Implementations
             await _cityRepository.SaveChangesAsync();
         }
 
-
-        #endregion
         public async Task<IEnumerable<CityDto>> GetAllCitiesAsync()
         {
             var cities = await _cityRepository.GetAllCitiesAsync();
@@ -55,27 +56,6 @@ namespace Application.Services.Implementations
             var city = await _cityRepository.GetCityByCityIdAsync(cityId);
             return _mapper.Map<CityDto?>(city);
         }
-
-        private async Task<string> UploadImageAsync(IFormFile image)
-        {
-            var folder =
-                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/cities");
-
-            if (!Directory.Exists(folder))
-            {
-                Directory.CreateDirectory(folder);
-            }
-
-            var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);
-
-            var path = Path.Combine(folder, fileName);
-
-            using (var stream = new FileStream(path, FileMode.Create))
-            {
-                await image.CopyToAsync(stream);
-            }
-
-            return "/images/cities/" + fileName;
-        }
+       
     }
 }
