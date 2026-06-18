@@ -1,0 +1,1377 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoTrip - قالب HTML رزرو تور و آژانس مسافرتی ژِئوتریپ</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <!-- All Plugins -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+
+  <!-- Fontawesome & Bootstrap Icons CSS -->
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Last Minute Flights Section - Contrast Fix -->
+  <style>
+    .last-minute-flights .flightsLists-Wraps a,
+    .last-minute-flights .flightsLists-Wraps a span {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+    .last-minute-flights .flightsLists-Wraps a:hover,
+    .last-minute-flights .flightsLists-Wraps a:hover span {
+      color: var(--bs-primary, #ff6f3c) !important;
+    }
+    .last-minute-flights .nav-pills .nav-link {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      background-color: rgba(255, 255, 255, 0.12) !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    }
+    .last-minute-flights .nav-pills .nav-link.active {
+      color: #ffffff !important;
+      background-color: var(--bs-primary, #ff6f3c) !important;
+      border-color: var(--bs-primary, #ff6f3c) !important;
+    }
+  </style>
+</head>
+
+<body>
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper">
+
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+		<!-- Start Navigation -->
+		<div class="header header-light">
+			<div class="container">
+				<nav id="navigation" class="navigation navigation-landscape">
+					<div class="nav-header">
+						<a class="nav-brand" href="#"><img src="assets/img/logo.png" class="logo" alt=""></a>
+						<div class="nav-toggle"></div>
+						<div class="mobile_nav">
+						  <ul>
+							<li class="languageDropdown ms-3">
+							  <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+								<span class="d-flex align-items-center gap-2">فارسی | <i class="bi bi-globe h-auto"></i></span>
+							  </a>
+							</li>
+							<li>
+							  <a href="#" class="text-primary rounded" data-bs-toggle="modal" data-bs-target="#login">
+								<svg width="34" height="34" viewBox="0 0 24 24" class="fill-primary" xmlns="http://www.w3.org/2000/svg">
+									<path opacity="0.3" d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z"/>
+									<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"/>
+								</svg>
+							  </a>
+							</li>
+						 </ul>
+						</div>
+                    </div>
+				  <div class="nav-menus-wrapper" style="transition-property: none;">
+					<ul class="nav-menu">
+
+					  <li>
+   							 <a href="home-flight.html" class="home-button-style">صفحه اصلی</a>
+					  </li>	
+
+					  <li><a href="JavaScript:Void(0);">صفحات<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="JavaScript:Void(0);">وبلاگ<span class="submenu-indicator"></span></a>
+							<ul class="nav-dropdown nav-submenu">
+							  <li><a href="classic-blog.html">لیست نسخه 1</a></li>
+							  <li><a href="blog.html">لیست نسخه 2</a></li>
+							  <li><a href="blog-detail.html">جزئیات</a></li>
+							</ul>
+						  </li>
+						  <li><a href="JavaScript:Void(0);">اعتبارسنجی<span class="submenu-indicator"></span></a>
+							<ul class="nav-dropdown nav-submenu">
+							  <li><a href="login.html">ورود</a></li>
+							  <li><a href="register.html">ثبت نام</a></li>
+							  <li><a href="forgot-password.html">فراموشی رمز</a></li>
+							  <li><a href="two-factor-auth.html">اعتبارسنجی دو مرحله ای</a></li>
+							</ul>
+						  </li>
+						  <li><a href="about-us.html">درباره ما</a></li>
+						  <li><a href="career-page.html">فرصت های شغلی</a></li>
+						  <li><a href="help-center.html">پشتیبانی</a></li>
+						  <li><a href="faq.html">سوالات متداول</a></li>
+						  <li><a href="404.html">صفحه 404</a></li>
+						  <li><a href="pricing.html">قیمت گذاری</a></li>
+						  <li><a href="privacy-policy.html">شرایط استفاده</a></li>
+						  <li><a href="JavaScript:Void(0);">تماس با ما<span class="submenu-indicator"></span></a>
+							<ul class="nav-dropdown nav-submenu">
+							  <li><a href="contact-v1.html">نسخه 1</a></li>
+							  <li><a href="contact-v2.html">نسخه 2</a></li>
+							</ul>
+						  </li>
+						</ul>
+					  </li>
+
+					  <li><a href="JavaScript:Void(0);">منو<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu xxl-menu">
+						  <li>
+							<a href="home-flight.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-primary fs-4"><i
+									class="fa-solid fa-plane"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">پرواز</h6>
+								  <p class="text-sm-muted m-0">رزرو بلیط هواپیما</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						  <li>
+							<a href="my-profile.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-purple fs-4"><i
+									class="fa-solid fa-eye"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">دانلود بلیط رزرو شده</h6>
+								  <p class="text-sm-muted m-0">بلیط خودرا هم اکنون دریافت کنید</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						</ul>
+					  </li>
+
+					  <li><a href="documantion/index.html" target="_blank">داکیومنت</a></li>
+
+					</ul>
+
+					<ul class="nav-menu nav-menu-social align-to-left">
+					  <li class="languageDropdown ms-2">
+						<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">فارسی |  <i class="bi bi-globe"></i></a>
+					  </li>
+					  <li class="list-buttons">
+						<a href="#" class="bg-primary" data-bs-toggle="modal" data-bs-target="#login"><i
+							class="fa-regular fa-circle-user fs-6 ms-2"></i>ثبت نام/ ورود</a>
+					  </li>
+					</ul>
+				  </div>
+			</nav>
+		  </div>
+		</div>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+
+
+		<!-- ============================ Hero Banner  Start================================== -->
+		<div class="image-cover hero-header bg-white" style="background:url(assets/img/banner-flight.jpg)no-repeat;" data-overlay="6">
+			<div class="container">
+
+				<!-- Search Form -->
+				<div class="row justify-content-center align-items-center">
+
+					<div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
+						<div class="position-relative text-center mb-5">
+							<h1>مقایسه و رزرو پروازهای ارزان</h1>
+							<p class="fs-5 fw-light">بهترین خطوط هوایی را مقایسه کنید و پروازهای ارزان را در عرض چند دقیقه رزرو کنید - سریع، آسان و ایمن.</p>
+						</div>
+					</div>
+
+					<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+						<div class="search-wrap bg-white rounded-3 p-3">
+						  <div class="search-upper">
+							<div class="d-flex align-items-center justify-content-between flex-wrap">
+							  <div class="flx-start mb-sm-0 mb-2">
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="trip" id="return" value="option1" checked>
+								  <label class="form-check-label" for="return">رفت و برگشت</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="trip" id="oneway" value="option2">
+								  <label class="form-check-label" for="oneway">یک طرفه</label>
+								</div>
+							  </div>
+							  <div class="flx-end d-flex align-items-center flex-wrap">
+								<div class="ps-1 pb-3 pt-0 mob-full">
+								  <div class="dropdowns">
+									<div class="selections">
+									  <span class="selected">سیستمی</span>
+											  <div class="caret"></div>
+											</div>
+											<ul class="menu">
+											  <li class="active">سیستمی</li>
+											  <li>اکونومی</li>
+											  <li>چارتری</li>
+											  <li>بیزینسی</li>
+									</ul>
+								  </div>
+								</div>
+							  </div>
+							</div>
+						  </div>
+						  <div class="row gx-lg-2 g-3">
+
+							<div class="col-xl-6 col-lg-6 col-md-12">
+								<div class="row gy-3 gx-lg-2 gx-3">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+										<div class="form-group mb-0">
+											<div class="inputIicon">
+												<div class="myIcon">
+													<svg width="24" height="24" viewBox="0 0 24 24" class="fill-primary" xmlns="http://www.w3.org/2000/svg">
+														<path opacity="0.3" d="M18.0624 15.3453L13.1624 20.7453C12.5624 21.4453 11.5624 21.4453 10.9624 20.7453L6.06242 15.3453C4.56242 13.6453 3.76242 11.4453 4.06242 8.94534C4.56242 5.34534 7.46242 2.44534 11.0624 2.04534C15.8624 1.54534 19.9624 5.24534 19.9624 9.94534C20.0624 12.0453 19.2624 13.9453 18.0624 15.3453Z" />
+														<path d="M12.0624 13.0453C13.7193 13.0453 15.0624 11.7022 15.0624 10.0453C15.0624 8.38849 13.7193 7.04535 12.0624 7.04535C10.4056 7.04535 9.06241 8.38849 9.06241 10.0453C9.06241 11.7022 10.4056 13.0453 12.0624 13.0453Z"/>
+													</svg>
+												</div>
+												<div class="input-box autocomplete-container">
+													<input class="form-control fw-medium fs-md flightInput" type="text" placeholder="فرودگاه مبداء">
+													<div class="suggestions"></div>
+												</div>
+											</div>
+										</div>
+										<div class="btn-flip-icon mt-md-0">
+											<button class="p-0 m-0 text-primary"><i class="fa-solid fa-right-left"></i></button>
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+										<div class="form-group mb-0">
+											<div class="inputIicon">
+												<div class="myIcon me-md-2 me-sm-2">
+													<svg width="24" height="24" viewBox="0 0 24 24" class="fill-primary" xmlns="http://www.w3.org/2000/svg">
+														<path opacity="0.3" d="M18.0624 15.3453L13.1624 20.7453C12.5624 21.4453 11.5624 21.4453 10.9624 20.7453L6.06242 15.3453C4.56242 13.6453 3.76242 11.4453 4.06242 8.94534C4.56242 5.34534 7.46242 2.44534 11.0624 2.04534C15.8624 1.54534 19.9624 5.24534 19.9624 9.94534C20.0624 12.0453 19.2624 13.9453 18.0624 15.3453Z" />
+														<path d="M12.0624 13.0453C13.7193 13.0453 15.0624 11.7022 15.0624 10.0453C15.0624 8.38849 13.7193 7.04535 12.0624 7.04535C10.4056 7.04535 9.06241 8.38849 9.06241 10.0453C9.06241 11.7022 10.4056 13.0453 12.0624 13.0453Z"/>
+													</svg>
+												</div>
+												<div class="input-box autocomplete-container">
+													<input class="form-control fw-medium fs-md flightInput" type="text" placeholder="فرودگاه مقصد">
+													<div class="suggestions"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-4 col-lg-4 col-md-12">
+								<div class="row gy-3 gx-lg-2 gx-3">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+										 <div class="form-group mb-0">
+											<div class="inputIicon">
+												<div class="myIcon">
+													<svg width="24" height="24" viewBox="0 0 24 24" class="fill-primary" xmlns="http://www.w3.org/2000/svg">
+														<path opacity="0.3" d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z"/>
+														<path d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z"/>
+														<path d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z"/>
+													</svg>
+												</div>
+												<div class="input-box">
+													<input class="form-control fw-medium fs-md choosedate" type="text" placeholder="تاریخ" readonly="readonly">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+										<div class="form-group mb-0">
+											<div class="inputIicon">
+												<div class="myIcon">
+													<svg width="24" height="24" viewBox="0 0 24 24" class="fill-primary" xmlns="http://www.w3.org/2000/svg">
+														<path opacity="0.3" d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z"/>
+														<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"/>
+													</svg>
+												</div>
+												<div class="input-box">
+													<div class="selection-container">
+														<div class="traveler-box">
+															<input type="text" class="form-control fw-medium input-box fs-md traveler-input" value="1 بزرگسال" readonly>
+															<div class="traveler-dropdown" data-has-rooms="false"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2 col-lg-2 col-md-12">
+							  <div class="form-group mb-0">
+								<button type="button" class="btn btn-primary full-width fw-medium"><i
+									class="fa-solid fa-magnifying-glass ms-2"></i>جستجو</button>
+							  </div>
+							</div>
+
+						  </div>
+						</div>
+					</div>
+				</div>
+				<!-- </row> -->
+
+			</div>
+		</div>
+		<!-- ============================ Hero Banner End ================================== -->
+
+
+		<!-- ============================ Offers Start ================================== -->
+		<section class="pt-4 pb-0">
+			<div class="container">
+				<div class="row justify-content-between gy-4 gx-xl-4 gx-lg-3 gx-md-3 gx-4">
+
+					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+						<div class="pop-touritems">
+							<a href="#" class="card rounded-3 border br-dashed border-2 m-0">
+								<div class="offers-container d-flex align-items-center justify-content-start p-2">
+									<div class="offers-flex position-relative">
+										<div
+											class="offers-pic bg-light-success p-3 rounded-3 d-flex align-items-center justify-content-center h-100">
+											<img src="assets/img/air-4.png" class="img-fluid rounded" width="70" alt="">
+										</div>
+									</div>
+									<div class="offers-captions pe-3">
+										<h4 class="city fs-5 m-0">
+											<span>30% تخفیف</span>
+										</h4>
+										<p class="detail ellipsis-container">
+											<span class="ellipsis-item__normal">در پروازهای نوروزی</span>
+										</p>
+										<div class="booking-wrapes d-flex align-items-center justify-content-between">
+											<p class="fs-5 low-price m-0"><span class="tag-span">اعتبار تا 31 خرداد 1402</span></p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+						<div class="pop-touritems">
+							<a href="#" class="card rounded-3 border br-dashed border-2 m-0">
+								<div class="offers-container d-flex align-items-center justify-content-start p-2">
+									<div class="offers-flex position-relative">
+										<div
+											class="offers-pic bg-light-warning p-3 rounded-3 d-flex align-items-center justify-content-center h-100">
+											<img src="assets/img/air-2.png" class="img-fluid rounded" width="70" alt="">
+										</div>
+									</div>
+									<div class="offers-captions pe-3">
+										<h4 class="city fs-5 m-0">
+											<span>40% تخفیف</span>
+										</h4>
+										<p class="detail ellipsis-container">
+											<span class="ellipsis-item__normal">در پروازهای خارجی</span>
+										</p>
+										<div class="booking-wrapes d-flex align-items-center justify-content-between">
+											<p class="fs-5 low-price m-0"><span class="tag-span">اعتبار تا 31 خرداد 1402</span></p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+						<div class="pop-touritems">
+							<a href="#" class="card rounded-3 border br-dashed border-2 m-0">
+								<div class="offers-container d-flex align-items-center justify-content-start p-2">
+									<div class="offers-flex position-relative">
+										<div
+											class="offers-pic bg-light-info p-3 rounded-3 d-flex align-items-center justify-content-center h-100">
+											<img src="assets/img/air-5.png" class="img-fluid rounded" width="70" alt="">
+										</div>
+									</div>
+									<div class="offers-captions pe-3">
+										<h4 class="city fs-5 m-0">
+											<span>15% تخفیف</span>
+										</h4>
+										<p class="detail ellipsis-container">
+											<span class="ellipsis-item__normal">در پروازهای داخلی</span>
+										</p>
+										<div class="booking-wrapes d-flex align-items-center justify-content-between">
+											<p class="fs-5 low-price m-0"><span class="tag-span">اعتبار تا 31 خرداد 1402</span></p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Offers End ================================== -->
+
+
+		<!-- ============================ Tourist Cities Start ================================== -->
+		<section class="py-5">
+			<div class="container">
+
+				<div class="row align-items-center justify-content-between mb-3">
+					<div class="col-8">
+						<div class="upside-heading">
+							<h5 class="m-0">شهرهای گردشگری</h5>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="text-start grpx-btn">
+							<a href="#" class="btn btn-light-primary btn-md fw-medium">بیشتر<i
+									class="fa-solid fa-arrow-trend-up me-2"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row justify-content-center gy-4 gx-3">
+
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+						<div class="pop-touritem">
+							<a href="#" class="card rounded-3 border br-dashed h-100 m-0">
+								<div class="flight-thumb-wrapper">
+									<div class="popFlights-item-overHidden">
+										<!-- عکس شهر شیراز اینجا قرار می‌گیرد -->
+										<img src="C:\Users\SSZ\Desktop\sem6\مهندسی نرم\فاز 2\2otaT\2otaT\Theme\geotrip\assets\img\Sightseeing-places-in-Shiraz.jpg" class="img-fluid" alt="شیراز">
+									</div>
+								</div>
+								<div class="touritem-middle position-relative p-3">
+									<div class="touritem-flexxer">
+										<h4 class="city fs-6 m-0">
+											<span>شیراز</span>
+										</h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+						<div class="pop-touritem">
+							<a href="#" class="card rounded-3 border br-dashed h-100 m-0">
+								<div class="flight-thumb-wrapper">
+									<div class="popFlights-item-overHidden">
+										<!-- عکس شهر یزد اینجا قرار می‌گیرد -->
+										<img src="assets\img\Yazd-in-Spring.jpg" class="img-fluid" alt="یزد">
+									</div>
+								</div>
+								<div class="touritem-middle position-relative p-3">
+									<div class="touritem-flexxer">
+										<h4 class="city fs-6 m-0">
+											<span>یزد</span>
+										</h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+						<div class="pop-touritem">
+							<a href="#" class="card rounded-3 border br-dashed h-100 m-0">
+								<div class="flight-thumb-wrapper">
+									<div class="popFlights-item-overHidden">
+										<!-- عکس شهر اصفهان اینجا قرار می‌گیرد -->
+										<img src="C:\Users\SSZ\Desktop\sem6\مهندسی نرم\فاز 2\2otaT\2otaT\Theme\geotrip\assets\img\isfahan-nightlife.webp" class="img-fluid" alt="اصفهان">
+									</div>
+								</div>
+								<div class="touritem-middle position-relative p-3">
+									<div class="touritem-flexxer">
+										<h4 class="city fs-6 m-0">
+											<span>اصفهان</span>
+										</h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+						<div class="pop-touritem">
+							<a href="#" class="card rounded-3 border br-dashed h-100 m-0">
+								<div class="flight-thumb-wrapper">
+									<div class="popFlights-item-overHidden">
+										<!-- عکس شهر کیش اینجا قرار می‌گیرد -->
+										<img src="assets\img\5d9d92ce2abe4c861f371749.jpg" class="img-fluid" alt="کیش">
+									</div>
+								</div>
+								<div class="touritem-middle position-relative p-3">
+									<div class="touritem-flexxer">
+										<h4 class="city fs-6 m-0">
+											<span>کیش</span>
+										</h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Tourist Cities End ================================== -->
+
+
+		<!-- ============================== Popular Destination List Start ========================= -->
+		<section class="py-5 position-relative bg-cover bg-primary last-minute-flights" style="background:url(assets/img/bg.jpg)no-repeat;" data-overlay="5">
+			<div class="container">
+
+				<div class="row align-items-center justify-content-between mb-3">
+					<div class="col-8">
+						<div class="upside-heading">
+							<h5 class="m-0 text-light">خرید بلیط هواپیما لحظه آخری</h5>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="text-start grpx-btn">
+							<a href="#" class="btn btn-light-primary btn-md fw-medium">بیشتر<i
+									class="fa-solid fa-arrow-trend-up me-2"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12">
+
+						<div class="destinationList-wrap">
+							<div class="tabs-control-slider">
+								<ul class="nav nav-pills medium" id="pills-tab" role="tablist">
+									<li class="nav-item mb-2" role="presentation">
+										<button class="nav-link active" id="pills-flsfirst-tab" data-bs-toggle="pill"
+											data-bs-target="#pills-flsfirst" type="button" role="tab" aria-controls="pills-flsfirst"
+											aria-selected="true">پروازهای داخلی</button>
+									</li>
+									<li class="nav-item mb-2" role="presentation">
+										<button class="nav-link" id="pills-flssecond-tab" data-bs-toggle="pill"
+											data-bs-target="#pills-flssecond" type="button" role="tab" aria-controls="pills-flssecond"
+											aria-selected="false">پروازهای خارجی</button>
+									</li>
+									<li class="nav-item mb-2" role="presentation">
+										<button class="nav-link" id="pills-flsthird-tab" data-bs-toggle="pill"
+											data-bs-target="#pills-flsthird" type="button" role="tab" aria-controls="pills-flsthird"
+											aria-selected="false">ایرلاین ها</button>
+									</li>
+									<li class="nav-item mb-2" role="presentation">
+										<button class="nav-link" id="pills-flsfourth-tab" data-bs-toggle="pill"
+											data-bs-target="#pills-flsfourth" type="button" role="tab" aria-controls="pills-flsfourth"
+											aria-selected="false">کشورها</button>
+									</li>
+								</ul>
+							</div>
+							<div class="tab-content pt-2" id="pills-tabContent">
+								<div class="tab-pane fade show active" id="pills-flsfirst" role="tabpanel"
+									aria-labelledby="pills-flsfirst-tab" tabindex="0">
+									<div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ترکیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ژاپن</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ایتالیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لهستان</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کره جنوبی</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>اسپانیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مکزیک</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استرالیا</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کانادا</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>تایلند</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>نیویورک</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>روسیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ویتنام</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>دِنور</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لیورپول</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>هندوستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>چین</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استانبول</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>شیکاگو</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مالزی</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>پاکستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لُس آنجلس</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>سنگاپور</span></a></li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+								<div class="tab-pane fade" id="pills-flssecond" role="tabpanel" aria-labelledby="pills-flssecond-tab"
+									tabindex="0">
+									<div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ترکیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ژاپن</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ایتالیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لهستان</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کره جنوبی</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>اسپانیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مکزیک</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استرالیا</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کانادا</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>تایلند</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>نیویورک</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>روسیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ویتنام</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>دِنور</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لیورپول</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>هندوستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>چین</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استانبول</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>شیکاگو</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مالزی</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>پاکستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لُس آنجلس</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>سنگاپور</span></a></li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+								<div class="tab-pane fade" id="pills-flsthird" role="tabpanel" aria-labelledby="pills-flsthird-tab"
+									tabindex="0">
+									<div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ترکیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ژاپن</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ایتالیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لهستان</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کره جنوبی</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>اسپانیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مکزیک</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استرالیا</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کانادا</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>تایلند</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>نیویورک</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>روسیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ویتنام</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>دِنور</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لیورپول</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>هندوستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>چین</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استانبول</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>شیکاگو</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مالزی</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>پاکستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لُس آنجلس</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>سنگاپور</span></a></li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+								<div class="tab-pane fade" id="pills-flsfourth" role="tabpanel" aria-labelledby="pills-flsfourth-tab"
+									tabindex="0">
+									<div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ترکیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ژاپن</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ایتالیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لهستان</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کره جنوبی</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>اسپانیا</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مکزیک</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استرالیا</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>کانادا</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>تایلند</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>نیویورک</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>روسیه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>ویتنام</span></a>
+												</li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>دِنور</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لیورپول</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>هندوستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>چین</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>فرانسه</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>استانبول</span></a></li>
+											</ul>
+										</div>
+
+										<div class="col">
+											<ul class="flightsLists-Wraps p-0">
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>شیکاگو</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>مالزی</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>پاکستان</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>لُس آنجلس</span></a></li>
+												<li><a href="#" class="text-md text-muted-2"><span>پرواز</span> به <span>سنگاپور</span></a></li>
+											</ul>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ============================== Popular Destination List End ========================= -->
+
+
+		<!-- ============================ Footer Start ================================== -->
+    <footer class="footer skin-light-footer">
+      <div class="footer-bottom border-top">
+        <div class="container">
+          <div class="row align-items-center justify-content-between">
+
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <p class="mb-0">کلیه حقوق این سایت محفوظ و متعلق به شرکت خدمات گردشگری است.</p>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <ul class="p-0 d-flex justify-content-start justify-content-md-end text-start text-md-end m-0">
+                <li><a href="#">شرایط و قوانین</a></li>
+                <li class="me-3"><a href="#">درباره ما</a></li>
+                <li class="me-3"><a href="#">کوکی ها</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ============================ Footer End ================================== -->
+
+    <!-- Log In Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+        <div class="modal-content" id="loginmodal">
+          <div class="modal-header">
+            <h4 class="modal-title fs-6">ثبت نام / ورود</h4>
+            <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                class="fa-solid fa-square-xmark"></i></a>
+          </div>
+          <div class="modal-body">
+            <div class="modal-login-form py-4 px-md-3 px-0">
+              <form>
+
+                <div class="form-floating mb-4">
+                  <input type="email" class="form-control" placeholder="name@example.com">
+                  <label>نام کاربری</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input type="password" class="form-control" placeholder="********">
+                  <label>رمز عبور</label>
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary full-width btn-lg">ورود</button>
+                </div>
+
+                <div class="modal-flex-item d-flex align-items-center justify-content-between mb-3">
+                  <div class="modal-flex-first">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="savepassword" value="option1">
+                      <label class="form-check-label" for="savepassword">ذخیره رمز عبور</label>
+                    </div>
+                  </div>
+                  <div class="modal-flex-last">
+                    <a href="JavaScript:Void(0);" class="text-primary fw-medium">رمز عبور را فراموش کرده اید؟</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="prixer px-3">
+              <div class="devider-wraps position-relative">
+                <div class="devider-text text-muted-2 text-md">با روش های زیر وارد سیستم شوید</div>
+              </div>
+            </div>
+
+            <div class="social-login py-4 px-2">
+              <ul class="row align-items-center justify-content-between g-3 p-0 m-0">
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2 full-width"><i
+                      class="fa-brands fa-facebook color--facebook fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-whatsapp color--whatsapp fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-linkedin color--linkedin fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-dribbble color--dribbble fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-twitter color--twitter fs-2"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer align-items-center justify-content-center">
+            <p>حساب کاربری ندارید؟<a href="signup.html" class="text-primary fw-medium me-1">ثبت نام</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Choose Currency Modal -->
+    <div class="modal modal-lg fade" id="currencyModal" tabindex="-1" aria-labelledby="currenyModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title fs-6" id="currenyModalLabel">انتخاب واحد ارز</h4>
+            <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                class="fa-solid fa-square-xmark"></i></a>
+          </div>
+          <div class="modal-body">
+            <div class="allCurrencylist">
+
+              <div class="suggestedCurrencylist-wrap mb-4">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">ارزهای پیشنهادی</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">ایالات متحده دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">سودان پوند</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency active" href="#">
+                        <div class="text-dark text-md fw-medium">هندوستان روپیه</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">کلمبیا پزوی</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">استرالیا دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">مراکش درهم</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="suggestedCurrencylist-wrap">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">همه ارزها</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دلار ایالات متحده</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">پوند لبنان</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">روپیه اندونزی</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">وون کره جنوبی</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">درهم مراکش</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دلار تایوان</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">ریال یمن</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">پزوی شیلی</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">کانادا دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دلار باهاماس</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">کونا کرواسی</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">سامانی تاجیکستان</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">پوند سودان</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">روپیه سیشل</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دینار صربستان</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">فرانک رواندا</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دینار صربستان</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">لئو رومانی</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">سنگاپور دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Choose Countries Modal -->
+    <div class="modal modal-lg fade" id="countryModal" tabindex="-1" aria-labelledby="countryModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title fs-6" id="countryModalLabel">انتخاب کشور</h4>
+            <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                class="fa-solid fa-square-xmark"></i></a>
+          </div>
+          <div class="modal-body">
+            <div class="allCountrieslist">
+
+              <div class="suggestedCurrencylist-wrap mb-4">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">کشورهای پیشنهادی</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/united-states.png"
+                            class="img-fluid circle" width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">ایالات متحده</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/united-kingdom.png"
+                            class="img-fluid circle" width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">فرانسه</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry active" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/flag.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">هندوستان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/belgium.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">آمریکا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/brazil.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">استرالیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/china.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">تایلند</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="suggestedCurrencylist-wrap">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">همه کشورها</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/united-states.png"
+                            class="img-fluid circle" width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">ایالات متحده</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/vietnam.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">اسپانیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/turkey.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">آرژانتین</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/spain.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">آذربایجان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/japan.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">استرالیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/flag.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">بحرین</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/portugal.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">برزیل</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/italy.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">روسیه</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/germany.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">کانادا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/france.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">شیکاگو</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/european.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">کلمبیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/china.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">سوئیس</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/brazil.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">مصر</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/belgium.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">سوئد</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/turkey.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">ژاپن</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/spain.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">عربستان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/germany.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">کویت</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/france.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">میلان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/brazil.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">سنگاپور</div>
+						  </a>
+						</li>
+					  </ul>
+					</div>
+				  </div>
+
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="fa-solid fa-sort-up"></i></a>
+
+
+	</div>
+	<!-- ============================================================== -->
+	<!-- End Wrapper -->
+	<!-- ============================================================== -->
+
+
+	<!-- ============================================================== -->
+	<!-- All Jquery -->
+	<!-- ============================================================== -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/dropzone.min.js"></script>
+	<script src="assets/js/flatpickr.js"></script>
+	<script src="assets/js/flickity.pkgd.min.js"></script>
+	<script src="assets/js/lightbox.min.js"></script>
+	<script src="assets/js/rangeslider.js"></script>
+	<script src="assets/js/select2.min.js"></script>
+	<script src="assets/js/counterup.min.js"></script>
+	<script src="assets/js/prism.js"></script>
+	
+	<!-- Add Update Script -->
+	<script src="assets/js/addadult.js"></script>
+	<script src="assets/js/browselocation.js"></script>
+	<script src="assets/js/custom.js"></script>
+
+   <!-- Date Booking Script -->
+  <script src="assets/js/jdate.min.js"></script>
+  <script src="assets/js/fa.js"></script>
+
+  <!-- ============================================================== -->
+  <!-- This page plugins -->
+  <!-- ============================================================== -->
+<script>
+	window.Date = window.JDate;
+	flatpickr(".choosedate", {
+        "locale": "fa" ,
+    });
+</script>
+</body>
+
+</html>

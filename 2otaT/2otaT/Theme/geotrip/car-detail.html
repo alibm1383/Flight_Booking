@@ -1,0 +1,2058 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoTrip - قالب HTML رزرو تور و آژانس مسافرتی ژِئوتریپ</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <!-- All Plugins -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+
+  <!-- Fontawesome & Bootstrap Icons CSS -->
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper">
+
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+		<!-- Start Navigation -->
+			<div class="header header-dark">
+			  <div class="container">
+				<nav id="navigation" class="navigation navigation-landscape">
+				  <div class="nav-header">
+					<a class="nav-brand static-show" href="#"><img src="assets/img/logo-light.png" class="logo" alt=""></a>
+					<a class="nav-brand mob-show" href="#"><img src="assets/img/logo.png" class="logo" alt=""></a>
+					<div class="nav-toggle"></div>
+					<div class="mobile_nav">
+					  <ul>
+						<li class="languageDropdown ms-3">
+						  <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+							<span class="d-flex align-items-center gap-2">فارسی | <i class="bi bi-globe h-auto"></i></span>
+						  </a>
+						</li>
+						<li>
+						  <a href="#" class="text-primary rounded" data-bs-toggle="modal" data-bs-target="#login">
+							<svg width="34" height="34" viewBox="0 0 24 24" class="fill-primary" xmlns="http://www.w3.org/2000/svg">
+								<path opacity="0.3" d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z"/>
+								<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"/>
+							</svg>
+						  </a>
+						</li>
+					  </ul>
+					</div>
+				  </div>
+			  <div class="nav-menus-wrapper" style="transition-property: none;">
+				<ul class="nav-menu">
+
+				  <li><a href="JavaScript:Void(0);">صفحه اصلی<span class="submenu-indicator"></span></a>
+					<ul class="nav-dropdown nav-submenu">
+					  <li>
+						<a href="index.html">نسخه 1</a>
+					  </li>
+					  <li>
+						<a href="home-2.html">نسخه 2</a>
+					  </li>
+					  <li>
+						<a href="home-3.html">نسخه 3</a>
+					  </li>
+					  <li>
+						<a href="home-4.html">نسخه 4</a>
+					  </li>
+					  <li>
+						<a href="home-5.html">نسخه 5</a>
+					  </li>
+					  <li>
+						<a href="slider-home.html">نسخه 6</a>
+					  </li>
+					</ul>
+				  </li>
+
+				  <li><a href="JavaScript:Void(0);">اقامتگاه<span class="submenu-indicator"></span></a>
+					<ul class="nav-dropdown nav-submenu">
+					  <li><a href="JavaScript:Void(0);">هتل<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="hotel-list-01.html">لیست نسخه 1</a></li>
+						  <li><a href="hotel-list-02.html">لیست نسخه 2</a></li>
+						  <li><a href="hotel-list-03.html">لیست نسخه 3</a></li>
+						  <li><a href="hotel-detail.html">جزئیات نسخه 1</a></li>
+						  <li><a href="hotel-detail-2.html">جزئیات نسخه 2</a></li>
+						</ul>
+					  </li>
+					  <li><a href="JavaScript:Void(0);">پرواز<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="flight-list-01.html">لیست نسخه 1</a></li>
+						  <li><a href="flight-list-02.html">لیست نسخه 2</a></li>
+						  <li><a href="Flight-detail.html">جزئیات</a></li>
+						</ul>
+					  </li>
+					  <li><a href="JavaScript:Void(0);">اقامتگاه<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="property-list-01.html">لیست نسخه 1</a></li>
+						  <li><a href="property-list-02.html">لیست نسخه 2</a></li>
+						  <li><a href="property-list-03.html">لیست نسخه 3</a></li>
+						  <li><a href="rental-detail.html">جزئیات</a></li>
+						</ul>
+					  </li>
+					  <li><a href="JavaScript:Void(0);">ماشین<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="car-list-01.html">لیست نسخه 1</a></li>
+						  <li><a href="car-list-02.html">لیست نسخه 2</a></li>
+						  <li><a href="car-list-03.html">لیست نسخه 3</a></li>
+						  <li><a href="car-detail.html">جزئیات</a></li>
+						</ul>
+					  </li>
+					  <li><a href="JavaScript:Void(0);">تور<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="destination-01.html">لیست نسخه 1</a></li>
+						  <li><a href="destination-02.html">لیست نسخه 2</a></li>
+						  <li><a href="destination-03.html">لیست نسخه 3</a></li>
+						  <li><a href="destination-detail.html">جزئیات تور</a></li>
+						</ul>
+					  </li>
+					  <li>
+						<a href="join-us.html">میزبان شوید</a>
+					  </li>
+					  <li>
+						<a href="add-listing.html">ثبت اقامتگاه</a>
+					  </li>
+					  <li>
+						<a href="compare-listing.html">مقایسه اقامتگاه</a>
+					  </li>
+					  <li>
+						<a href="booking-page.html">رزرو تور</a>
+					  </li>
+					  <li>
+						<a href="my-profile.html">حساب کاربری</a>
+					  </li>
+					</ul>
+				  </li>
+
+				  <li><a href="JavaScript:Void(0);">صفحات<span class="submenu-indicator"></span></a>
+					<ul class="nav-dropdown nav-submenu">
+					  <li><a href="JavaScript:Void(0);">وبلاگ<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="classic-blog.html">لیست نسخه 1</a></li>
+						  <li><a href="blog.html">لیست نسخه 2</a></li>
+						  <li><a href="blog-detail.html">جزئیات</a></li>
+						</ul>
+					  </li>
+					  <li><a href="JavaScript:Void(0);">اعتبارسنجی<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="login.html">ورود</a></li>
+						  <li><a href="register.html">ثبت نام</a></li>
+						  <li><a href="forgot-password.html">فراموشی رمز</a></li>
+						  <li><a href="two-factor-auth.html">اعتبارسنجی دو مرحله ای</a></li>
+						</ul>
+					  </li>
+					  <li><a href="about-us.html">درباره ما</a></li>
+					  <li><a href="career-page.html">فرصت های شغلی</a></li>
+					  <li><a href="help-center.html">پشتیبانی</a></li>
+					  <li><a href="faq.html">سوالات متداول</a></li>
+					  <li><a href="404.html">صفحه 404</a></li>
+					  <li><a href="pricing.html">قیمت گذاری</a></li>
+					  <li><a href="privacy-policy.html">شرایط استفاده</a></li>
+					  <li><a href="JavaScript:Void(0);">تماس با ما<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="contact-v1.html">نسخه 1</a></li>
+						  <li><a href="contact-v2.html">نسخه 2</a></li>
+						</ul>
+					  </li>
+					</ul>
+				  </li>
+
+				  <li><a href="JavaScript:Void(0);">منو<span class="submenu-indicator"></span></a>
+					<ul class="nav-dropdown nav-submenu xxl-menu">
+					  <li>
+						<a href="home-stay.html">
+						  <div class="mega-advance-menu">
+							<div class="mega-first square--50 rounded-2 gray-simple text-success fs-4"><i
+								class="fa-solid fa-spa"></i></div>
+							<div class="mega-last pe-2">
+							  <h6 class="lh-base fs-6 font--bold m-0">اقامتگاه</h6>
+							  <p class="text-sm-muted m-0">مکانی زیبا برای اقامت</p>
+							</div>
+						  </div>
+						</a>
+					  </li>
+					  <li>
+						<a href="home-hotel.html">
+						  <div class="mega-advance-menu">
+							<div class="mega-first square--50 rounded-2 gray-simple text-warning fs-4"><i
+								class="fa-solid fa-hotel"></i></div>
+							<div class="mega-last pe-2">
+							  <h6 class="lh-base fs-6 font--bold m-0">هتل</h6>
+							  <p class="text-sm-muted m-0">مکانی زیبا برای اقامت</p>
+							</div>
+						  </div>
+						</a>
+					  </li>
+					  <li>
+						<a href="home-flight.html">
+						  <div class="mega-advance-menu">
+							<div class="mega-first square--50 rounded-2 gray-simple text-primary fs-4"><i
+								class="fa-solid fa-plane"></i></div>
+							<div class="mega-last pe-2">
+							  <h6 class="lh-base fs-6 font--bold m-0">پرواز</h6>
+							  <p class="text-sm-muted m-0">مکانی زیبا برای اقامت</p>
+							</div>
+						  </div>
+						</a>
+					  </li>
+					  <li>
+						<a href="home-rental.html">
+						  <div class="mega-advance-menu">
+							<div class="mega-first square--50 rounded-2 gray-simple text-purple fs-4"><i
+								class="fa-solid fa-eye"></i></div>
+							<div class="mega-last pe-2">
+							  <h6 class="lh-base fs-6 font--bold m-0">اجاره</h6>
+							  <p class="text-sm-muted m-0">مکانی زیبا برای اقامت</p>
+							</div>
+						  </div>
+						</a>
+					  </li>
+					  <li>
+						<a href="home-car.html">
+						  <div class="mega-advance-menu">
+							<div class="mega-first square--50 rounded-2 gray-simple text-seagreen fs-4"><i
+								class="fa-brands fa-dropbox"></i></div>
+							<div class="mega-last pe-2">
+							  <h6 class="lh-base fs-6 font--bold m-0">ماشین</h6>
+							  <p class="text-sm-muted m-0">مکانی زیبا برای اقامت</p>
+							</div>
+						  </div>
+						</a>
+					  </li>
+					  <li>
+						<a href="home-stay.html">
+						  <div class="mega-advance-menu">
+							<div class="mega-first square--50 rounded-2 gray-simple text-info fs-4"><i
+								class="fa-solid fa-person-walking-luggage"></i></div>
+							<div class="mega-last pe-2">
+							  <h6 class="lh-base fs-6 font--bold m-0">تور</h6>
+							  <p class="text-sm-muted m-0">مکانی زیبا برای اقامت</p>
+							</div>
+						  </div>
+						</a>
+					  </li>
+					</ul>
+				  </li>
+
+				  <li><a href="documantion/index.html" target="_blank">داکیومنت</a></li>
+
+				</ul>
+
+				<ul class="nav-menu nav-menu-social align-to-left">
+					  <li class="languageDropdown ms-2">
+						<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">فارسی |  <i class="bi bi-globe"></i></a>
+					  </li>
+					  <li class="list-buttons light">
+						<a href="#" data-bs-toggle="modal" data-bs-target="#login"><i
+							class="fa-regular fa-circle-user fs-6 ms-2"></i>ثبت نام/ ورود</a>
+					  </li>
+				</ul>
+			  </div>
+			</nav>
+		  </div>
+		</div>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+
+
+		<!-- ============================ Hotel Details Start ================================== -->
+		<section class="pt-3 gray-simple">
+			<div class="container">
+				<div class="row">
+
+					<!-- Breadcrumb -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#" class="text-primary">صفحه اصلی</a></li>
+								<li class="breadcrumb-item"><a href="#" class="text-primary">جزئیات خودرو</a></li>
+								<li class="breadcrumb-item active" aria-current="page">لکسوس GS250</li>
+							</ol>
+						</nav>
+					</div>
+
+					<!-- Gallery & Info -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="card border-0 p-3 mb-4">
+
+							<div class="crd-heaader d-md-flex align-items-center justify-content-between mb-3">
+								<div class="crd-heaader-first">
+									<div class="d-inline-flex align-items-center mb-1">
+										<span class="label fw-medium bg-light-success text-success">25 دی 1402</span>
+									</div>
+									<div class="d-block">
+										<h4 class="mb-0">لکسوس GS250</h4>
+										<div class="">
+											<p class="detail ellipsis-container">
+												<span class="ellipsis-item__normal">SEDAN</span>
+												<span class="separate ellipsis-item__normal"></span>
+												<span class="ellipsis-item">AC</span>
+												<span class="separate ellipsis-item__normal"></span>
+												<span class="ellipsis-item">4 صندلی</span>
+												<span class="separate ellipsis-item__normal"></span>
+												<span class="ellipsis-item">دیزل</span>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="crd-heaader-last my-md-0 my-2">
+									<div class="drix-wrap d-flex flex-column align-items-md-end align-items-start text-end">
+										<div class="drix-first d-flex align-items-center text-end mb-2">
+											<a href="#" class="bg-light-info text-info rounded-1 fw-medium text-sm px-3 py-2 lh-base"><i
+													class="fa-solid fa-bookmark ms-2"></i>افزودن به علاقه مندی</a>
+											<a href="#"
+												class="bg-light-danger text-danger rounded-1 fw-medium text-sm px-3 py-2 lh-base me-2"><i
+													class="fa-solid fa-share-nodes ms-2"></i>اشتراک</a>
+										</div>
+										<div class="drix-last">
+											<span class="label bg-light-success text-success">امکان استرداد وجه تا 28 دی 1402 12:10 بعدازظهر</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="crd-body">
+								<div class="row align-items-center justify-content-between">
+									<div class="col-xl-8 col-lg-7 col-md-12">
+										<div class="galleryGrid typeGrid_2 mb-lg-0 mb-3">
+											<div class="galleryGrid__item relative d-flex">
+												<a href="assets/img/car.jpg" data-lightbox="roadtrip"><img src="assets/img/car.jpg"
+														alt="image" class="rounded-2 img-fluid"></a>
+											</div>
+
+											<div class="galleryGrid__item position-relative">
+												<a href="assets/img/car.jpg" data-lightbox="roadtrip"><img src="assets/img/car.jpg"
+														alt="image" class="rounded-2 img-fluid"></a>
+												<div class="position-absolute start-0 bottom-0 mb-3 ms-3">
+													<a href="assets/img/car.jpg" data-lightbox="roadtrip"
+														class="btn btn-md btn-whites fw-medium text-dark"><i
+															class="fa-solid fa-caret-left ms-1"></i>16 تصویر</a>
+												</div>
+											</div>
+											<div class="galleryGrid__item">
+												<a href="assets/img/car.jpg" data-lightbox="roadtrip"><img src="assets/img/car.jpg"
+														alt="image" class="rounded-2 img-fluid"></a>
+											</div>
+											<div class="galleryGrid__item">
+												<a href="assets/img/car.jpg" data-lightbox="roadtrip"><img src="assets/img/car.jpg"
+														alt="image" class="rounded-2 img-fluid"></a>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xl-4 col-lg-5 col-md-12">
+										<div class="card border br-dashed">
+											<div class="card-header">
+												<div class="crd-heady102 d-flex align-items-center justify-content-start">
+													<div class="square--30 circle bg-light-primary text-primary flex-shrink-0"><i
+															class="fa-solid fa-percent"></i></div>
+													<div class="crd-heady102Title lh-1 pe-2"><span
+															class="text-dark lh-1 mb-0">برای دریافت تخفیف وارد حساب شوید</span></div>
+												</div>
+												<div class="crd-heady103">
+													<a href="#" class="btn btn-primary btn-sm px-4 text-uppercase">ورود</a>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="d-block mb-3">
+													<div class="d-flex align-items-center justify-content-start">
+														<div class="text-dark fs-3 ms-2">750ریال</div>
+														<div class="text-muted-2 fw-medium text-decoration-line-through ms-2">9,500,000ریال</div>
+														<div class="text-warning">40% تخفیف</div>
+													</div>
+													<div class="d-flex align-items-start justify-content-start">
+														<div class="text-muted-2 text-md">با احتساب ارزش افزوده</div>
+													</div>
+												</div>
+												<div class="d-block">
+
+													<div class="form-group">
+														<label class="form-label">آدرس تحویل</label>
+														<input type="text" class="form-control" value="استانبول - محل مشتری">
+													</div>
+
+													<div class="form-group mb-4">
+														<label class="form-label">آدرس برگشت</label>
+														<input type="text" class="form-control" value="دبی - محل مشتری">
+													</div>
+
+													<div class="form-group mb-3">
+														<div class="d-flex align-items-center justify-content-between">
+															<div class="crd-heady102 d-flex align-items-center justify-content-start">
+																<div class="square--30 circle bg-light-success text-success"><i
+																		class="fa-solid fa-percent"></i></div>
+																<div class="crd-heady102Title lh-1 pe-2"><span
+																		class="text-dark lh-1 mb-0">کد oyofestive40 اعمال شد</span></div>
+															</div>
+															<div class="crd-heady103">
+																<span class="text-dark">1٬450٬000-ریال</span>
+															</div>
+														</div>
+													</div>
+
+													<div class="form-group mb-2">
+														<button type="button" class="btn btn-primary full-width fw-medium">رزرو خودرو</button>
+													</div>
+												</div>
+											</div>
+
+											<div class="card-footer bg-white">
+												<div class="row align-items-center justify-content-start gx-2">
+													<div class="col-auto">
+														<div class="square--40 rounded-2 bg-seegreen text-light">4.8</div>
+													</div>
+													<div class="col-auto text-end">
+														<div class="text-md text-dark fw-medium">اقتصادی</div>
+														<div class="text-md text-muted-2">3,014 دیدگاه</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- Login Alert -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="d-flex align-items-center justify-content-start py-3 px-3 rounded-2 bg-success mb-4">
+							<p class="text-light m-0"><i class="fa-solid fa-gift text-warning ms-2"></i><a href="#"
+									class="text-white text-decoration-underline">ورود </a> یا <a href="#"
+									class="text-white text-decoration-underline">ثبت نام </a>برای دريافت 118 امتیاز در باشگاه مشتریان
+							<p>
+						</div>
+					</div>
+
+					<!-- Cab Details -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<!-- Overview -->
+						<div class="card mb-4">
+							<div class="card-header">
+								<h6 class="mb-0">توضیحات</h6>
+							</div>
+
+							<div class="card-body">
+								<p class="mb-0">کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Highlights -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="card mb-4">
+							<div class="card-header">
+								<h6 class="mb-0">امکانات</h6>
+										</div>
+
+										<div class="card-body">
+											<ul class="row align-items-center p-0 g-3">
+												<li class="col-md-6">
+													<i class="fa-solid fa-check text-success ms-2"></i>یک تجربه فوق العاده در آبشار نیاگارا
+												</li>
+												<li class="col-md-6">
+													<i class="fa-solid fa-check text-success ms-2"></i>تجربه شگفت انگیز در بندرگاه
+												</li>
+												<li class="col-md-6">
+													<i class="fa-solid fa-check text-success ms-2"></i>مناظر خیره کننده در شب در آبشار نیاگارا
+												</li>
+												<li class="col-md-6">
+													<i class="fa-solid fa-check text-success ms-2"></i>تجربیات عالی با تورهای گردشگری سیاحتی
+												</li>
+												<li class="col-md-6">
+													<i class="fa-solid fa-check text-success ms-2"></i>معتبرترین عرضه‌کننده محصولات گردشگری در ایران
+												</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Cab Information -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="card mb-4">
+							<div class="card-header">
+								<h4 class="fs-5 mb-0">مشخصات خودرو</h4>
+							</div>
+							<div class="card-body">
+								<div class="row align-items-start">
+
+									<div class="col-xl-12 col-lg-12 col-md-12">
+										<ul class="row align-items-center p-0 mb-0 gx-4 gx-lg-5">
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">ظرفیت</span>
+													<span class="fw-medium text-muted">4 نفر</span>
+												</div>
+											</li>
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">برند خودرو</span>
+													<span class="fw-medium text-muted">پورشه</span>
+												</div>
+											</li>
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">مدل</span>
+													<span class="fw-medium text-muted">2020</span>
+												</div>
+											</li>
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">سوخت</span>
+													<span class="fw-medium text-muted">دیزل</span>
+												</div>
+											</li>
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">محدودیت پیمایش</span>
+													<span class="fw-medium text-muted">1,806 کیلومتر در 7روز</span>
+												</div>
+											</li>
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">موتور</span>
+													<span class="fw-medium text-muted">A/C</span>
+												</div>
+											</li>
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">دنده خودرو</span>
+													<span class="fw-medium text-muted">اتومات</span>
+												</div>
+											</li>
+											<li class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+												<div class="d-flex align-items-center justify-content-between mb-3">
+													<span class="fw-medium text-dark">تعداد چمدان</span>
+													<span class="fw-medium text-muted">3 چمدان بزرگ</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<!-- Inclusions & Exclusions -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="card mb-4">
+							<div class="card-header">
+								<h4 class="fs-5 mb-0">مزایا و معایب</h4>
+							</div>
+							<div class="card-body">
+								<div class="expott-info mb-4">
+									<h5>مزایا</h5>
+									<ul class="row align-items-center p-0 g-3">
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-success ms-2"></i>بیمه سرقت کامل خودرو
+										</li>
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-success ms-2"></i> مجوز طرح ترافیک تهران
+										</li>
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-success ms-2"></i>صندلی کودک
+										</li>
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-success ms-2"></i>زنجیر چرخ
+										</li>
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-success ms-2"></i> خدمات تحویل و استرداد خارج از ساعت عرف 
+										</li>
+									</ul>
+								</div>
+								<div class="expott-info">
+									<h5>معایب</h5>
+									<ul class="row align-items-center p-0 g-3">
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-danger ms-2"></i>هزینه جانبی  تحویل خودرو در محل مشتری-خارج از ایستگاه
+										</li>
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-danger ms-2"></i>هزینه ورودی فرودگاه
+										</li>
+										<li class="col-md-6">
+											<i class="fa-regular fa-circle-dot text-danger ms-2"></i>عدم بیمه لاستیک و شیشه های خودرو
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Guests Reviews -->
+										<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="card mb-4">
+							<div class="card-header">
+								<h4 class="fs-5 mb-0">دیدگاه مهمانان</h4>
+							</div>
+							<div class="card-body">
+								<div class="row align-items-center mb-4">
+									<div class="col-xl-2 col-lg-3 col-md-4">
+										<div class="rounded-3 bg-primary full-width">
+											<div class="py-4 px-3 text-center">
+												<h3 class="text-light display-2 mb-0">92</h3>
+												<p class="text-light lh-base m-0">786 دیدگاه ثبت شده</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-10 col-lg-9 col-md-8">
+										<div class="row align-items-start">
+
+											<div class="col-xl-12 col-lg-12 col-md-12">
+												<ul class="row align-items-center p-0 mb-0 gy-3 gx-4">
+													<li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+														<div class="revs-wraps">
+															<div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">
+																<span class="text-dark text-md">تمیزی</span>
+																<span class="text-dark text-md">8.7</span>
+															</div>
+															<div class="progress " role="progressbar" aria-label="Example" aria-valuenow="87"
+																aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+																<div class="progress-bar bg-primary" style="width: 87%"></div>
+															</div>
+														</div>
+													</li>
+													<li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+														<div class="revs-wraps">
+															<div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">
+																<span class="text-dark text-md">صحت مطالب</span>
+																<span class="text-dark text-md">9.2</span>
+															</div>
+															<div class="progress " role="progressbar" aria-label="Example" aria-valuenow="92"
+																aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+																<div class="progress-bar bg-primary" style="width: 92%"></div>
+															</div>
+														</div>
+													</li>
+													<li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+														<div class="revs-wraps">
+															<div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">
+																<span class="text-dark text-md">امکانات رفاهی</span>
+																<span class="text-dark text-md">8.8</span>
+															</div>
+															<div class="progress " role="progressbar" aria-label="Example" aria-valuenow="88"
+																aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+																<div class="progress-bar bg-primary" style="width: 88%"></div>
+															</div>
+														</div>
+													</li>
+													<li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+														<div class="revs-wraps">
+															<div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">
+																<span class="text-dark text-md">مکان اقامتگاه</span>
+																<span class="text-dark text-md">8.9</span>
+															</div>
+															<div class="progress " role="progressbar" aria-label="Example" aria-valuenow="89"
+																aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+																<div class="progress-bar bg-primary" style="width: 89%"></div>
+															</div>
+														</div>
+													</li>
+													<li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+														<div class="revs-wraps">
+															<div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">
+																<span class="text-dark text-md">خدمات</span>
+																<span class="text-dark text-md">9.2</span>
+															</div>
+															<div class="progress " role="progressbar" aria-label="Example" aria-valuenow="92"
+																aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+																<div class="progress-bar bg-primary" style="width: 92%"></div>
+															</div>
+														</div>
+													</li>
+													<li class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+														<div class="revs-wraps">
+															<div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">
+																<span class="text-dark text-md">کیفیت نسبت به نرخ</span>
+																<span class="text-dark text-md">8.6</span>
+															</div>
+															<div class="progress " role="progressbar" aria-label="Example" aria-valuenow="86"
+																aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+																<div class="progress-bar bg-primary" style="width: 86%"></div>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row align-items-center">
+									<div class="col-xl-12 col-lg-12 col-md-12">
+										<div class="gstRevws-groups">
+
+											<!-- Single Reviwws -->
+											<div class="single-gstRevws rounded-2 border p-2 d-flex align-items-start mb-3">
+												<div class="single-gstRevws-thumb">
+													<div class="rounded-2 overflow-hidden w-25 h-25">
+														<img src="assets/img/team-1.jpg" class="img-fluid" alt="">
+													</div>
+												</div>
+												<div class="single-gstRevws-caps pe-3">
+													<div class="gstRevws-head d-flex align-items-start justify-content-between">
+														<div class="dfls-headers">
+															<h5 class="h6 text-dark mb-0">علی مسعودی</h5>
+															<p class="text-md mb-0">کانادا</p>
+														</div>
+														<div class="dfls-arrios"><span class="text-muted text-md">10 بهمن 1402</span></div>
+													</div>
+													<div class="dfls-secription">
+														<p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+													</div>
+												</div>
+											</div>
+
+											<!-- Single Reviwws -->
+											<div class="single-gstRevws rounded-2 border p-2 d-flex align-items-start mb-3">
+												<div class="single-gstRevws-thumb">
+													<div
+														class="rounded-2 bg-light-purple d-flex align-items-center justify-content-center overflow-hidden w-25 h-25">
+														<h3 class="m-0 fs-1 fw-semibold text-purple">K</h3>
+													</div>
+												</div>
+												<div class="single-gstRevws-caps pe-3">
+													<div class="gstRevws-head d-flex align-items-start justify-content-between">
+														<div class="dfls-headers">
+															<h5 class="h6 text-dark mb-0">نیلوفر حیدری</h5>
+															<p class="text-md mb-0">کانادا</p>
+														</div>
+														<div class="dfls-arrios"><span class="text-muted text-md">10 دی 1402</span></div>
+													</div>
+													<div class="dfls-secription">
+														<p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+													</div>
+												</div>
+											</div>
+
+											<!-- Single Reviwws -->
+											<div class="single-gstRevws rounded-2 border p-2 d-flex align-items-start mb-3">
+												<div class="single-gstRevws-thumb">
+													<div class="rounded-2 overflow-hidden w-25 h-25">
+														<img src="assets/img/team-3.jpg" class="img-fluid" alt="">
+													</div>
+												</div>
+												<div class="single-gstRevws-caps pe-3">
+													<div class="gstRevws-head d-flex align-items-start justify-content-between">
+														<div class="dfls-headers">
+															<h5 class="h6 text-dark mb-0">مهرداد هادیان</h5>
+															<p class="text-md mb-0">کانادا</p>
+														</div>
+														<div class="dfls-arrios"><span class="text-muted text-md">10 مهر 1402</span></div>
+													</div>
+													<div class="dfls-secription">
+														<p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+													</div>
+												</div>
+											</div>
+
+
+											<!-- Single Reviwws -->
+											<div class="show-morerewsbox mb-3">
+												<div class="text-center" role="alert">
+													<a href="#" class="fw-medium text-primary">مشاهده بیشتر<i
+															class="fa-solid fa-caret-down me-2"></i></a>
+												</div>
+											</div>
+
+											<!-- submit Reviews -->
+											<div class="sbms-rewsbox">
+												<div class="alert alert-success text-center" role="alert">
+													ورود برای ثبت دیدگاه <a href="#" class="text-dark">ورود به حساب کاربری</a>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="row align-items-start justify-content-between gx-3">
+							<div class="col-xl-3 col-lg-4 col-md-4">
+								<div class="position-relative mb-4">
+									<h4 class="lh-base">سوالات متداول</h4>
+								</div>
+								<div class="position-relative mb-4">
+									<button class="btn btn-md btn-primary fw-medium" type="button">ثبت درخواست</button>
+								</div>
+							</div>
+							<div class="col-xl-9 col-lg-8 col-md-8">
+								<div class="accordion accordion-flush" id="accordionFlushExample">
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+												حساب کاربری حاوی چه مطالبی ست؟
+											</button>
+										</h2>
+										<div id="flush-collapseOne" class="accordion-collapse collapse"
+											data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+												آیا ما می توانیم پس از تسویه حساب پرداخت کنیم؟
+											</button>
+										</h2>
+										<div id="flush-collapseTwo" class="accordion-collapse collapse"
+											data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+												چگونه کیفیت اقامتگاهها را بررسی کنیم؟
+											</button>
+										</h2>
+										<div id="flush-collapseThree" class="accordion-collapse collapse"
+											data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+												فرایند تحویل اقامتگاه چگونه است؟
+											</button>
+										</h2>
+										<div id="flush-collapseFour" class="accordion-collapse collapse"
+											data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+												آیا می توانیم خدمات اضافی دریافت کنیم؟
+											</button>
+										</h2>
+										<div id="flush-collapseFive" class="accordion-collapse collapse"
+											data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Hotel Details End ================================== -->
+
+
+		<!-- ============================ Similar Hotels Start ================================== -->
+		<section class="py-5">
+			<div class="container">
+
+				<div class="row align-items-center justify-content-between mb-3">
+					<div class="col-8">
+						<div class="upside-heading">
+							<h5 class="fs-6 m-0">خودروهای مشابه</h5>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="text-start grpx-btn">
+							<a href="#" class="btn btn-light-primary btn-md fw-medium">مشاهده<i
+									class="fa-solid fa-arrow-trend-up me-2"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="col-xl-12 col-lg-12 col-md-12 p-0">
+						<div class="main-carousel cols-3 arrow-hide">
+
+							<!-- Single Item -->
+							<div class="carousel-cell">
+								<div class="pop-touritem">
+									<a href="#" class="card rounded-3 border m-0">
+										<div class="flight-thumb-wrapper">
+											<div class=" position-absolute top-0 left-0 me-3 mt-3 z-1">
+												<div class="label bg-primary text-light d-inline-flex align-items-center justify-content-center">
+													<span class="svg-icon text-light svg-icon-2hx ms-1">
+														<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3"
+																d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
+																fill="currentColor"></path>
+															<path
+																d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>محدودیت پیمایش 1,806 کیلومتر در 7روز
+												</div>
+											</div>
+											<div class="popFlights-item-overHidden">
+												<img src="assets/img/car.jpg" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="touritem-middle position-relative p-3">
+											<div class="touritem-flexxer">
+												<h4 class="city fs-5 m-0">
+													<span>تویوتا لندکروزر</span>
+												</h4>
+												<p class="detail ellipsis-container">
+													<span class="ellipsis-item__normal">SEDAN</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">AC</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">5 صندلی</span>
+												</p>
+
+												<div class="touritem-centrio mt-4">
+													<div class="d-block position-relative"><span class="label bg-light-success text-success">امکان لغو تا 1ساعت بعد از تحویل</span></div>
+													<div class="aments-lists mt-2">
+														<div class="detail ellipsis-container mt-1">
+															<span class="ellipsis">اتومات</span>
+															<span class="ellipsis">1 چمدان بزرگ</span>
+															<span class="ellipsis">1 چمدان کوچک</span>
+															<span class="ellipsis">دیزل</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="trsms-foots mt-4">
+												<div class="flts-flex d-flex align-items-end justify-content-between">
+													<div class="flts-flex-strat">
+														<div class="d-flex align-items-center justify-content-start">
+															<span class="label bg-light-danger text-danger">15% تخفیف</span>
+														</div>
+														<div class="d-flex align-items-center">
+															<div class="text-dark fs-4">750ریال</div>
+															<div class="text-muted-2 fw-medium text-decoration-line-through me-2">3,700,000 ریال</div>
+														</div>
+													</div>
+
+													<div class="flts-flex-end">
+														<div class="row align-items-center justify-content-end gx-2">
+															<div class="col-auto text-start text-md-end">
+																<div class="text-md text-dark fw-medium">اقتصادی</div>
+																<div class="text-md text-muted-2">3,014 دیدگاه</div>
+															</div>
+															<div class="col-auto">
+																<div class="square--40 rounded-2 bg-ratting text-light">4.8</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+
+							<div class="carousel-cell">
+								<div class="pop-touritem">
+									<a href="#" class="card rounded-3 border m-0">
+										<div class="flight-thumb-wrapper">
+											<div class=" position-absolute top-0 left-0 me-3 mt-3 z-1">
+												<div class="label bg-primary text-light d-inline-flex align-items-center justify-content-center">
+													<span class="svg-icon text-light svg-icon-2hx ms-1">
+														<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3"
+																d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
+																fill="currentColor"></path>
+															<path
+																d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>محدودیت پیمایش 1,806 کیلومتر در 7روز
+												</div>
+											</div>
+											<div class="popFlights-item-overHidden">
+												<img src="assets/img/car.jpg" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="touritem-middle position-relative p-3">
+											<div class="touritem-flexxer">
+												<h4 class="city fs-5 m-0">
+													<span>پورشه ماکان</span>
+												</h4>
+												<p class="detail ellipsis-container">
+													<span class="ellipsis-item__normal">SEDAN</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">AC</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">5 صندلی</span>
+												</p>
+
+												<div class="touritem-centrio mt-4">
+													<div class="d-block position-relative"><span class="label bg-light-success text-success">امکان لغو تا 1ساعت بعد از تحویل</span></div>
+													<div class="aments-lists mt-2">
+														<div class="detail ellipsis-container mt-1">
+															<span class="ellipsis">اتومات</span>
+															<span class="ellipsis">1 چمدان بزرگ</span>
+															<span class="ellipsis">1 چمدان کوچک</span>
+															<span class="ellipsis">دیزل</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="trsms-foots mt-4">
+												<div class="flts-flex d-flex align-items-end justify-content-between">
+													<div class="flts-flex-strat">
+														<div class="d-flex align-items-center justify-content-start">
+															<span class="label bg-light-danger text-danger">15% تخفیف</span>
+														</div>
+														<div class="d-flex align-items-center">
+															<div class="text-dark fs-4">750ریال</div>
+															<div class="text-muted-2 fw-medium text-decoration-line-through me-2">3,700,000 ریال</div>
+														</div>
+													</div>
+
+													<div class="flts-flex-end">
+														<div class="row align-items-center justify-content-end gx-2">
+															<div class="col-auto text-start text-md-end">
+																<div class="text-md text-dark fw-medium">اقتصادی</div>
+																<div class="text-md text-muted-2">3,014 دیدگاه</div>
+															</div>
+															<div class="col-auto">
+																<div class="square--40 rounded-2 bg-ratting text-light">4.8</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							
+							<div class="carousel-cell">
+								<div class="pop-touritem">
+									<a href="#" class="card rounded-3 border m-0">
+										<div class="flight-thumb-wrapper">
+											<div class=" position-absolute top-0 left-0 me-3 mt-3 z-1">
+												<div class="label bg-primary text-light d-inline-flex align-items-center justify-content-center">
+													<span class="svg-icon text-light svg-icon-2hx ms-1">
+														<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3"
+																d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
+																fill="currentColor"></path>
+															<path
+																d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>محدودیت پیمایش 1,806 کیلومتر در 7روز
+												</div>
+											</div>
+											<div class="popFlights-item-overHidden">
+												<img src="assets/img/car.jpg" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="touritem-middle position-relative p-3">
+											<div class="touritem-flexxer">
+												<h4 class="city fs-5 m-0">
+													<span>هیوندای سانتافه نیو</span>
+												</h4>
+												<p class="detail ellipsis-container">
+													<span class="ellipsis-item__normal">SEDAN</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">AC</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">5 صندلی</span>
+												</p>
+
+												<div class="touritem-centrio mt-4">
+													<div class="d-block position-relative"><span class="label bg-light-success text-success">امکان لغو تا 1ساعت بعد از تحویل</span></div>
+													<div class="aments-lists mt-2">
+														<div class="detail ellipsis-container mt-1">
+															<span class="ellipsis">اتومات</span>
+															<span class="ellipsis">1 چمدان بزرگ</span>
+															<span class="ellipsis">1 چمدان کوچک</span>
+															<span class="ellipsis">دیزل</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="trsms-foots mt-4">
+												<div class="flts-flex d-flex align-items-end justify-content-between">
+													<div class="flts-flex-strat">
+														<div class="d-flex align-items-center justify-content-start">
+															<span class="label bg-light-danger text-danger">15% تخفیف</span>
+														</div>
+														<div class="d-flex align-items-center">
+															<div class="text-dark fs-4">750ریال</div>
+															<div class="text-muted-2 fw-medium text-decoration-line-through me-2">3,700,000 ریال</div>
+														</div>
+													</div>
+
+													<div class="flts-flex-end">
+														<div class="row align-items-center justify-content-end gx-2">
+															<div class="col-auto text-start text-md-end">
+																<div class="text-md text-dark fw-medium">اقتصادی</div>
+																<div class="text-md text-muted-2">3,014 دیدگاه</div>
+															</div>
+															<div class="col-auto">
+																<div class="square--40 rounded-2 bg-ratting text-light">4.8</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							
+							<div class="carousel-cell">
+								<div class="pop-touritem">
+									<a href="#" class="card rounded-3 border m-0">
+										<div class="flight-thumb-wrapper">
+											<div class=" position-absolute top-0 left-0 me-3 mt-3 z-1">
+												<div class="label bg-primary text-light d-inline-flex align-items-center justify-content-center">
+													<span class="svg-icon text-light svg-icon-2hx ms-1">
+														<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3"
+																d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
+																fill="currentColor"></path>
+															<path
+																d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>محدودیت پیمایش 1,806 کیلومتر در 7روز
+												</div>
+											</div>
+											<div class="popFlights-item-overHidden">
+												<img src="assets/img/car.jpg" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="touritem-middle position-relative p-3">
+											<div class="touritem-flexxer">
+												<h4 class="city fs-5 m-0">
+													<span>هیوندای سوناتا</span>
+												</h4>
+												<p class="detail ellipsis-container">
+													<span class="ellipsis-item__normal">SEDAN</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">AC</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">5 صندلی</span>
+												</p>
+
+												<div class="touritem-centrio mt-4">
+													<div class="d-block position-relative"><span class="label bg-light-success text-success">امکان لغو تا 1ساعت بعد از تحویل</span></div>
+													<div class="aments-lists mt-2">
+														<div class="detail ellipsis-container mt-1">
+															<span class="ellipsis">اتومات</span>
+															<span class="ellipsis">1 چمدان بزرگ</span>
+															<span class="ellipsis">1 چمدان کوچک</span>
+															<span class="ellipsis">دیزل</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="trsms-foots mt-4">
+												<div class="flts-flex d-flex align-items-end justify-content-between">
+													<div class="flts-flex-strat">
+														<div class="d-flex align-items-center justify-content-start">
+															<span class="label bg-light-danger text-danger">15% تخفیف</span>
+														</div>
+														<div class="d-flex align-items-center">
+															<div class="text-dark fs-4">750ریال</div>
+															<div class="text-muted-2 fw-medium text-decoration-line-through me-2">3,700,000 ریال</div>
+														</div>
+													</div>
+
+													<div class="flts-flex-end">
+														<div class="row align-items-center justify-content-end gx-2">
+															<div class="col-auto text-start text-md-end">
+																<div class="text-md text-dark fw-medium">اقتصادی</div>
+																<div class="text-md text-muted-2">3,014 دیدگاه</div>
+															</div>
+															<div class="col-auto">
+																<div class="square--40 rounded-2 bg-ratting text-light">4.8</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="carousel-cell">
+								<div class="pop-touritem">
+									<a href="#" class="card rounded-3 border m-0">
+										<div class="flight-thumb-wrapper">
+											<div class=" position-absolute top-0 left-0 me-3 mt-3 z-1">
+												<div class="label bg-primary text-light d-inline-flex align-items-center justify-content-center">
+													<span class="svg-icon text-light svg-icon-2hx ms-1">
+														<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3"
+																d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
+																fill="currentColor"></path>
+															<path
+																d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>محدودیت پیمایش 1,806 کیلومتر در 7روز
+												</div>
+											</div>
+											<div class="popFlights-item-overHidden">
+												<img src="assets/img/car.jpg" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="touritem-middle position-relative p-3">
+											<div class="touritem-flexxer">
+												<h4 class="city fs-5 m-0">
+													<span>BMW X3</span>
+												</h4>
+												<p class="detail ellipsis-container">
+													<span class="ellipsis-item__normal">SEDAN</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">AC</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">5 صندلی</span>
+												</p>
+
+												<div class="touritem-centrio mt-4">
+													<div class="d-block position-relative"><span class="label bg-light-success text-success">امکان لغو تا 1ساعت بعد از تحویل</span></div>
+													<div class="aments-lists mt-2">
+														<div class="detail ellipsis-container mt-1">
+															<span class="ellipsis">اتومات</span>
+															<span class="ellipsis">1 چمدان بزرگ</span>
+															<span class="ellipsis">1 چمدان کوچک</span>
+															<span class="ellipsis">دیزل</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="trsms-foots mt-4">
+												<div class="flts-flex d-flex align-items-end justify-content-between">
+													<div class="flts-flex-strat">
+														<div class="d-flex align-items-center justify-content-start">
+															<span class="label bg-light-danger text-danger">15% تخفیف</span>
+														</div>
+														<div class="d-flex align-items-center">
+															<div class="text-dark fs-4">750ریال</div>
+															<div class="text-muted-2 fw-medium text-decoration-line-through me-2">3,700,000 ریال</div>
+														</div>
+													</div>
+
+													<div class="flts-flex-end">
+														<div class="row align-items-center justify-content-end gx-2">
+															<div class="col-auto text-start text-md-end">
+																<div class="text-md text-dark fw-medium">اقتصادی</div>
+																<div class="text-md text-muted-2">3,014 دیدگاه</div>
+															</div>
+															<div class="col-auto">
+																<div class="square--40 rounded-2 bg-ratting text-light">4.8</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							
+							<div class="carousel-cell">
+								<div class="pop-touritem">
+									<a href="#" class="card rounded-3 border m-0">
+										<div class="flight-thumb-wrapper">
+											<div class=" position-absolute top-0 left-0 me-3 mt-3 z-1">
+												<div class="label bg-primary text-light d-inline-flex align-items-center justify-content-center">
+													<span class="svg-icon text-light svg-icon-2hx ms-1">
+														<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3"
+																d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z"
+																fill="currentColor"></path>
+															<path
+																d="M14.854 11.321C14.7568 11.2282 14.6388 11.1818 14.4998 11.1818H14.3333V10.2272C14.3333 9.61741 14.1041 9.09378 13.6458 8.65628C13.1875 8.21876 12.639 8 12 8C11.361 8 10.8124 8.21876 10.3541 8.65626C9.89574 9.09378 9.66663 9.61739 9.66663 10.2272V11.1818H9.49999C9.36115 11.1818 9.24306 11.2282 9.14583 11.321C9.0486 11.4138 9 11.5265 9 11.6591V14.5227C9 14.6553 9.04862 14.768 9.14583 14.8609C9.24306 14.9536 9.36115 15 9.49999 15H14.5C14.6389 15 14.7569 14.9536 14.8542 14.8609C14.9513 14.768 15 14.6553 15 14.5227V11.6591C15.0001 11.5265 14.9513 11.4138 14.854 11.321ZM13.3333 11.1818H10.6666V10.2272C10.6666 9.87594 10.7969 9.57597 11.0573 9.32743C11.3177 9.07886 11.6319 8.9546 12 8.9546C12.3681 8.9546 12.6823 9.07884 12.9427 9.32743C13.2031 9.57595 13.3333 9.87594 13.3333 10.2272V11.1818Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>محدودیت پیمایش 1,806 کیلومتر در 7روز
+												</div>
+											</div>
+											<div class="popFlights-item-overHidden">
+												<img src="assets/img/car.jpg" class="img-fluid" alt="">
+											</div>
+										</div>
+										<div class="touritem-middle position-relative p-3">
+											<div class="touritem-flexxer">
+												<h4 class="city fs-5 m-0">
+													<span>Carmy Accord</span>
+												</h4>
+												<p class="detail ellipsis-container">
+													<span class="ellipsis-item__normal">SEDAN</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">AC</span>
+													<span class="separate ellipsis-item__normal"></span>
+													<span class="ellipsis-item">5 صندلی</span>
+												</p>
+
+												<div class="touritem-centrio mt-4">
+													<div class="d-block position-relative"><span class="label bg-light-success text-success">امکان لغو تا 1ساعت بعد از تحویل
+															Cancellation Till 10 Aug 23</span></div>
+													<div class="aments-lists mt-2">
+														<div class="detail ellipsis-container mt-1">
+															<span class="ellipsis">اتومات</span>
+															<span class="ellipsis">1 چمدان بزرگ</span>
+															<span class="ellipsis">1 چمدان کوچک</span>
+															<span class="ellipsis">دیزل</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="trsms-foots mt-4">
+												<div class="flts-flex d-flex align-items-end justify-content-between">
+													<div class="flts-flex-strat">
+														<div class="d-flex align-items-center justify-content-start">
+															<span class="label bg-light-danger text-danger">15% تخفیف</span>
+														</div>
+														<div class="d-flex align-items-center">
+															<div class="text-dark fs-4">750ریال</div>
+															<div class="text-muted-2 fw-medium text-decoration-line-through me-2">3,700,000 ریال</div>
+														</div>
+													</div>
+
+													<div class="flts-flex-end">
+														<div class="row align-items-center justify-content-end gx-2">
+															<div class="col-auto text-start text-md-end">
+																<div class="text-md text-dark fw-medium">اقتصادی</div>
+																<div class="text-md text-muted-2">3,014 دیدگاه</div>
+															</div>
+															<div class="col-auto">
+																<div class="square--40 rounded-2 bg-ratting text-light">4.8</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Similar Hotels End ================================== -->
+<!-- ============================ Call To Action Start ================================== -->
+		<div class="py-5 bg-primary">
+			<div class="container">
+				<div class="row align-items-center justify-content-between">
+
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<h4 class="text-light lh-base m-0">به خبرنامه ما بپیوندید تا با ما به روز باشید!</h4>
+					</div>
+
+					<div class="col-xl-5 col-lg-5 col-md-6">
+						<div class="newsletter-forms mt-md-0 mt-4">
+							<form>
+								<div class="row align-items-center justify-content-between bg-white rounded-3 p-2 gx-0">
+
+									<div class="col-xl-9 col-lg-8 col-md-8">
+										<div class="form-group m-0">
+											<input type="text" class="form-control bold ps-1 border-0" placeholder="ایمیل">
+										</div>
+									</div>
+									<div class="col-xl-3 col-lg-4 col-md-4">
+										<div class="form-group m-0">
+											<button type="button" class="btn btn-dark fw-medium full-width">عضویت<i
+													class="fa-solid fa-arrow-trend-up me-2"></i></button>
+										</div>
+									</div>
+
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- ============================ Call To Action Start ================================== -->
+		<!-- ============================ Footer Start ================================== -->
+		<footer class="footer skin-dark-footer">
+			<div>
+				<div class="container">
+					<div class="row">
+
+						<div class="col-lg-3 col-md-4">
+							<div class="footer-widget">
+								<div class="d-flex align-items-start flex-column mb-3">
+									<div class="d-inline-block"><img src="assets/img/logo-light.png" class="img-fluid" width="160"
+											alt="Footer Logo"></div>
+								</div>
+								<div class="footer-add ps-xl-3">
+                  <p>امروزه گردشگران ترجیح میدهند تا با اقامت در منازل شخصی فضای صمیمی تری را تجربه کنند.</p>
+                </div>
+                <div class="foot-socials">
+                  <ul>
+                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-google-plus"></i></a></li>
+                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="JavaScript:Void(0);"><i class="fa-brands fa-dribbble"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <div class="footer-widget">
+                <h4 class="widget-title">لینک های سریع</h4>
+                <ul class="footer-menu">
+                  <li><a href="JavaScript:Void(0);">درباره ما</a></li>
+                  <li><a href="JavaScript:Void(0);">مجله گردشگری</a></li>
+                  <li><a href="JavaScript:Void(0);">بیمه مسافرتی</a></li>
+                  <li><a href="JavaScript:Void(0);">قوانین سایت</a></li>
+                  <li><a href="JavaScript:Void(0);">تماس با ما</a></li>
+                  <li><a href="JavaScript:Void(0);">فرصت های شغلی</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+              <div class="footer-widget">
+                <h4 class="widget-title">خدمات پرواز و هتل</h4>
+                <ul class="footer-menu">
+                  <li><a href="JavaScript:Void(0);">خرید بلیط هواپیما</a></li>
+                  <li><a href="JavaScript:Void(0);">رزرو هتل</a></li>
+                  <li><a href="JavaScript:Void(0);">درخواست ویزا</a></li>
+                  <li><a href="JavaScript:Void(0);">رزرو اقامتگاه</a></li>
+                  <li><a href="JavaScript:Void(0);">بلیط چارتر</a></li>
+                  <li><a href="JavaScript:Void(0);">پشتیبانی</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+              <div class="footer-widget">
+                <h4 class="widget-title">نحوه رزرو اقامتگاه</h4>
+                <ul class="footer-menu">
+                  <li><a href="JavaScript:Void(0);">راهنمای رزرو اقامتگاه</a></li>
+                  <li><a href="JavaScript:Void(0);">همکاران سازمانی</a></li>
+                  <li><a href="JavaScript:Void(0);">تماس با ما</a></li>
+                  <li><a href="JavaScript:Void(0);">پرسش های متداول</a></li>
+                  <li><a href="JavaScript:Void(0);">شرایط لغو</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-widget">
+                <h4 class="widget-title">روش های پرداخت</h4>
+                <div class="pmt-wrap">
+                  <img src="assets/img/payment.png" class="img-fluid" alt="">
+                </div>
+                <div class="our-prtwrap mt-4">
+                  <div class="prtn-title">
+                    <p class="text-muted-2 fw-medium">همکاران ما</p>
+                  </div>
+                  <div class="prtn-thumbs d-flex align-items-center justify-content-start">
+                    <div class="pmt-wrap ps-4">
+                      <img src="assets/img/mytrip.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="pmt-wrap ps-4">
+                      <img src="assets/img/tripadv.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="pmt-wrap ps-4">
+                      <img src="assets/img/goibibo.png" class="img-fluid" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom border-top">
+        <div class="container">
+          <div class="row align-items-center justify-content-between">
+
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <p class="mb-0">© 2023 کلیه حقوق این سایت محفوظ و متعلق به شرکت خدمات گردشگری است.</p>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6">
+              <ul class="p-0 d-flex justify-content-start justify-content-md-end text-start text-md-end m-0">
+                <li><a href="#">شرایط و قوانین</a></li>
+                <li class="me-3"><a href="#">درباره ما</a></li>
+                <li class="me-3"><a href="#">کوکی ها</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ============================ Footer End ================================== -->
+
+    <!-- Log In Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginmodal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+        <div class="modal-content" id="loginmodal">
+          <div class="modal-header">
+            <h4 class="modal-title fs-6">ثبت نام / ورود</h4>
+            <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                class="fa-solid fa-square-xmark"></i></a>
+          </div>
+          <div class="modal-body">
+            <div class="modal-login-form py-4 px-md-3 px-0">
+              <form>
+
+                <div class="form-floating mb-4">
+                  <input type="email" class="form-control" placeholder="name@example.com">
+                  <label>نام کاربری</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input type="password" class="form-control" placeholder="********">
+                  <label>رمز عبور</label>
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary full-width btn-lg">ورود</button>
+                </div>
+
+                <div class="modal-flex-item d-flex align-items-center justify-content-between mb-3">
+                  <div class="modal-flex-first">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="savepassword" value="option1">
+                      <label class="form-check-label" for="savepassword">ذخیره رمز عبور</label>
+                    </div>
+                  </div>
+                  <div class="modal-flex-last">
+                    <a href="JavaScript:Void(0);" class="text-primary fw-medium">رمز عبور را فراموش کرده اید؟</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="prixer px-3">
+              <div class="devider-wraps position-relative">
+                <div class="devider-text text-muted-2 text-md">با روش های زیر وارد سیستم شوید</div>
+              </div>
+            </div>
+
+            <div class="social-login py-4 px-2">
+              <ul class="row align-items-center justify-content-between g-3 p-0 m-0">
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2 full-width"><i
+                      class="fa-brands fa-facebook color--facebook fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-whatsapp color--whatsapp fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-linkedin color--linkedin fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-dribbble color--dribbble fs-2"></i></a></li>
+                <li class="col"><a href="#" class="square--60 border br-dashed rounded-2"><i
+                      class="fa-brands fa-twitter color--twitter fs-2"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer align-items-center justify-content-center">
+            <p>حساب کاربری ندارید؟<a href="signup.html" class="text-primary fw-medium me-1">ثبت نام</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Choose Currency Modal -->
+    <div class="modal modal-lg fade" id="currencyModal" tabindex="-1" aria-labelledby="currenyModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title fs-6" id="currenyModalLabel">انتخاب واحد ارز</h4>
+            <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                class="fa-solid fa-square-xmark"></i></a>
+          </div>
+          <div class="modal-body">
+            <div class="allCurrencylist">
+
+              <div class="suggestedCurrencylist-wrap mb-4">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">ارزهای پیشنهادی</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">ایالات متحده دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">سودان پوند</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency active" href="#">
+                        <div class="text-dark text-md fw-medium">هندوستان روپیه</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">کلمبیا پزوی</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">استرالیا دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">مراکش درهم</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="suggestedCurrencylist-wrap">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">همه ارزها</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دلار ایالات متحده</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">پوند لبنان</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">روپیه اندونزی</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">وون کره جنوبی</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">درهم مراکش</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دلار تایوان</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">ریال یمن</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">پزوی شیلی</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">کانادا دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دلار باهاماس</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">کونا کرواسی</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">سامانی تاجیکستان</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">پوند سودان</div>
+                        <div class="text-muted-2 text-md text-uppercase">USD</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">روپیه سیشل</div>
+                        <div class="text-muted-2 text-md text-uppercase">GBP</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دینار صربستان</div>
+                        <div class="text-muted-2 text-md text-uppercase">EUR</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">فرانک رواندا</div>
+                        <div class="text-muted-2 text-md text-uppercase">Inr</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">دینار صربستان</div>
+                        <div class="text-muted-2 text-md text-uppercase">aud</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">لئو رومانی</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCurrency" href="#">
+                        <div class="text-dark text-md fw-medium">سنگاپور دلار</div>
+                        <div class="text-muted-2 text-md text-uppercase">thb</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Choose Countries Modal -->
+    <div class="modal modal-lg fade" id="countryModal" tabindex="-1" aria-labelledby="countryModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title fs-6" id="countryModalLabel">انتخاب کشور</h4>
+            <a href="#" class="text-muted fs-4" data-bs-dismiss="modal" aria-label="Close"><i
+                class="fa-solid fa-square-xmark"></i></a>
+          </div>
+          <div class="modal-body">
+            <div class="allCountrieslist">
+
+              <div class="suggestedCurrencylist-wrap mb-4">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">کشورهای پیشنهادی</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/united-states.png"
+                            class="img-fluid circle" width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">ایالات متحده</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/united-kingdom.png"
+                            class="img-fluid circle" width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">فرانسه</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry active" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/flag.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">هندوستان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/belgium.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">آمریکا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/brazil.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">استرالیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/china.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">تایلند</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="suggestedCurrencylist-wrap">
+                <div class="d-inline-block mb-0 ps-3">
+                  <h5 class="fs-6">همه کشورها</h5>
+                </div>
+                <div class="suggestedCurrencylists">
+                  <ul
+                    class="row align-items-center justify-content-start row-cols-xl-4 row-cols-lg-3 row-cols-2 gy-2 gx-3 m-0 p-0">
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/united-states.png"
+                            class="img-fluid circle" width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">ایالات متحده</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/vietnam.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">اسپانیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/turkey.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">آرژانتین</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/spain.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">آذربایجان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/japan.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">استرالیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/flag.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">بحرین</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/portugal.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">برزیل</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/italy.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">روسیه</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/germany.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">کانادا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/france.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">شیکاگو</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/european.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">کلمبیا</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/china.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">سوئیس</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/brazil.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">مصر</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/belgium.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">سوئد</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/turkey.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">ژاپن</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/spain.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">عربستان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/germany.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">کویت</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/france.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">میلان</div>
+                      </a>
+                    </li>
+                    <li class="col">
+                      <a class="selectCountry" href="#">
+                        <div class="d-inline-block"><img src="assets/img/flag/brazil.png" class="img-fluid circle"
+                            width="35" alt=""></div>
+                        <div class="text-dark text-md fw-medium pe-2">سنگاپور</div>
+						  </a>
+						</li>
+					  </ul>
+					</div>
+				  </div>
+
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="fa-solid fa-sort-up"></i></a>
+
+
+	</div>
+	<!-- ============================================================== -->
+	<!-- End Wrapper -->
+	<!-- ============================================================== -->
+
+
+	<!-- ============================================================== -->
+	<!-- All Jquery -->
+	<!-- ============================================================== -->
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/dropzone.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
+    <script src="assets/js/flickity.pkgd.min.js"></script>
+    <script src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/rangeslider.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/counterup.min.js"></script>
+    <script src="assets/js/prism.js"></script>
+
+	<script src="assets/js/custom.js"></script>
+	<!-- Date Booking Script -->
+    <script src="assets/js/jdate.min.js"></script>
+    <script src="assets/js/fa.js"></script>
+    <script>
+		window.Date = window.JDate;
+		flatpickr("#checkinout", {
+			"locale": "fa" ,
+			mode: "range",
+			minDate: "today",
+			format: 'YYYY/MM/DD',
+		});
+		lightbox.option({
+				'resizeDuration': 200,
+				'wrapAround': true
+			})
+    </script>
+</body>
+
+</html>
