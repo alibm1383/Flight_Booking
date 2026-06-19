@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoTrip - رزرو ژِئوتریپ</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <!-- All Plugins -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+
+  <!-- Fontawesome & Bootstrap Icons CSS -->
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <!-- Vue.js -->
+  <script src="./assets/js/vue.global.js"></script>
+</head>
+
+<body>
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper">
+
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+		<!-- Start Navigation -->
+		<div class="header header-light">
+			<div class="container">
+				<nav id="navigation" class="navigation navigation-landscape">
+					<div class="nav-header">
+						<a class="nav-brand" href="#"><img src="assets/img/logo.png" class="logo" alt=""></a>
+						<div class="nav-toggle"></div>
+						<div class="mobile_nav">
+						  <ul>
+							<li class="languageDropdown ms-3">
+							  <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+								<span class="d-flex align-items-center gap-2">فارسی | <i class="bi bi-globe h-auto"></i></span>
+							  </a>
+							</li>
+						 </ul>
+						</div>
+					</div>
+				  <div class="nav-menus-wrapper" style="transition-property: none;">
+					<ul class="nav-menu">
+
+					  <li>
+								 <a href="home-flight.html" class="home-button-style">صفحه اصلی</a>
+					  </li>	
+
+					  <li><a href="JavaScript:Void(0);">صفحات<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu">
+						  <li><a href="JavaScript:Void(0);">وبلاگ<span class="submenu-indicator"></span></a>
+							<ul class="nav-dropdown nav-submenu">
+							  <li><a href="classic-blog.html">لیست نسخه 1</a></li>
+							  <li><a href="blog.html">لیست نسخه 2</a></li>
+							  <li><a href="blog-detail.html">جزئیات</a></li>
+							</ul>
+						  </li>
+						  <li><a href="JavaScript:Void(0);">اعتبارسنجی<span class="submenu-indicator"></span></a>
+							<ul class="nav-dropdown nav-submenu">
+							  <li><a href="login.html">ورود</a></li>
+							  <li><a href="register.html">ثبت نام</a></li>
+							  <li><a href="forgot-password.html">فراموشی رمز</a></li>
+							  <li><a href="two-factor-auth.html">اعتبارسنجی دو مرحله ای</a></li>
+							</ul>
+						  </li>
+						  <li><a href="about-us.html">درباره ما</a></li>
+						  <li><a href="career-page.html">فرصت های شغلی</a></li>
+						  <li><a href="help-center.html">پشتیبانی</a></li>
+						  <li><a href="faq.html">سوالات متداول</a></li>
+						  <li><a href="404.html">صفحه 404</a></li>
+						  <li><a href="pricing.html">قیمت گذاری</a></li>
+						  <li><a href="privacy-policy.html">شرایط استفاده</a></li>
+						  <li><a href="JavaScript:Void(0);">تماس با ما<span class="submenu-indicator"></span></a>
+							<ul class="nav-dropdown nav-submenu">
+							  <li><a href="contact-v1.html">نسخه 1</a></li>
+							  <li><a href="contact-v2.html">نسخه 2</a></li>
+							</ul>
+						  </li>
+						</ul>
+					  </li>
+
+					  <li><a href="JavaScript:Void(0);">منو<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu xxl-menu">
+						  <li>
+							<a href="home-flight.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-primary fs-4"><i
+									class="fa-solid fa-plane"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">پرواز</h6>
+								  <p class="text-sm-muted m-0">رزرو بلیط هواپیما</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						  <li>
+							<a href="my-profile.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-purple fs-4"><i
+									class="fa-solid fa-eye"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">دانلود بلیط رزرو شده</h6>
+								  <p class="text-sm-muted m-0">بلیط خودرا هم اکنون دریافت کنید</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						</ul>
+					  </li>
+
+					  <li><a href="documantion/index.html" target="_blank">داکیومنت</a></li>
+
+					</ul>
+
+					<ul class="nav-menu nav-menu-social align-to-left">
+					  <li class="languageDropdown ms-2">
+						<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">فارسی |  <i class="bi bi-globe"></i></a>
+					  </li>
+					  <li class="notificationsDropdown btn-group account-drop ms-2">
+						<a href="#" class="nav-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+								class="fa-regular fa-bell fs-6"></i></a>
+					  </li>
+					  <li>
+						<div class="btn-group account-drop">
+							<a href="my-profile.html" class="btn btn-order-by-filt p-0" style="border:none;background:transparent;">
+								<img src="assets/img/team-11.jpg" class="img-fluid" alt="" style="width:38px;height:38px;border-radius:50%;object-fit:cover;">
+							</a>
+						</div>
+					  </li>
+					</ul>
+				  </div>
+			</nav>
+		  </div>
+		</div>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+
+
+		<!-- ============================ Title Start ================================== -->
+		<section class="bg-cover position-relative bg-primary" style="background: url(assets/img/bg2.png)no-repeat;">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-7 col-lg-9 col-md-12">
+
+						<div class="fpc-capstion text-center my-4">
+							<div class="fpc-captions">
+								<h1 class="fs-1 lh-base text-light">ثبت فرودگاه</h1>
+								<p class="text-light">فرودگاه جدید خود را ثبت کنید.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Title End ================================== -->
+
+
+		<!-- ============================ Booking Page ================================== -->
+		<section class="gray-simple position-relative">
+			<div class="container">
+				<div id="airportApp">
+
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<h3>اطلاعات پایه</h3>
+
+						<!-- پیام خطا -->
+						<div v-if="errorMsg" class="alert alert-danger text-end mt-3" role="alert">
+							<i class="fa-solid fa-circle-exclamation ms-2"></i>
+							{{ errorMsg }}
+						</div>
+
+						<!-- پیام موفقیت -->
+						<div v-if="successMsg" class="alert alert-success text-end mt-3" role="alert">
+							<i class="fa-solid fa-circle-check ms-2"></i>
+							{{ successMsg }}
+						</div>
+
+						<!-- Basic Information -->
+						<div class="card rounded-3 mt-4 mb-4">
+							<div class="card-header border-bottom">
+								<h5 class="mb-0"><i class="fa-brands fa-slack ms-2"></i>دسته بندی</h5>
+							</div>
+							<div class="card-body">
+								<div class="row g-4">
+
+									<div class="col-md-6">
+                      <label class="form-label">انتخاب شهر<span class="text-danger">*</span></label>
+                      <select class="form-select" v-model="form.cityId">
+                          <option value="" disabled>انتخاب کنید...</option>
+                          <option v-for="city in cities" :key="city.id" :value="city.id">{{ city.name }}</option>
+                      </select>
+                  </div>
+
+                  <div class="col-md-6">
+                      <label class="form-label">نام فرودگاه<span class="text-danger">*</span></label>
+                      <input class="form-control" type="text" v-model="form.airportName" placeholder="نام فرودگاه را وارد کنید">
+                  </div>
+
+                  <div class="col-md-6">
+                      <label class="form-label">کد IATA<span class="text-danger">*</span></label>
+                      <input class="form-control" type="text" v-model="form.iataCode" maxlength="3" placeholder="مثال: IKA">
+                  </div>
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Airport Image -->
+						<div class="card rounded-3 mt-4 mb-4">
+							<div class="card-header border-bottom">
+								<h5 class="mb-0"><i class="fa-regular fa-images ms-2"></i>تصویر فرودگاه</h5>
+							</div>
+							<div class="card-body">
+								<div class="row g-4">
+									<div class="col-12">
+										<label class="form-label">تصویر فرودگاه<span class="text-danger">*</span></label>
+										<div class="input-group">
+											<input type="text" class="form-control upload-name" :value="form.imageFileName" readonly/>
+											<span class="btn cursor-pointer upload-button" @click="triggerFileInput">آپلود فایل</span>
+											<input type="file" class="d-none hidden-upload" accept="image/gif, image/jpeg, image/png" @change="handleFileChange" ref="fileInput"/>
+										</div>
+										<p class="small mb-0 mt-2"><b>نکته: </b> فقط تصاویر با فرمت jpg، png، gif فقط با عرض و ارتفاع 500x500 پیکسل بارگذاری کنید.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row align-items-start">
+					<div class="col-xl-12 col-lg-12 col-md-md-12">
+						<div class="text-center d-flex align-items-center justify-content-center mt-4">
+							<button class="btn btn-md btn-primary" @click="handleSubmit" :disabled="isLoading">
+								<span v-if="isLoading" class="spinner-border spinner-border-sm ms-2" role="status"></span>
+								<span v-if="!isLoading"><i class="fa-solid fa-arrow-left me-2"></i></span>
+								{{ isLoading ? 'در حال ارسال...' : 'ثبت فرودگاه' }}
+							</button>
+						</div>
+					</div>
+				</div>
+
+				</div><!-- end airportApp -->
+			</div>
+		</section>
+		<!-- ============================ Booking Page End ================================== -->
+
+
+		<!-- ============================ Footer Start ================================== -->
+		<footer class="footer skin-light-footer">
+			<div class="footer-bottom border-top">
+				<div class="container">
+					<div class="row align-items-center justify-content-between">
+
+						<div class="col-xl-6 col-lg-6 col-md-6">
+							<p class="mb-0">کلیه حقوق این سایت محفوظ و متعلق به شرکت خدمات گردشگری است.</p>
+						</div>
+
+						<div class="col-xl-6 col-lg-6 col-md-6">
+							<ul class="p-0 d-flex justify-content-start justify-content-md-end text-start text-md-end m-0">
+								<li><a href="#">شرایط و قوانین</a></li>
+								<li class="me-3"><a href="#">درباره ما</a></li>
+								<li class="me-3"><a href="#">کوکی ها</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+    <!-- ============================ Footer End ================================== -->
+
+    
+
+
+	<!-- ============================================================== -->
+	<!-- All Jquery -->
+	<!-- ============================================================== -->
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/dropzone.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
+    <script src="assets/js/flickity.pkgd.min.js"></script>
+    <script src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/rangeslider.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/counterup.min.js"></script>
+    <script src="assets/js/prism.js"></script>
+	
+	<script src="assets/js/custom.js"></script>
+	<!-- ============================================================== -->
+	<!-- This page plugins -->
+	<!-- ============================================================== -->
+	<script>
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                cities: [],
+                citiesLoading: false,
+                form: {
+                    cityId: '',
+                    airportName: '',
+                    iataCode: '',
+                    imageFileName: '',
+                    imageFile: null,
+                },
+                isLoading: false,
+                errorMsg: '',
+                successMsg: '',
+            };
+        },
+        async mounted() {
+            await this.fetchCities();
+        },
+        methods: {
+            async fetchCities() {
+                this.citiesLoading = true;
+                try {
+                    const token = localStorage.getItem('token');
+                    const response = await fetch('http://localhost:5041/api/Cities', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Accept': 'application/json'
+                        }
+                    });
+                    if (!response.ok) throw new Error('خطا در دریافت لیست شهرها');
+                    this.cities = await response.json();
+                } catch (error) {
+                    this.errorMsg = 'خطا در بارگذاری شهرها: ' + error.message;
+                } finally {
+                    this.citiesLoading = false;
+                }
+            },
+            triggerFileInput() {
+                this.$refs.fileInput.click();
+            },
+            handleFileChange(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    this.form.imageFile = file;
+                    this.form.imageFileName = file.name;
+                }
+            },
+            async handleSubmit() {
+                this.errorMsg = '';
+                this.successMsg = '';
+
+                if (!this.form.cityId) {
+                    this.errorMsg = 'لطفاً شهر را انتخاب کنید.';
+                    return;
+                }
+                if (!this.form.airportName.trim()) {
+                    this.errorMsg = 'لطفاً نام فرودگاه را وارد کنید.';
+                    return;
+                }
+                if (!this.form.iataCode.trim()) {
+                    this.errorMsg = 'لطفاً کد IATA را وارد کنید.';
+                    return;
+                }
+                if (this.form.iataCode.trim().length !== 3) {
+                    this.errorMsg = 'کد IATA باید دقیقاً ۳ حرف باشد.';
+                    return;
+                }
+                if (!this.form.imageFile) {
+                    this.errorMsg = 'لطفاً تصویر فرودگاه را انتخاب کنید.';
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('CityId', this.form.cityId);
+                formData.append('Name', this.form.airportName.trim());
+                formData.append('IataCode', this.form.iataCode.trim().toUpperCase());
+                formData.append('Image', this.form.imageFile);
+
+                this.isLoading = true;
+                try {
+                    const token = localStorage.getItem('token');
+                    const response = await fetch('http://localhost:5041/api/Airports', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: formData
+                    });
+
+                    const text = await response.text();
+                    const responseData = text ? JSON.parse(text) : {};
+
+                    if (!response.ok) {
+                        let errorMsg = 'خطا در ثبت فرودگاه.';
+                        if (responseData.errors) {
+                            errorMsg = Object.values(responseData.errors).flat().join(' | ');
+                        } else if (responseData.title) {
+                            errorMsg = responseData.title;
+                        } else if (responseData.message) {
+                            errorMsg = responseData.message;
+                        }
+                        throw new Error(errorMsg);
+                    }
+
+                    this.successMsg = 'فرودگاه با موفقیت ثبت شد!';
+                    this.form.cityId = '';
+                    this.form.airportName = '';
+                    this.form.iataCode = '';
+                    this.form.imageFileName = '';
+                    this.form.imageFile = null;
+                    this.$refs.fileInput.value = '';
+
+                } catch (error) {
+                    this.errorMsg = error.message;
+                } finally {
+                    this.isLoading = false;
+                }
+            }
+        }
+    }).mount('#airportApp');
+	</script>
+</body>
+
+</html>
