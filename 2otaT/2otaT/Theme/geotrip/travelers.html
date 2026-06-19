@@ -1065,73 +1065,160 @@
 <script>
 const API_BASE = "http://127.0.0.1:8000";
 
-async function loadProfile() {
-	const token = localStorage.getItem("token");
-	if (!token) {
-		window.location.href = "login.html";
-		return;
-	}
-
-	try {
-		const response = await fetch(`${API_BASE}/profile/me`, {
-			headers: { "Authorization": `Bearer ${token}` }
-		});
-		if (!response.ok) throw new Error("خطا در دریافت اطلاعات");
-		const data = await response.json();
-
-		const fullName = `${data.first_name || ""} ${data.last_name || ""}`.trim() || "کاربر";
-
-		// نام در dropdown آیکون بالا سمت چپ
-		document.getElementById("navbar-username").textContent = `سلام، ${data.first_name || "کاربر"}`;
-
-		// نام در offcanvas موبایل
-		document.getElementById("offcanvas-username").textContent = `سلام، ${data.first_name || "کاربر"}`;
-
-		// آواتار navbar
-		if (data.avatar) {
-			document.getElementById("navbar-avatar").src = data.avatar;
-		}
-
-		// کارت سمت چپ — نام و موبایل
-		document.getElementById("profile-fullname").textContent = fullName;
-		document.getElementById("profile-phone-card").textContent = data.phone || "";
-
-		// آواتار کارت سمت چپ
-		if (data.avatar) {
-			document.getElementById("profile-avatar").src = data.avatar;
-		}
-
-		// وضعیت تایید ایمیل
-		const emailIcon = document.getElementById("email-verified");
-		const emailText = document.getElementById("email-verified-text");
-		if (data.is_email_verified) {
-			emailIcon.className = "bi bi-patch-check-fill text-success";
-			emailText.textContent = "تایید شده ✓";
-		} else {
-			emailIcon.className = "bi bi-patch-check-fill text-muted";
-			emailText.textContent = "تایید نشده";
-		}
-
-		// وضعیت تایید موبایل
-		const phoneIcon = document.getElementById("phone-verified");
-		const phoneText = document.getElementById("phone-verified-text");
-		if (data.is_phone_verified) {
-			phoneIcon.className = "bi bi-patch-check-fill text-success";
-			phoneText.textContent = "تایید شده ✓";
-		} else {
-			phoneIcon.className = "bi bi-patch-check-fill text-muted";
-			phoneText.textContent = "تایید نشده";
-		}
-
-	} catch (err) {
-		console.error("خطا:", err);
-		alert("خطا در دریافت اطلاعات. لطفاً دوباره وارد شوید.");
-		localStorage.removeItem("token");
-		window.location.href = "login.html";
-	}
+// تابع مدیریت خطای توکن و انتقال به صفحه لاگین
+function handleAuthError(msg) {
+    alert(msg);
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
 }
 
-document.addEventListener("DOMContentLoaded", loadProfile);
+async function loadSidebarProfile() {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/profile/me`, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    if (!response.ok) {
+        if(response.status === 401) {
+            handleAuthError("نشست شما منقضی شده است. لطفاً دوباره وارد شوید.");
+            return;
+        }
+        throw new Error("خطا در دریافت اطلاعات از سرور");
+    }
+
+    const data = await response.json();
+    
+    // استخراج نام و نام خانوادگی بر اساس نقش کاربر در بک‌اند شما
+    let firstName = "";
+    let lastName = "";
+
+    if (data.RoleId === 3 && data.CustomerDetails) { // مسافر
+        firstName = data.CustomerDetails.FirstName || "";
+        lastName = data.CustomerDetails.LastName || "";
+    } else if (data.RoleId === 2 && data.AirlineDetails) { // شرکت هواپیمایی
+        firstName = data.AirlineDetails.CompanyName || "";
+    } else if (data.RoleId === 1 && data.AdminDetails) { // ادمین
+        firstName = data.AdminDetails.FirstName || "";
+        lastName = data.AdminDetails.LastName || "";
+    }
+
+    const fullName = `${firstName} ${lastName}`.trim();
+
+    // ۱. تنظیم اطلاعات هدر بالای صفحه (Navbar)
+    if(document.getElementById("navbar-username")) {
+      document.getElementById("navbar-username").textContent = `سلام، ${firstName || "کاربر"}`;
+    }
+    if (data.ImageUrl && document.getElementById("navbar-avatar")) {
+      document.getElementById("navbar-avatar").src = data.ImageUrl;
+    }
+
+    // ۲. تنظیم اطلاعات کارت سمت چپ (Sidebar) با آی‌دی‌های شما
+    if(document.getElementById("profile-fullname")) {
+        document.getElementById("profile-fullname").textContent = fullName || "کاربر";
+    }
+    if(document.getElementById("profile-phone-card")) {
+        document.getElementById("profile-phone-card").textContent = data.PhoneNumber || "";
+    }
+    if (data.ImageUrl && document.getElementById("profile-avatar")) {
+      document.getElementById("profile-avatar").src = data.ImageUrl;
+    }
+
+    // ۳. وضعیت تایید ایمیل (بر اساس فیلد IsEmailVerified بک‌اند)
+    const emailIcon = document.getElementById("email-verified");
+    const emailText = document.getElementById("email-verified-text");
+    if (emailIcon && emailText) {
+        if (data.IsEmailVerified) {
+          emailIcon.className = "bi bi-patch-check-fill text-success";
+          emailText.textContent = "تایید شده ✓";
+        } else {
+          emailIcon.className = "bi bi-patch-check-fill text-muted";
+          emailText.textContent = "تایید نشده";
+        }
+    }
+
+    // ۴. وضعیت تایید موبایل (بر اساس فیلد IsPhoneVerified بک‌اند)
+    const phoneIcon = document.getElementById("phone-verified");
+    const phoneText = document.getElementById("phone-verified-text");
+    if (phoneIcon && phoneText) {
+        if (data.IsPhoneVerified) {
+          phoneIcon.className = "bi bi-patch-check-fill text-success";
+          phoneText.textContent = "تایید شده ✓";
+        } else {
+          phoneIcon.className = "bi bi-patch-check-fill text-muted";
+          phoneText.textContent = "تایید نشده";
+        }
+    }
+
+    // ۵. مدیریت منوهای دسترسی بر اساس نقش (1:Admin, 2:Airline, 3:Customer)
+    let roleString = "Customer";
+    if (data.RoleId === 1) roleString = "Admin";
+    if (data.RoleId === 2) roleString = "Airline";
+    
+    applyRoleAccess(roleString);
+
+  } catch (err) {
+    console.error("خطا در بارگذاری سایدبار:", err);
+  }
+}
+
+// اجرای تابع به محض لود شدن کامل صفحه
+document.addEventListener("DOMContentLoaded", loadSidebarProfile);
+
+// ─── مدیریت آیتم‌های منو بر اساس نقش کاربر ───────────────────────────────────
+function applyRoleAccess(role) {
+  const desktopMenu = document.getElementById("dashboard-menu-desktop");
+  const mobileMenu  = document.getElementById("dashboard-menu-mobile");
+  const actionBtn   = document.getElementById("role-action-btn");
+
+  if (actionBtn) {
+    if (role === "Airline") {
+      actionBtn.innerHTML = `
+        <a href="#" class="btn btn-light-primary fw-medium full-width rounded-2">
+          <i class="fa-solid fa-plane ms-2"></i>افزودن پرواز
+        </a>`;
+    } else if (role === "Admin") {
+      actionBtn.innerHTML = `
+        <div class="d-flex flex-column gap-2">
+          <a href="#" class="btn btn-light-primary fw-medium full-width rounded-2">
+            <i class="fa-solid fa-city ms-2"></i>افزودن شهر
+          </a>
+          <a href="#" class="btn btn-light-success fw-medium full-width rounded-2">
+            <i class="fa-solid fa-tower-broadcast ms-2"></i>افزودن فرودگاه
+          </a>
+        </div>`;
+    } else {
+      actionBtn.innerHTML = "";
+    }
+  }
+
+  const extraDesktopItems = roleMenuItems(role);
+  const extraMobileItems  = roleMenuItems(role);
+
+  if (desktopMenu && extraDesktopItems) {
+    desktopMenu.insertAdjacentHTML("beforeend", extraDesktopItems);
+  }
+  if (mobileMenu && extraMobileItems) {
+    mobileMenu.insertAdjacentHTML("beforeend", extraMobileItems);
+  }
+}
+
+function roleMenuItems(role) {
+  if (role === "Airline") {
+    return `<li><a href="#"><i class="fa-solid fa-plane ms-2"></i>افزودن پرواز</a></li>`;
+  } else if (role === "Admin") {
+    return `
+      <li><a href="#"><i class="fa-solid fa-city ms-2"></i>افزودن شهر</a></li>
+      <li><a href="#"><i class="fa-solid fa-tower-broadcast ms-2"></i>افزودن فرودگاه</a></li>`;
+  }
+  return "";
+}
 </script>
 
 </body>

@@ -278,7 +278,7 @@
 						<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
 							id="offcanvasDashboard" aria-labelledby="offcanvasScrollingLabel">
 							<div class="offcanvas-header gray-simple">
-								<h5 class="offcanvas-title" id="offcanvasScrollingLabel">سلام، مهرداد</h5>
+								<h5 class="offcanvas-title" id="offcanvasScrollingLabel">سلام</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 							</div>
 							<div class="offcanvas-body p-0">
@@ -1223,7 +1223,7 @@
 }); 
 </script>
 
-<script>
+<!-- <script>
 const API_BASE = "http://127.0.0.1:8000";
 
 async function loadProfile() {
@@ -1450,8 +1450,471 @@ function roleMenuItems(role) {
 	}
 	return ""; // Customer — بدون آیتم اضافه
 }
-</script>
+</script> -->
+<!-- <script>
+const API_BASE = "http://127.0.0.1:8000"; // آدرس بک‌اند خود را در صورت نیاز اصلاح کنید
 
+// دریافت توکن از LocalStorage
+function getAuthToken() {
+    return localStorage.getItem("token");
+}
+
+// هدرهای پیش‌فرض برای درخواست‌ها
+function getAuthHeaders() {
+    const token = getAuthToken();
+    return {
+        "Content-Type": "application/json",
+        "Authorization": token ? `Bearer ${token}` : ""
+    };
+}
+
+// چک کردن وضعیت لاگین در بدو ورود
+if (!getAuthToken()) {
+    alert("لطفاً ابتدا وارد حساب کاربری خود شوید.");
+    window.location.href = "login.html"; // یا هر صفحه‌ای که مربوط به لاگین است
+}
+
+// متغير سراسری برای ذخیره اطلاعات کاربر جاری
+let currentUserData = null;
+
+// ۱. دریافت و نمایش اطلاعات پروفایل
+async function fetchProfile() {
+    try {
+        const response = await fetch(`${API_BASE}/profile/me`, {
+            method: "GET",
+            headers: getAuthHeaders()
+        });
+
+        if (!response.ok) {
+            throw new Error("خطا در دریافت اطلاعات پروفایل");
+        }
+
+        const data = await response.json();
+        currentUserData = data; // ذخیره برای استفاده در فرم ویرایش
+        
+        // پر کردن اطلاعات هدر پروفایل
+        document.getElementById("user-phone-top").textContent = data.PhoneNumber || "بدون شماره";
+        document.getElementById("user-email-top").textContent = data.Email || "بدون ایمیل";
+        if (data.ImageUrl) {
+            document.getElementById("user-avatar-top").src = data.ImageUrl;
+        }
+
+        // بررسی نقش کاربر و پر کردن فرم اطلاعات فردی
+        if (data.RoleId === 3 && data.CustomerDetails) { // مسافر
+            document.getElementById("first-name").value = data.CustomerDetails.FirstName || "";
+            document.getElementById("last-name").value = data.CustomerDetails.LastName || "";
+            document.getElementById("birth-date").value = data.CustomerDetails.BirthDate || "";
+            document.getElementById("gender").value = data.CustomerDetails.Gender !== undefined ? data.CustomerDetails.Gender : "";
+            // نمایش فیلد اختصاصی مسافر در صورت وجود
+        } else if (data.RoleId === 2 && data.AirlineDetails) { // ایرلاین
+            // اگر در فرم فیلد نام شرکت دارید:
+            const companyField = document.getElementById("company-name");
+            if (companyField) companyField.value = data.AirlineDetails.CompanyName || "";
+        } else if (data.RoleId === 1 && data.AdminDetails) { // ادمین
+            document.getElementById("first-name").value = data.AdminDetails.FirstName || "";
+            document.getElementById("last-name").value = data.AdminDetails.LastName || "";
+        }
+
+        // تنظیم منوها و دکمه‌ها بر اساس نقش
+        setupRoleUI(data.RoleId);
+
+    } catch (error) {
+        console.error(error);
+        alert("مشکلی در بارگذاری اطلاعات پروفایل به وجود آمد.");
+    }
+}
+
+// تابع کمکی برای مدیریت ظاهر صفحه بر اساس نقش (شبیه‌سازی منطق قبلی شما)
+function setupRoleUI(roleId) {
+    const roleBadge = document.getElementById("user-role-badge");
+    if (!roleBadge) return;
+
+    if (roleId === 1) {
+        roleBadge.textContent = "مدیر سیستم";
+        roleBadge.className = "badge bg-danger rounded-2 fw-medium px-3 py-2";
+    } else if (roleId === 2) {
+        roleBadge.textContent = "شرکت هواپیمایی";
+        roleBadge.className = "badge bg-warning text-dark rounded-2 fw-medium px-3 py-2";
+    } else {
+        roleBadge.textContent = "مسافر";
+        roleBadge.className = "badge bg-success rounded-2 fw-medium px-3 py-2";
+    }
+}
+
+// ۲. ذخیره تغییرات پروفایل (اطلاعات فردی)
+document.getElementById("profile-form")?.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    if (!currentUserData) return;
+
+    let endpoint = "";
+    let payload = {};
+
+    // تشخیص دیتای ارسالی و آدرس بر اساس نقش کاربر در بک‌اند
+    if (currentUserData.RoleId === 3) { // مسافر
+        endpoint = `${API_BASE}/profile/update/customer`;
+        payload = {
+            FirstName: document.getElementById("first-name").value,
+            LastName: document.getElementById("last-name").value,
+            BirthDate: document.getElementById("birth-date").value || null,
+            Gender: parseInt(document.getElementById("gender").value)
+        };
+    } else if (currentUserData.RoleId === 2) { // ایرلاین
+        endpoint = `${API_BASE}/profile/update/airline`;
+        payload = {
+            CompanyName: document.getElementById("company-name")?.value || ""
+        };
+    } else if (currentUserData.RoleId === 1) { // ادمین
+        endpoint = `${API_BASE}/profile/update/admin`;
+        payload = {
+            FirstName: document.getElementById("first-name").value,
+            LastName: document.getElementById("last-name").value,
+            BirthDate: document.getElementById("birth-date").value || null,
+            Gender: parseInt(document.getElementById("gender").value)
+        };
+    }
+
+    try {
+        const response = await fetch(endpoint, {
+            method: "PUT", // بک‌اند شما برای ویرایش از PUT استفاده می‌کند
+            headers: getAuthHeaders(),
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("تغییرات پروفایل با موفقیت ذخیره شد.");
+            fetchProfile(); // بازنشانی اطلاعات صفحه
+        } else {
+            alert(result.detail || "خطا در ثبت تغییرات پروفایل.");
+        }
+    } catch (error) {
+        console.error(error);
+        alert("اتصال با سرور برقرار نشد.");
+    }
+});
+
+// ۳. تغییر رمز عبور
+document.getElementById("password-form")?.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const currentPassword = document.getElementById("old-password").value;
+    const newPassword = document.getElementById("new-password").value;
+    const confirmNewPassword = document.getElementById("confirm-password").value;
+
+    if (newPassword !== confirmNewPassword) {
+        alert("رمز عبور جدید و تکرار آن با هم مطابقت ندارند.");
+        return;
+    }
+
+    // ساختار آبجکت ارسالی باید دقیقاً مطابق با اسکیمای ChangePassword در بک‌اند باشد
+    const payload = {
+        CurrentPassword: currentPassword,
+        NewPassword: newPassword,
+        ConfirmNewPassword: confirmNewPassword
+    };
+
+    try {
+        const response = await fetch(`${API_BASE}/profile/change-password`, {
+            method: "PUT", // متد در بک‌اند شما PUT است
+            headers: getAuthHeaders(),
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("رمز عبور شما با موفقیت تغییر یافت.");
+            document.getElementById("password-form").reset();
+        } else {
+            // نمایش پیام خطای بازگشتی از FastAPI (مثلا: رمز عبور فعلی اشتباه است)
+            alert(result.detail || "خطا در تغییر رمز عبور.");
+        }
+    } catch (error) {
+        console.error(error);
+        alert("اتصال با سرور برقرار نشد.");
+    }
+});
+
+// اجرای اولیه تابع دریافت مشخصات هنگام لود شدن صفحه
+document.addEventListener("DOMContentLoaded", fetchProfile);
+</script> -->
+<script>
+const API_BASE = "http://127.0.0.1:8000";
+
+// تابع مدیریت خطای توکن و انتقال به صفحه لاگین
+function handleAuthError(msg) {
+    alert(msg);
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+}
+
+async function loadProfile() {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/profile/me`, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    if (!response.ok) {
+        if(response.status === 401) {
+            handleAuthError("نشست شما منقضی شده است. لطفاً دوباره وارد شوید.");
+            return;
+        }
+        throw new Error("خطا در دریافت اطلاعات از سرور");
+    }
+
+    const data = await response.json();
+    
+    // استخراج اطلاعات بر اساس ساختار دقیق بک‌اند شما
+    let firstName = "";
+    let lastName = "";
+    let birthDate = "";
+    let genderText = "";
+
+    if (data.RoleId === 3 && data.CustomerDetails) { // مسافر
+        firstName = data.CustomerDetails.FirstName || "";
+        lastName = data.CustomerDetails.LastName || "";
+        birthDate = data.CustomerDetails.BirthDate || "";
+        genderText = data.CustomerDetails.Gender === 0 ? "مذکر" : data.CustomerDetails.Gender === 1 ? "مؤنث" : "";
+    } else if (data.RoleId === 2 && data.AirlineDetails) { // شرکت هواپیمایی
+        firstName = data.AirlineDetails.CompanyName || "";
+    } else if (data.RoleId === 1 && data.AdminDetails) { // ادمین
+        firstName = data.AdminDetails.FirstName || "";
+        lastName = data.AdminDetails.LastName || "";
+        birthDate = data.AdminDetails.BirthDate || "";
+        genderText = data.AdminDetails.Gender === 0 ? "مذکر" : data.AdminDetails.Gender === 1 ? "مؤنث" : "";
+    }
+
+    // متصل کردن داده‌های سرور به آی‌دی‌های فرانت‌اَند شما
+    if(document.getElementById("navbar-username")) {
+      document.getElementById("navbar-username").textContent = `سلام، ${firstName || "مدیر"}`;
+    }
+    
+    if(document.getElementById("profile-firstname")) document.getElementById("profile-firstname").value = firstName;
+    if(document.getElementById("profile-lastname")) document.getElementById("profile-lastname").value = lastName;
+    if(document.getElementById("profile-email")) document.getElementById("profile-email").value = data.Email || "";
+    if(document.getElementById("profile-phone")) document.getElementById("profile-phone").value = data.PhoneNumber || "";
+    if(document.getElementById("profile-birthdate")) document.getElementById("profile-birthdate").value = birthDate;
+    
+    // تصحیح مقداردهی فیلد جنسیت برای ادمین و مسافر
+    if(document.getElementById("profile-gender")) {
+        document.getElementById("profile-gender").value = genderText;
+    }
+
+    // تنظیم اطلاعات کارت سمت چپ
+    const fullName = `${firstName} ${lastName}`.trim();
+    if(document.getElementById("profile-fullname")) {
+        document.getElementById("profile-fullname").textContent = fullName || "مدیر سیستم";
+    }
+    if(document.getElementById("profile-phone-card")) {
+        document.getElementById("profile-phone-card").textContent = data.PhoneNumber || "";
+    }
+
+    // تنظیم تصاویر آواتار
+    if (data.ImageUrl) {
+      if(document.getElementById("profile-avatar")) document.getElementById("profile-avatar").src = data.ImageUrl;
+      if(document.getElementById("uploadfile-1-preview")) document.getElementById("uploadfile-1-preview").src = data.ImageUrl;
+    }
+
+    // وضعیت تایید ایمیل و موبایل
+    const emailIcon = document.getElementById("email-verified");
+    const emailText = document.getElementById("email-verified-text");
+    if (emailIcon && emailText) {
+        if (data.IsEmailVerified) {
+          emailIcon.className = "bi bi-patch-check-fill text-success";
+          emailText.textContent = "تایید شده ✓";
+        } else {
+          emailIcon.className = "bi bi-patch-check-fill text-muted";
+          emailText.textContent = "تایید نشده";
+        }
+    }
+
+    const phoneIcon = document.getElementById("phone-verified");
+    const phoneText = document.getElementById("phone-verified-text");
+    if (phoneIcon && phoneText) {
+        if (data.IsPhoneVerified) {
+          phoneIcon.className = "bi bi-patch-check-fill text-success";
+          phoneText.textContent = "تایید شده ✓";
+        } else {
+          phoneIcon.className = "bi bi-patch-check-fill text-muted";
+          phoneText.textContent = "تایید نشده";
+        }
+    }
+
+    // مدیریت منوها بر اساس متن رول
+    let roleString = "Customer";
+    if (data.RoleId === 1) roleString = "Admin";
+    if (data.RoleId === 2) roleString = "Airline";
+    
+    applyRoleAccess(roleString);
+
+  } catch (err) {
+    console.error("خطا:", err);
+    alert("خطا در دریافت اطلاعات پروفایل.");
+  }
+}
+
+// ==============================================================
+// ۱. منطق دکمه تغییر ایمیل (تغییر ایمیل از طریق آدرس‌های آپدیت نقش‌ها)
+// ==============================================================
+document.getElementById("change-email-btn")?.addEventListener("click", async function (e) {
+  e.preventDefault();
+
+  const token = localStorage.getItem("token");
+  const newEmail = document.getElementById("new-email")?.value.trim();
+
+  if (!newEmail) {
+    alert("لطفاً ایمیل جدید را وارد کنید.");
+    return;
+  }
+
+  try {
+    // ابتدا گرفتن اطلاعات پروفایل برای فهمیدن نقش فعلی و انتخاب Endpoint درست بک‌اند
+    const checkRes = await fetch(`${API_BASE}/profile/me`, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+    const profileData = await checkRes.json();
+    
+    let endpoint = `${API_BASE}/profile/update/customer`;
+    if(profileData.RoleId === 2) endpoint = `${API_BASE}/profile/update/airline`;
+    if(profileData.RoleId === 1) endpoint = `${API_BASE}/profile/update/admin`;
+
+    const response = await fetch(endpoint, {
+      method: "PUT", // متد روت‌های ویرایش بک‌اند شما PUT است
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ Email: newEmail }) // فیلد بر اساس اسکیمای شما Email با حرف بزرگ است
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.detail || "خطا در تغییر ایمیل");
+    }
+
+    alert("ایمیل شما با موفقیت به‌روزرسانی شد.");
+    document.getElementById("new-email").value = ""; 
+    loadProfile(); 
+
+  } catch (err) {
+    console.error("خطا:", err);
+    alert(err.message || "مشکلی در ارتباط با سرور پیش آمده است.");
+  }
+});
+
+
+// ==============================================================
+// ۲. منطق دکمه تغییر رمز عبور (تطبیق با روت PUT و مدل کلاس ChangePassword)
+// ==============================================================
+document.getElementById("change-password-btn")?.addEventListener("click", async function (e) {
+  e.preventDefault();
+
+  const token = localStorage.getItem("token");
+  const oldPassword = document.getElementById("old-password")?.value;
+  const newPassword = document.getElementById("new-password")?.value;
+  const confirmPassword = document.getElementById("confirm-password")?.value;
+
+  if (!oldPassword || !newPassword || !confirmPassword) {
+    alert("لطفاً تمام فیلدهای مربوط به رمز عبور را پر کنید.");
+    return;
+  }
+
+  if (newPassword !== confirmPassword) {
+    alert("رمز عبور جدید با تکرار آن مطابقت ندارد!");
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/profile/change-password`, {
+      method: "PUT", // متد روت تغییر پسورد بک‌اند شما PUT است
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      // نام فیلدها دقیقاً با حروف بزرگ و مطابق ساختار ChangePassword در پایتون شما
+      body: JSON.stringify({
+        CurrentPassword: oldPassword,
+        NewPassword: newPassword,
+        ConfirmNewPassword: confirmPassword
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.detail || "خطا در تغییر رمز عبور");
+    }
+
+    alert("رمز عبور شما با موفقیت تغییر یافت.");
+    
+    document.getElementById("old-password").value = "";
+    document.getElementById("new-password").value = "";
+    document.getElementById("confirm-password").value = "";
+
+  } catch (err) {
+    console.error("خطا:", err);
+    alert(err.message || "خطا در تغییر رمز عبور.");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", loadProfile);
+
+// ─── دسترسی‌های مبتنی بر نقش ────────────────────────────────────────────────
+function applyRoleAccess(role) {
+  const desktopMenu = document.getElementById("dashboard-menu-desktop");
+  const mobileMenu  = document.getElementById("dashboard-menu-mobile");
+  const actionBtn   = document.getElementById("role-action-btn");
+
+  if (actionBtn) {
+    if (role === "Airline") {
+      actionBtn.innerHTML = `
+        <a href="add-listing-step-03.html" class="btn btn-light-primary fw-medium full-width rounded-2">
+          <i class="fa-solid fa-plane ms-2"></i>افزودن پرواز
+        </a>`;
+    } else if (role === "Admin") {
+      actionBtn.innerHTML = `
+        <div class="d-flex flex-column gap-2">
+          <a href="add-listing.html" class="btn btn-light-primary fw-medium full-width rounded-2">
+            <i class="fa-solid fa-city ms-2"></i>افزودن شهر
+          </a>
+          <a href="add-listing-step-02.html" class="btn btn-light-success fw-medium full-width rounded-2">
+            <i class="fa-solid fa-tower-broadcast ms-2"></i>افزودن فرودگاه
+          </a>
+        </div>`;
+    } else {
+      actionBtn.innerHTML = "";
+    }
+  }
+
+  const extraDesktopItems = roleMenuItems(role);
+  const extraMobileItems  = roleMenuItems(role);
+
+  if (desktopMenu && extraDesktopItems) {
+    desktopMenu.insertAdjacentHTML("beforeend", extraDesktopItems);
+  }
+  if (mobileMenu && extraMobileItems) {
+    mobileMenu.insertAdjacentHTML("beforeend", extraMobileItems);
+  }
+}
+
+function roleMenuItems(role) {
+  if (role === "Airline") {
+    return `<li><a href="add-listing-step-03.html"><i class="fa-solid fa-plane ms-2"></i>افزودن پرواز</a></li>`;
+  } else if (role === "Admin") {
+    return `
+      <li><a href="add-listing.html"><i class="fa-solid fa-city ms-2"></i>افزودن شهر</a></li>
+      <li><a href="add-listing-step-02.html"><i class="fa-solid fa-tower-broadcast ms-2"></i>افزودن فرودگاه</a></li>`;
+  }
+  return "";
+}
+</script>
 </body>
 
 </html>
