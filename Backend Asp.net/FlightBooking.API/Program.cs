@@ -23,13 +23,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("VuePolicy", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials()
-            .WithOrigins("http://localhost:5173");
+            .WithOrigins(
+                "http://localhost:3000",   // python/node local server
+                "http://localhost:5173",   // Vue dev server
+                "http://127.0.0.1:3000",
+                "http://127.0.0.1:5173"
+            );
     });
 });
 
@@ -46,7 +50,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("VuePolicy");
+app.UseCors("AllowAll");
 
 app.UseStaticFiles();
 

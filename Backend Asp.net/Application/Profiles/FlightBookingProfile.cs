@@ -17,6 +17,10 @@ namespace Application.Profiles
             CreateMap<Airport, AirportDto>().ReverseMap();
             CreateMap<Flight, FlightDto>().ReverseMap();
             CreateMap<Flight, CreateFlightDto>().ReverseMap();
+            CreateMap<Passenger, PassengerDto>().ReverseMap();
+            CreateMap<Passenger, CreatePassengerDto>().ReverseMap();
+            CreateMap<Booking, BookingDto>().ReverseMap();
+            CreateMap<Booking, CreateBookingDto>().ReverseMap();
         }
     }
 }

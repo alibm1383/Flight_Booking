@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    public class AirportRepository : IAirportReposiroty
+    public class AirportRepository : IAirportRepository
     {
         private readonly FlightBookingContext _context;
         public AirportRepository(FlightBookingContext context)

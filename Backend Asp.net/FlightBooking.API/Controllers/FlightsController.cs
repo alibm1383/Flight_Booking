@@ -19,9 +19,9 @@ namespace FlightBooking.API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FlightDto>>> Get()
+        public async Task<ActionResult<IEnumerable<FlightDto>>> Search([FromQuery]SearchFlightDto searchFlightDto)
         {
-            var flights = await _flightService.GetAllFlightsAsync();
+            var flights = await _flightService.SearchAsync(searchFlightDto);
             return Ok(flights);
         }
 
@@ -37,6 +37,19 @@ namespace FlightBooking.API.Controllers
             return Ok(flight);
         }
 
+        [HttpGet("airline/{airlineId}")]
+        public async Task<IActionResult> GetFlightsByAirlineId(int airlineId)
+        {
+            var flights = await _flightService.GetFlightsByAirlineIdAsync(airlineId);
+            return Ok(flights);
+        }
+
+        [HttpGet("{flightId}/passengers")]
+        public async Task<IActionResult> GetPassengers(int flightId)
+        {
+            var passengers = await _flightService.GetPassengersByFlightIdAsync(flightId);
+            return Ok(passengers);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateFlightDto createFlightDto)

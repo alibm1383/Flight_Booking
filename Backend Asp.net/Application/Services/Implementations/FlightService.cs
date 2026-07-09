@@ -3,6 +3,7 @@ using AutoMapper;
 using Domain.DTOs;
 using Domain.Entities;
 using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,9 @@ namespace Application.Services.Implementations
             await _flightRepository.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<FlightDto>> GetAllFlightsAsync()
+        public async Task<IEnumerable<FlightDto>> SearchAsync(SearchFlightDto searchFlightDto)
         {
-            var flights = await _flightRepository.GetAllFlightsAsync();
+            var flights = await _flightRepository.SearchAsync(searchFlightDto);
             return _mapper.Map<IEnumerable<FlightDto>>(flights);
         }
 
@@ -39,6 +40,18 @@ namespace Application.Services.Implementations
         {
             var flight = await _flightRepository.GetFlightByIdAsync(flightId);
             return _mapper.Map<FlightDto>(flight);
+        }
+
+        public async Task<IEnumerable<FlightDto>> GetFlightsByAirlineIdAsync(int airlineId)
+        {
+            var flights = await _flightRepository.GetFlightsByAirlineIdAsync(airlineId);
+            return _mapper.Map<IEnumerable<FlightDto>>(flights);
+        }
+
+        public async Task<IEnumerable<PassengerDto>> GetPassengersByFlightIdAsync(int flightId)
+        {
+            var passengers = await _flightRepository.GetPassengersByFlightIdAsync(flightId);
+            return _mapper.Map<IEnumerable<PassengerDto>>(passengers);
         }
     }
 }

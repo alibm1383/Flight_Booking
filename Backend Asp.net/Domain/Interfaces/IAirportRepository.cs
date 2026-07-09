@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IAirportReposiroty
+    public interface IAirportRepository
     {
         Task<IEnumerable<Airport>> GetAllAirportsAsync();
         Task<Airport?> GetAirportByIdAsync(int airportId);

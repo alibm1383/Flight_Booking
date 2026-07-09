@@ -13,12 +13,12 @@ namespace Application.Services.Implementations
 {
     public class AirportService : IAirportService
     {
-        private readonly IAirportReposiroty _airportReposiroty;
+        private readonly IAirportRepository _airportReposiroty;
         private readonly IMapper _mapper;
         private readonly IFileService _fileService;
 
         #region Constructor
-        public AirportService(IAirportReposiroty airportReposiroty, IMapper mapper, IFileService fileService)
+        public AirportService(IAirportRepository airportReposiroty, IMapper mapper, IFileService fileService)
         {
             _airportReposiroty = airportReposiroty;
             _mapper = mapper;

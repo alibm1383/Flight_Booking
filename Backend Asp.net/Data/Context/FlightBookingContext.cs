@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Data.Context
 {
-    public class FlightBookingContext:DbContext
+    public class FlightBookingContext : DbContext
     {
         #region Constructor
 
-        public FlightBookingContext(DbContextOptions<FlightBookingContext> options) : base (options)
+        public FlightBookingContext(DbContextOptions<FlightBookingContext> options) : base(options)
         {
 
         }
@@ -72,7 +72,7 @@ namespace Data.Context
         }
         #endregion
 
-        public DbSet<City> Cities  { get; set; }
+        public DbSet<City> Cities { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Admin> Admins { get; set; }

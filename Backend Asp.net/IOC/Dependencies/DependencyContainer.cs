@@ -20,13 +20,15 @@ namespace IOC.Dependencies
             services.AddScoped<ICityService, CityService>();
             services.AddScoped<IAirportService, AirportService>();
             services.AddScoped<IFlightService, FlightService>();
+            services.AddScoped<IBookingService, BookingService>();
             services.AddScoped<IFileService, FileService>();
             #endregion
 
             #region Repository
             services.AddScoped<ICityRepository, CityRepository>();
-            services.AddScoped<IAirportReposiroty, AirportRepository>();
+            services.AddScoped<IAirportRepository, AirportRepository>();
             services.AddScoped<IFlightRepository, FlightRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
             #endregion
 
             #region AutoMapper

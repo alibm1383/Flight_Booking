@@ -19,7 +19,8 @@ namespace Domain.Entities
             get 
             {
                 return Passengers.Count;
-            } }
+            } 
+        }
         public DateTime BookingDate { get; set; }
         [MaxLength(50)]
         public required string PnrCode { get; set; }
@@ -28,7 +29,7 @@ namespace Domain.Entities
 
         public User User { get; set; } = null!;
         public Flight Flight { get; set; } = null!;
-        public ICollection<Passenger> Passengers { get; set; } = [];
+        public List<Passenger> Passengers { get; set; } = [];
 
     }
 }
