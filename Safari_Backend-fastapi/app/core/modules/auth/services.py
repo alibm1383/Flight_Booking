@@ -9,12 +9,11 @@ from app.core import security
 
 
 def check_user_exists(db: Session, phone_number: str, email: str = None):
-    """بررسی تکراری بودن شماره تلفن و ایمیل (در صورت وجود)"""
     user_with_phone = db.query(models.User).filter(models.User.PhoneNumber == phone_number).first()
     if user_with_phone:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="کاربری با این شماره تلفن قبلاً در سامانه ثبت شده است."
+            detail="A user with this phone number is already registered in the system."
         )
         
     if email:
@@ -22,32 +21,31 @@ def check_user_exists(db: Session, phone_number: str, email: str = None):
         if user_with_email:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
-                detail="این ایمیل قبلاً در سامانه ثبت شده است."
+                detail="This email is already registered in the system."
             )
 
 def get_role_id(db: Session, role_name: str) -> int:
-    """پیدا کردن شناسه نقش بر اساس نام"""
     role = db.query(models.Role).filter(models.Role.Name == role_name).first()
     if not role:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"نقش '{role_name}' در دیتابیس یافت نشد. لطفاً دیتابیس را بررسی کنید."
+            detail=f"Role '{role_name}' not found in the database. Please check the database."
         )
     return role.Id
 
 
-def register_user(db: Session, user_data: schemas.UserRegister):
+def register_customer(db: Session, customer_data: schemas.CustomerRegister):
 
-    check_user_exists(db, user_data.PhoneNumber, user_data.Email)
+    check_user_exists(db, customer_data.PhoneNumber, customer_data.Email)
 
     role_id = get_role_id(db, "Customer")
 
-    hashed_password = security.get_password_hash(user_data.Password)
+    hashed_password = security.get_password_hash(customer_data.Password)
 
     new_user = models.User(
         RoleId=role_id,
-        PhoneNumber=user_data.PhoneNumber,
-        Email=user_data.Email,
+        PhoneNumber=customer_data.PhoneNumber,
+        Email=customer_data.Email,
         PasswordHash=hashed_password,
         IsActive=True,
         IsEmailVerified=False,
@@ -60,10 +58,10 @@ def register_user(db: Session, user_data: schemas.UserRegister):
 
     new_customer = models.Customer(
         UserId=new_user.Id,
-        FirstName=user_data.FirstName,
-        LastName=user_data.LastName,
-        BirthDate=user_data.BirthDate,
-        Gender=user_data.Gender
+        FirstName=customer_data.FirstName,
+        LastName=customer_data.LastName,
+        BirthDate=customer_data.BirthDate,
+        Gender=customer_data.Gender
     )
     
     db.add(new_customer)
@@ -76,6 +74,40 @@ def register_user(db: Session, user_data: schemas.UserRegister):
     return {"access_token": access_token, "token_type": "bearer"}
 
 
+def register_airline(db: Session, airline_data: schemas.AirlineRegister):
+
+    check_user_exists(db, airline_data.PhoneNumber, airline_data.Email)
+    role_id = get_role_id(db, "Airline")
+    hashed_password = security.get_password_hash(airline_data.Password)
+
+    new_user = models.User(
+        RoleId=role_id,
+        PhoneNumber=airline_data.PhoneNumber,
+        Email=airline_data.Email,
+        PasswordHash=hashed_password,
+        IsActive=False,
+        IsEmailVerified=False,
+        IsPhoneVerified=False,
+        CreatedAt=datetime.now(timezone.utc)
+    )
+    
+    db.add(new_user)
+    db.flush() 
+
+    new_airline = models.Airline(
+        UserId=new_user.Id,
+        CompanyName=airline_data.CompanyName
+    )
+    
+    db.add(new_airline)
+    db.commit()
+    db.refresh(new_user)
+    
+    access_token = security.create_access_token(
+        data={"user_id": new_user.Id, "role_id": new_user.RoleId}
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
+
 def authenticate_user(db: Session, form_data: OAuth2PasswordRequestForm):
     
     user = db.query(models.User).filter(models.User.PhoneNumber == form_data.username).first()
@@ -83,7 +115,7 @@ def authenticate_user(db: Session, form_data: OAuth2PasswordRequestForm):
     if not user or not security.verify_password(form_data.password, user.PasswordHash):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="شماره تلفن یا رمز عبور اشتباه است.",
+            detail="Phone number or password is incorrect.",
             headers={"WWW-Authenticate": "Bearer"},
         )
     

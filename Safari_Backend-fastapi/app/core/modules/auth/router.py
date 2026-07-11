@@ -5,8 +5,6 @@ from fastapi.security import OAuth2PasswordRequestForm
 from app.core.modules.auth import schemas, services
 from app.database import get_db
 
-from app.core.modules.users import models
-from app.core import security
 
 router = APIRouter(
     prefix="/auth",
@@ -15,37 +13,34 @@ router = APIRouter(
 )
 
 @router.post(
-    "/register", 
+    "/register/customer", 
     response_model=schemas.Token, 
     status_code=status.HTTP_201_CREATED,
-    summary="ثبت‌نام کاربر جدید",
-    description="ثبت‌نام عمومی در سامانه. تمامی کاربران به صورت پیش‌فرض نقش مسافر دریافت می‌کنند."
+    summary="Register new customer",
+    description="This method receives customer information and after creating the profile, returns a JWT token for direct login."
 )
-def register(user_data: schemas.UserRegister, db: Session = Depends(get_db)):
-    return services.register_user(db, user_data)
+def register_customer(customer_data: schemas.CustomerRegister, db: Session = Depends(get_db)):
+
+    return services.register_customer(db, customer_data)
+
+
+@router.post(
+    "/register/airline", 
+    response_model=schemas.Token, 
+    status_code=status.HTTP_201_CREATED,
+    summary="Register airline company",
+    description="Register airline sales representatives by receiving company name."
+)
+def register_airline(airline_data: schemas.AirlineRegister, db: Session = Depends(get_db)):
+    return services.register_airline(db, airline_data)
 
 
 @router.post(
     "/login", 
     response_model=schemas.Token, 
     status_code=status.HTTP_200_OK,
-    summary="ورود به سامانه",
-    description="ورود تمامی کاربران (مسافر، ایرلاین و ادمین) با استفاده از شماره موبایل و رمز عبور."
+    summary="Login to system",
+    description="Login for all users (customer, airline, and admin) using phone number and password."
 )
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     return services.authenticate_user(db, form_data)
-
-
-# only for test
-@router.get("/me", response_model=None)
-def get_my_profile(current_user: models.User = Depends(security.get_current_user)):
-    """
-    تست مسیر محافظت شده: 
-    فقط در صورتی اجرا می‌شود که توکن معتبر در هدر ارسال شده باشد.
-    """
-    return {
-        "Id": current_user.Id,
-        "PhoneNumber": current_user.PhoneNumber,
-        "RoleId": current_user.RoleId,
-        "IsActive": current_user.IsActive
-    }
