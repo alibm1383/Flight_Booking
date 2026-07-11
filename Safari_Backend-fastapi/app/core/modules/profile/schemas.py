@@ -4,39 +4,36 @@ from datetime import date
 
 
 class ChangePassword(BaseModel):
-    CurrentPassword: str = Field(..., description="رمز عبور فعلی کاربر")
-    NewPassword: str = Field(..., min_length=8, max_length=72, description="رمز عبور جدید")
-    ConfirmNewPassword: str = Field(..., min_length=8, max_length=72, description="تکرار رمز عبور جدید")
+    CurrentPassword: str = Field(..., description="User's current password")
+    NewPassword: str = Field(..., min_length=8, max_length=72, description="New password")
+    ConfirmNewPassword: str = Field(..., min_length=8, max_length=72, description="Confirm new password")
 
     @model_validator(mode='after')
     def verify_password_match(self):
         if self.NewPassword != self.ConfirmNewPassword:
-            raise ValueError("رمز عبور جدید و تکرار آن با هم مطابقت ندارند.")
+            raise ValueError("New password and its confirmation do not match.")
         return self
 
 
 class CustomerProfileUpdate(BaseModel):
-    FirstName: Optional[str] = Field(None, min_length=2, max_length=200, description="نام جدید مسافر")
-    LastName: Optional[str] = Field(None, min_length=2, max_length=200, description="نام خانوادگی جدید مسافر")
-    BirthDate: Optional[date] = Field(None, description="تاریخ تولد جدید")
-    Gender: Optional[Literal[0, 1]] = Field(None, description="جنسیت: 0 برای مرد، 1 برای زن")
-    Email: Optional[EmailStr] = Field(None, description="ایمیل جدید کاربر")
-    ImageUrl: Optional[str] = Field(None, max_length=1000, description="آدرس عکس پروفایل جدید")
+    FirstName: Optional[str] = Field(None, min_length=2, max_length=200, description="Customer's new first name")
+    LastName: Optional[str] = Field(None, min_length=2, max_length=200, description="Customer's new last name")
+    BirthDate: Optional[date] = Field(None, description="New birth date")
+    Gender: Optional[Literal[0, 1]] = Field(None, description="Gender: 0 for male, 1 for female")
+    Email: Optional[EmailStr] = Field(None, description="User's new email")
 
 
 class AirlineProfileUpdate(BaseModel):
-    CompanyName: Optional[str] = Field(None, min_length=3, max_length=200, description="نام جدید شرکت هواپیمایی")
-    Email: Optional[EmailStr] = Field(None, description="ایمیل جدید شرکت")
-    ImageUrl: Optional[str] = Field(None, max_length=1000, description="آدرس عکس لوگو یا پروفایل جدید")
+    CompanyName: Optional[str] = Field(None, min_length=3, max_length=200, description="Airline's new company name")
+    Email: Optional[EmailStr] = Field(None, description="Airline's new email")
 
 
 class AdminProfileUpdate(BaseModel):
-    FirstName: Optional[str] = Field(None, min_length=2, max_length=200, description="نام جدید ادمین")
-    LastName: Optional[str] = Field(None, min_length=2, max_length=200, description="نام خانوادگی جدید ادمین")
-    BirthDate: Optional[date] = Field(None, description="تاریخ تولد")
-    Gender: Optional[Literal[0, 1]] = Field(None, description="جنسیت")
-    Email: Optional[EmailStr] = Field(None, description="ایمیل جدید ادمین")
-    ImageUrl: Optional[str] = Field(None, max_length=1000, description="آدرس عکس پروفایل جدید")
+    FirstName: Optional[str] = Field(None, min_length=2, max_length=200, description="Admin's new first name")
+    LastName: Optional[str] = Field(None, min_length=2, max_length=200, description="Admin's new last name")
+    BirthDate: Optional[date] = Field(None, description="Birth date")
+    Gender: Optional[Literal[0, 1]] = Field(None, description="Gender")
+    Email: Optional[EmailStr] = Field(None, description="Admin's new email")
 
 
 class CustomerInfoResponse(BaseModel):
@@ -79,3 +76,8 @@ class ProfileResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class AvatarUploadResponse(BaseModel):
+    message: str = Field(..., description="Success message for the operation")
+    ImageUrl: str = Field(..., description="URL of the uploaded image")
