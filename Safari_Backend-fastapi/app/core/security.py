@@ -46,7 +46,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
    
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="اعتبار توکن تایید نشد (احتمالاً منقضی یا دستکاری شده است).",
+        detail="Token validation failed (possibly expired or tampered).",
         headers={"WWW-Authenticate": "Bearer"},
     )
     
@@ -71,7 +71,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     if not user.IsActive:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="حساب کاربری شما توسط ادمین مسدود یا غیرفعال شده است."
+            detail="Your account has been blocked or deactivated by admin."
         )
         
     return user
@@ -80,7 +80,7 @@ def get_current_admin(current_user: models.User = Depends(get_current_user)):
     if current_user.RoleId != RoleType.ADMIN:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="دسترسی فقط برای مدیر سیستم مجاز است."
+            detail="Access is only authorized for system administrator."
         )
     return current_user
 
@@ -88,6 +88,6 @@ def get_current_airline(current_user: models.User = Depends(get_current_user)):
     if current_user.RoleId != RoleType.AIRLINE:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="این عملیات فقط برای شرکت‌های هواپیمایی مجاز است."
+            detail="This operation is only authorized for airlines."
         )
     return current_user

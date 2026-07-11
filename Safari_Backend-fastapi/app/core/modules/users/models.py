@@ -8,7 +8,6 @@ class Role(Base):
     Id = Column(Integer, primary_key=True, autoincrement=True)
     Name = Column(String(200), nullable=False)
 
-    # one-to-many
     users = relationship("User", back_populates="role")
 
 
