@@ -20,6 +20,14 @@ class Settings(BaseSettings):
     def DATABASE_URL(self) -> str:
         escaped_password = urllib.parse.quote_plus(self.DB_PASSWORD)
         return f"postgresql://{self.DB_USER}:{escaped_password}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+    
+    @property
+    def STATIC_DIR(self) -> Path:
+        return BASE_DIR / "app" / "static"
+
+    @property
+    def UPLOADS_DIR(self) -> Path:
+        return self.STATIC_DIR / "uploads"
 
     model_config = SettingsConfigDict(
         env_file=str(ENV_FILE_PATH), 
