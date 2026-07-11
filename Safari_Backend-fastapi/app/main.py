@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI
 from app.core.modules.auth.router import router as auth_router 
 from app.core.modules.profile.router import router as profile_router
+from app.core.modules.users.router import router as users_router
 from fastapi.staticfiles import StaticFiles
 from app.core.config import settings
 
@@ -21,4 +22,4 @@ def root():
 
 app.include_router(auth_router)
 app.include_router(profile_router)
-
+app.include_router(users_router)
