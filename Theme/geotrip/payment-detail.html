@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoTrip - جزئیات پرداخت</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <!-- All Plugins -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+
+  <!-- Fontawesome & Bootstrap Icons CSS -->
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+	<div id="app">
+	<div id="main-wrapper">
+
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+		<!-- Start Navigation -->
+			<div class="header header-light">
+			<div class="container">
+				<nav id="navigation" class="navigation navigation-landscape">
+					<div class="nav-header">
+						<a class="nav-brand" href="#"><img src="assets/img/logo.png" class="logo" alt=""></a>
+						<div class="nav-toggle"></div>
+						<!-- <div class="mobile_nav">
+							<ul>
+								<li class="languageDropdown ms-3">
+									<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+										<span class="d-flex align-items-center gap-2">فارسی |<i class="bi bi-globe h-auto"></i></span>
+									</a>
+								</li>
+								<li class="notificationsDropdown btn-group account-drop ms-2">
+									<a href="#" class="nav-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+											class="fa-regular fa-bell fs-6"></i></a>
+								</li>
+							</ul>
+						</div> -->
+					</div>
+					<div class="nav-menus-wrapper" style="transition-property: none;">
+						<ul class="nav-menu">
+
+							<li>
+   							 <a href="home-flight.html" class="home-button-style">صفحه اصلی</a>
+					  </li>
+
+              
+
+              <li><a href="JavaScript:Void(0);">صفحات<span class="submenu-indicator"></span></a>
+                <ul class="nav-dropdown nav-submenu">
+                  <li><a href="JavaScript:Void(0);">اعتبارسنجی<span class="submenu-indicator"></span></a>
+                    <ul class="nav-dropdown nav-submenu">
+                      <li><a href="login.html">ورود</a></li>
+                      <li><a href="register.html">ثبت نام</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="about-us.html">درباره ما</a></li>
+                  <li><a href="help-center.html">پشتیبانی</a></li>
+                  <li><a href="faq.html">سوالات متداول</a></li>
+                  <li><a href="JavaScript:Void(0);">تماس با ما<span class="submenu-indicator"></span></a>
+                    <ul class="nav-dropdown nav-submenu">
+                      
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li><a href="JavaScript:Void(0);">منو<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu xxl-menu">
+						  <li>
+							<a href="home-flight.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-primary fs-4"><i
+									class="fa-solid fa-plane"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">پرواز</h6>
+								  <p class="text-sm-muted m-0">رزرو بلیط هواپیما</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						  <li>
+							<a href="my-profile.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-purple fs-4"><i
+									class="fa-solid fa-eye"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">دانلود بلیط رزرو شده</h6>
+								  <p class="text-sm-muted m-0">بلیط خودرا هم اکنون دریافت کنید</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						</ul>
+					  </li>
+
+              
+
+						</ul>
+
+						<ul class="nav-menu nav-menu-social align-to-left">
+							<!-- <li class="languageDropdown ms-2">
+									<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+										<span class="d-flex align-items-center gap-2">فارسی |<i class="bi bi-globe h-auto"></i></span>
+									</a>
+								</li> -->
+							<!-- <li class="notificationsDropdown btn-group account-drop ms-2">
+								<a href="#" class="nav-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+										class="fa-regular fa-bell fs-6"></i></a>
+								<div class="dropdown-menu pull-right animated flipInX">
+									<div class="bg-primary px-3 py-3 border-bottom d-flex align-items-center justify-content-between">
+								</div>
+							</li> -->
+							<li>
+								<div class="btn-group account-drop">
+									<button type="button" class="btn btn-order-by-filt" data-bs-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false">
+										<img :src="avatarPreview" class="img-fluid" alt="" style="width:35px;height:35px;object-fit:cover;border-radius:50%">
+									</button>
+									<div class="dropdown-menu pull-right animated flipInX">
+										<div class="drp_menu_headr">
+											<h4>سلام، {{ profile.firstName || 'کاربر' }}</h4>
+											<div class="drp_menu_headr-right">
+												<button type="button" @click="logout" class="btn btn-md fw-medium btn-whites text-dark">خروج</button>
+											</div>
+										</div>
+										<ul>
+											<li><a href="my-profile.html"><i class="fa-regular fa-id-card ms-2"></i>پروفایل<span class="notti_coun style-1">4</span></a></li>
+											<li><a href="my-booking.html"><i class="fa-solid fa-ticket ms-2"></i>لیست رزروها</a></li>
+											
+											<li><a href="payment-detail.html"><i class="fa-solid fa-wallet ms-2"></i>جزئیات پرداخت</a></li>
+											<li><a href="#" @click.prevent="logout"><i class="fa-solid fa-power-off ms-2"></i>خروج</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+
+
+
+		<!-- ============================ User Dashboard Menu ============================ -->
+		<div class="dashboard-menus border-top d-none d-lg-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<ul class="user-Dashboard-menu">
+							<li><a href="my-profile.html"><i class="fa-regular fa-id-card ms-2"></i>پروفایل</a></li>
+							<li><a href="my-booking.html"><i class="fa-solid fa-ticket ms-2"></i>لیست رزروها</a></li>
+							
+							<li class="active"><a href="payment-detail.html"><i class="fa-solid fa-wallet ms-2"></i>جزئیات پرداخت</a></li>
+							<li v-if="isAirline"><a href="add-listing-step-03.html"><i class="fa-solid fa-plane ms-2"></i>افزودن پرواز</a></li>
+							<li v-if="isAdmin"><a href="add-listing.html"><i class="fa-solid fa-city ms-2"></i>افزودن شهر</a></li>
+							<li v-if="isAdmin"><a href="add-listing-step-02.html"><i class="fa-solid fa-tower-broadcast ms-2"></i>افزودن فرودگاه</a></li>
+							<li><a href="#" @click.prevent="logout"><i class="fa-solid fa-power-off ms-2"></i>خروج</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ============================ End user Dashboard Menu ============================ -->
+
+
+		<!-- ============================ Booking Page ================================== -->
+		<section class="pt-5 gray-simple position-relative">
+			<div class="container">
+
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+						<button class="btn btn-dark fw-medium full-width d-block d-lg-none" data-bs-toggle="offcanvas"
+							data-bs-target="#offcanvasDashboard" aria-controls="offcanvasDashboard"><i
+								class="fa-solid fa-gauge ms-2"></i>منوی حساب کاربری</button>
+						<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+							id="offcanvasDashboard" aria-labelledby="offcanvasScrollingLabel">
+							<div class="offcanvas-header gray-simple">
+								<h5 class="offcanvas-title">سلام، {{ profile.firstName || 'کاربر' }}</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+							</div>
+							<div class="offcanvas-body p-0">
+								<ul class="user-Dashboard-longmenu">
+									<li><a href="my-profile.html"><i class="fa-regular fa-id-card ms-2"></i>پروفایل</a></li>
+									<li><a href="my-booking.html"><i class="fa-solid fa-ticket ms-2"></i>لیست رزروها</a></li>
+									
+									<li class="active"><a href="payment-detail.html"><i class="fa-solid fa-wallet ms-2"></i>جزئیات پرداخت</a></li>
+									<li v-if="isAirline"><a href="add-listing-step-03.html"><i class="fa-solid fa-plane ms-2"></i>افزودن پرواز</a></li>
+									<li v-if="isAdmin"><a href="add-listing.html"><i class="fa-solid fa-city ms-2"></i>افزودن شهر</a></li>
+									<li v-if="isAdmin"><a href="add-listing-step-02.html"><i class="fa-solid fa-tower-broadcast ms-2"></i>افزودن فرودگاه</a></li>
+									<li><a href="#" @click.prevent="logout"><i class="fa-solid fa-power-off ms-2"></i>خروج</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row align-items-start justify-content-between gx-xl-4">
+
+					<div class="col-xl-4 col-lg-4 col-md-12">
+						<div class="card rounded-2 ms-xl-5 mb-4">
+							<div class="card-top bg-primary position-relative">
+								<div class="position-absolute start-0 top-0 mt-4 ms-3">
+									<a href="#" @click.prevent="logout" class="square--40 circle bg-light-dark text-light">
+										<i class="fa-solid fa-right-from-bracket"></i>
+									</a>
+								</div>
+								<div class="py-5 px-3 d-flex flex-column align-items-center justify-content-center">
+									<span class="avatar avatar-xl">
+										<img :src="avatarPreview" class="avatar-img rounded-circle border border-white border-3 shadow" alt="">
+									</span>
+									<div class="crd-capser text-center mt-2">
+										<h5 class="mb-0 text-light">{{ fullName }}</h5>
+										<span class="text-light opacity-75 fw-medium text-md">
+											<i class="fa-solid fa-phone ms-2"></i>{{ profile.phone }}
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="card-middle px-4 py-5">
+								<div class="crdapproval-groups">
+
+									<div class="crdapproval-single d-flex align-items-center justify-content-start mb-4">
+										<div class="crdapproval-item">
+											<div class="square--50 circle bg-light-primary text-primary"><i class="fa-solid fa-envelope-circle-check fs-5"></i></div>
+										</div>
+										<div class="crdapproval-caps pe-2">
+											<div class="d-flippo">
+												<p class="text-dark lh-2 mb-0">تایید ایمیل</p>
+												<span><i :class="profile.isEmailVerified ? 'bi bi-patch-check-fill text-success' : 'bi bi-patch-check-fill text-muted'"></i></span>
+											</div>
+											<div class="d-flippo">
+												<p class="text-md text-muted lh-1 mb-0">{{ profile.isEmailVerified ? 'تایید شده ✓' : 'تایید نشده' }}</p>
+												<p class="mb-0"><a href="my-profile.html" class="text-dark">به روزرسانی</a></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="crdapproval-single d-flex align-items-center justify-content-start mb-4">
+										<div class="crdapproval-item">
+											<div class="square--50 circle bg-light-primary text-primary"><i class="fa-solid fa-phone-volume fs-5"></i></div>
+										</div>
+										<div class="crdapproval-caps pe-2">
+											<div class="d-flippo">
+												<p class="text-dark lh-2 mb-0">تایید شماره تماس</p>
+												<span><i :class="profile.isPhoneVerified ? 'bi bi-patch-check-fill text-success' : 'bi bi-patch-check-fill text-muted'"></i></span>
+											</div>
+											<div class="d-flippo">
+												<p class="text-md text-muted lh-1 mb-0">{{ profile.isPhoneVerified ? 'تایید شده ✓' : 'تایید نشده' }}</p>
+												<p class="mb-0"><a href="my-profile.html" class="text-dark">به روزرسانی</a></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="crdapproval-single d-flex align-items-center justify-content-start">
+										<div class="crdapproval-item">
+											<div class="square--50 circle bg-light-primary text-primary"><i class="fa-solid fa-file-invoice fs-5"></i></div>
+										</div>
+										<div class="crdapproval-caps pe-2">
+											<div class="d-flippo">
+												<p class="text-dark lh-2 mb-0">تکمیل اطلاعات شخصی</p>
+												<span class="text-muted"><i class="bi bi-patch-check-fill"></i></span>
+											</div>
+											<div class="d-flippo">
+												<p class="text-md text-muted lh-1 mb-0">20% باقی مانده</p>
+												<p class="mb-0"><a href="my-profile.html" class="text-dark">تکمیل</a></p>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="card-middle mt-5 mb-4 px-4">
+								<div class="revs-wraps mb-3">
+									<div class="revs-wraps-flex d-flex align-items-center justify-content-between mb-1">
+										<span class="text-dark text-md">میزان تکمیل پروفایل</span>
+										<span class="text-dark text-md">75%</span>
+									</div>
+									<div class="progress" role="progressbar" style="height: 7px">
+										<div class="progress-bar bg-success" style="width: 87%"></div>
+									</div>
+								</div>
+								<div class="crd-upgrades">
+									<a v-if="isAirline" href="add-listing-step-03.html" class="btn btn-light-primary fw-medium full-width rounded-2">
+										<i class="fa-solid fa-plane ms-2"></i>افزودن پرواز
+									</a>
+									<template v-else-if="isAdmin">
+										<a href="add-listing.html" class="btn btn-light-primary fw-medium full-width rounded-2 mb-2">
+											<i class="fa-solid fa-city ms-2"></i>افزودن شهر
+										</a>
+										<a href="add-listing-step-02.html" class="btn btn-light-success fw-medium full-width rounded-2">
+											<i class="fa-solid fa-tower-broadcast ms-2"></i>افزودن فرودگاه
+										</a>
+									</template>
+									<button v-else class="btn btn-light-primary fw-medium full-width rounded-2" type="button">
+										<i class="fa-solid fa-sun ms-2"></i>ارتقاء پروفایل
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-8 col-lg-8 col-md-12">
+
+						<div class="card mb-4">
+							<div class="card-header">
+								<h4><i class="fa-solid fa-file-invoice-dollar ms-2"></i>تاریخچه پرداختی‌ها</h4>
+							</div>
+							<div class="card-body">
+
+								<div v-if="loadingBookings" class="text-center py-4">
+									<div class="spinner-border text-primary"></div>
+									<p class="mt-2">در حال بارگذاری...</p>
+								</div>
+
+								<div v-else-if="bookings.length === 0" class="text-center py-4 text-muted">
+									<i class="fa-solid fa-ticket fs-1 mb-3 d-block"></i>
+									هیچ رزروی یافت نشد.
+								</div>
+
+								<table v-else class="table">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">کد پیگیری (PNR)</th>
+											<th scope="col">مسیر پرواز</th>
+											<th scope="col">تاریخ پرواز</th>
+											<th scope="col">مبلغ</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="(booking, index) in bookings" :key="booking.Id">
+											<th>{{ String(index + 1).padStart(2, '0') }}</th>
+											<td><span class="fw-medium text-primary">{{ booking.PnrCode }}</span></td>
+											<td>
+											<span v-if="getSourceCity(booking) || getDestinationCity(booking)">
+												{{ getSourceCity(booking) || '—' }}
+												<i class="fa-solid fa-arrow-left mx-1 text-muted" style="font-size:11px"></i>
+												{{ getDestinationCity(booking) || '—' }}
+											</span>
+											<span v-else class="text-muted">—</span>
+										</td>
+											<td>{{ formatDate(booking.DepartureTime) }}</td>
+											<td>
+												<span class="text-md fw-medium text-dark">
+													{{ Number(booking.TotalAmount).toLocaleString('fa-IR') }} ریال
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Booking Page End ================================== -->
+	
+
+		<!-- ============================ Footer Start ================================== -->
+		<footer class="footer skin-light-footer">
+    <div class="footer-bottom border-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <p class="mb-0">کلیه حقوق این سایت محفوظ و متعلق به شرکت خدمات گردشگری است.</p>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <ul class="p-0 d-flex justify-content-start justify-content-md-end text-start text-md-end m-0">
+                        <li><a href="#">شرایط و قوانین</a></li>
+                        <li class="me-3"><a href="#">درباره ما</a></li>
+                        <li class="me-3"><a href="#">کوکی ها</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- ============================ Footer End ================================== -->
+
+    <!-- Log In Modal -->
+    
+
+
+		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="fa-solid fa-sort-up"></i></a>
+
+
+	</div><!-- end #main-wrapper -->
+	</div><!-- end #app -->
+
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/dropzone.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
+    <script src="assets/js/flickity.pkgd.min.js"></script>
+    <script src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/rangeslider.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/counterup.min.js"></script>
+    <script src="assets/js/prism.js"></script>
+	<script src="assets/js/custom.js"></script>
+
+<script>
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      API_BASE_FASTAPI: "http://127.0.0.1:8000",
+      API_BASE_DOTNET:  "http://localhost:5041/api",
+      profile: {
+        firstName: "",
+        lastName: "",
+        phone: "",
+        imageUrl: null,
+        isEmailVerified: false,
+        isPhoneVerified: false,
+      },
+      avatarPreview: "assets/img/team-11.jpg",
+      roleId: null,
+      bookings: [],
+      loadingBookings: true,
+      airports: [],
+    };
+  },
+
+  computed: {
+    fullName() {
+      return `${this.profile.firstName} ${this.profile.lastName}`.trim() || "کاربر";
+    },
+    isAirline() { return this.roleId === 2; },
+    isAdmin()   { return this.roleId === 1; },
+  },
+
+  async mounted() {
+    if (!localStorage.getItem("token")) {
+      window.location.replace("login.html");
+      return;
+    }
+    await this.loadAirports();
+    await this.loadProfile();
+  },
+
+  methods: {
+    getToken() { return localStorage.getItem("token"); },
+
+    logout(e) {
+      if (e) e.preventDefault();
+      localStorage.removeItem("token");
+      window.location.replace("login.html");
+    },
+
+    formatDate(dateStr) {
+      if (!dateStr) return "—";
+      const d = new Date(dateStr);
+      return d.toLocaleDateString("fa-IR", { year: "numeric", month: "long", day: "numeric" });
+    },
+
+    // ─── لود پروفایل از FastAPI ───────────────────────────────────────────
+    async loadProfile() {
+      try {
+        const res = await fetch(`${this.API_BASE_FASTAPI}/profile/me`, {
+          headers: { "Authorization": `Bearer ${this.getToken()}` }
+        });
+
+        if (res.status === 401) {
+          alert("نشست منقضی شده. لطفاً دوباره وارد شوید.");
+          localStorage.removeItem("token");
+          window.location.replace("login.html");
+          return;
+        }
+
+        const data = await res.json();
+        this.roleId = data.RoleId;
+
+        let firstName = "", lastName = "";
+        if (data.RoleId === 3 && data.CustomerDetails) {
+          firstName = data.CustomerDetails.FirstName || "";
+          lastName  = data.CustomerDetails.LastName  || "";
+        } else if (data.RoleId === 2 && data.AirlineDetails) {
+          firstName = data.AirlineDetails.CompanyName || "";
+        } else if (data.RoleId === 1 && data.AdminDetails) {
+          firstName = data.AdminDetails.FirstName || "";
+          lastName  = data.AdminDetails.LastName  || "";
+        }
+
+        this.profile.firstName       = firstName;
+        this.profile.lastName        = lastName;
+        this.profile.phone           = data.PhoneNumber || "";
+        this.profile.isEmailVerified = data.IsEmailVerified;
+        this.profile.isPhoneVerified = data.IsPhoneVerified;
+
+        if (data.ImageUrl) {
+          const url = data.ImageUrl.startsWith("http")
+            ? data.ImageUrl
+            : `${this.API_BASE_FASTAPI}/${data.ImageUrl.replace(/^\//, "")}`;
+          this.avatarPreview = url;
+        }
+
+        // بعد از گرفتن userId رزروها رو لود کن (پشتیبانی از احتمال camelCase بودن فیلد)
+        await this.loadBookings(data.Id ?? data.id ?? data.userId ?? data.UserId);
+
+      } catch (err) {
+        console.error("خطا در پروفایل:", err);
+      }
+    },
+
+    // ─── لود فرودگاه‌ها (برای نمایش اسم شهر در صورتی که Booking فقط id بفرستد) ─
+    async loadAirports() {
+      try {
+        const res = await fetch(`${this.API_BASE_DOTNET}/Airports/`, {
+          headers: { "Authorization": `Bearer ${this.getToken()}` }
+        });
+        if (res.ok) this.airports = await res.json();
+      } catch (err) {
+        console.error("خطا در لود فرودگاه‌ها:", err);
+      }
+    },
+
+    airportLabel(airportId) {
+      const airport = this.airports.find(a => a.id == airportId || a.Id == airportId);
+      return airport ? (airport.name || airport.Name || airport.code || airport.Code) : null;
+    },
+
+    // مسیر پرواز رو از هر شکلی که Booking برگردونه استخراج می‌کند:
+    // چه SourceCity/DestinationCity مستقیم داخل Flight باشه، چه فقط SourceId/DestinationId
+    getSourceCity(booking) {
+      return booking.SourceCity || this.airportLabel(booking.SourceId ?? booking.SourceAirportId) || null;
+    },
+
+    getDestinationCity(booking) {
+      return booking.DestinationCity || this.airportLabel(booking.DestinationId ?? booking.DestinationAirportId) || null;
+    },
+
+    // تبدیل کلیدهای اشیاء به PascalCase به‌صورت بازگشتی
+    // (چون سریالایزر پیش‌فرض دات‌نت camelCase برمی‌گرداند ولی قالب PascalCase انتظار دارد)
+    normalizeKeys(input) {
+      if (Array.isArray(input)) {
+        return input.map(item => this.normalizeKeys(item));
+      }
+      if (input !== null && typeof input === "object") {
+        const result = {};
+        for (const [key, value] of Object.entries(input)) {
+          const pascalKey = key.charAt(0).toUpperCase() + key.slice(1);
+          result[pascalKey] = this.normalizeKeys(value);
+        }
+        return result;
+      }
+      return input;
+    },
+
+    // ─── لود رزروها از .NET API ───────────────────────────────────────────
+    async loadBookings(userId) {
+      if (!userId) {
+        console.error("خطا در رزروها: userId نامعتبر است", userId);
+        this.bookings = [];
+        this.loadingBookings = false;
+        return;
+      }
+
+      try {
+        const res = await fetch(`${this.API_BASE_DOTNET}/Bookings/${userId}`, {
+          headers: { "Authorization": `Bearer ${this.getToken()}` }
+        });
+
+        if (!res.ok) {
+          const bodyText = await res.text().catch(() => "");
+          throw new Error(`خطا در دریافت رزروها (status ${res.status}): ${bodyText}`);
+        }
+
+        const data = await res.json();
+
+        // برخی پاسخ‌های .NET به‌صورت { "$values": [...] } برمی‌گردند
+        const rawBookings = Array.isArray(data) ? data : (data?.$values ?? []);
+        this.bookings = this.normalizeKeys(rawBookings);
+
+        console.log("رزروهای دریافتی:", this.bookings);
+
+      } catch (err) {
+        console.error("خطا در رزروها:", err);
+        this.bookings = [];
+      } finally {
+        this.loadingBookings = false;
+      }
+    },
+  },
+}).mount("#app");
+</script>
+
+
+</body>
+
+</html>

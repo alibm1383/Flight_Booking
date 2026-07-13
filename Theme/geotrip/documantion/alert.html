@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <title>GeoTrip - قالب HTML رزرو تور و آژانس مسافرتی ژِئوتریپ</title>
+		<link rel="icon" type="image/x-icon" href="img/favicon.png">
+        <!-- Icons -->
+		<link href="css/all.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/css/bootstrap-icons.css" rel="stylesheet">
+	    <!-- Custom CSS -->
+		<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../assets/css/style.css" rel="stylesheet">  
+		<!-- Custom CSS -->
+		<link href="css/prism.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+</head>
+
+  <body>
+
+
+
+	<header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+	  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><img src="img/logo-light.png" class="img-fluid" width="120" alt=""></a>
+
+	  <ul class="navbar-nav flex-row d-md-none">
+		<li class="nav-item text-nowrap">
+		  <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
+			  <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
+			</svg>
+		  </button>
+		</li>
+	  </ul>
+	</header>
+
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+		  <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+			<div class="offcanvas-header">
+			  <h5 class="offcanvas-title" id="sidebarMenuLabel"><img src="img/logo.png" class="img-fluid" width="120" alt=""></h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+				<div class="text-uppercase fw-bold text-dark me-2 mb-2">شروع</div>
+				<ul class="nav side-nav flex-column">
+					<li class="nav-item">
+						<a href="index.html">توضیحات</a>
+					</li>
+					<li class="nav-item">
+						<a href="logo-setting.html">تغییر لوگو</a>
+					</li>
+					<li class="nav-item">
+						<a href="fonts.html">فونت آیکُن</a>
+					</li>
+					<li class="nav-item">
+						<a href="credits.html">منابع</a>
+					</li>
+				</ul>
+
+				<hr>
+
+				<div class="text-uppercase fw-bold text-dark me-2 mb-2 mt-2">کامپوننت ها</div>
+				<ul class="nav side-nav flex-column">
+					<li class="nav-item">
+						<a class="active" href="alert.html">هشدارها</a>
+					</li>
+					<li class="nav-item">
+						<a href="avatar.html">آواتار</a>
+					</li>
+					<li class="nav-item">
+						<a href="badges.html">نشان ها</a>
+					</li>
+					<li class="nav-item">
+						<a href="breadcrumb.html">مسیر راهنما</a>
+					</li>
+					<li class="nav-item">
+						<a href="buttons.html">دکمه ها</a>
+					</li>
+					<li class="nav-item">
+						<a href="fonts.html">فونت آیکُن</a>
+					</li>
+					<li class="nav-item">
+						<a href="google-map.html">گوگل مپ</a>
+					</li>
+					<li class="nav-item">
+						<a href="nav-tabs.html">منو و تب</a>
+					</li>
+					<li class="nav-item">
+						<a href="pagination.html">صفحه بندی</a>
+					</li>
+					<li class="nav-item">
+						<a href="progress.html">نوار پیشرفت</a>
+					</li>
+					<li class="nav-item">
+						<a href="utilities.html">کلاس های کاربردی</a>
+					</li>
+					<li class="nav-item">
+						<a href="accordion.html">منو آکاردئون</a>
+					</li>
+				</ul>
+				<hr>
+				<div class="text-uppercase fw-bold text-dark me-2 mb-2 mt-2">پلاگین ها</div>
+				<ul class="nav side-nav flex-column">
+					<li class="nav-item">
+						<a href="flatpicker.html">Flatpickr</a>
+					</li>
+					<li class="nav-item">
+						<a href="flickity.html">Flickity</a>
+					</li>
+					<li class="nav-item">
+						<a href="lightbox2.html">Lightbox2</a>
+					</li>
+				</ul>
+				
+			</div>
+		  </div>
+		</div>
+
+		<main class="col-md-9 me-sm-auto col-lg-10 px-md-5 py-4 py-md-5">
+		  
+		  <div class="row">
+			<div class="col-12">
+				<!-- Page title -->
+				<div class="my-5">
+					<h1 class="h3">هشدارها</h1>
+					<hr>
+				</div>
+				<!-- Page content START -->
+
+				<!-- Alerts Examples -->
+				<h4 class="mt-5">رنگ بندی</h4>
+				<p>می توانید از یکی از 8 کلاس متنی مورد نیاز (به عنوان مثال، <code>alert-success</code>) استفاده کنید.</p>
+
+				<!-- Tab START -->
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item" role="presentation"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1" aria-selected="true" role="tab">نتیجه</a> </li>
+					<li class="nav-item" role="presentation"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2" aria-selected="false" tabindex="-1" role="tab">HTML</a> </li>
+				</ul>
+				<div class="tab-content bg-light p-4">
+					<div class="tab-pane show active" id="tab-1" role="tabpanel">
+					<div class="alert alert-primary" role="alert">
+					  این یک پیام تستی است!
+					</div>
+							<div class="alert alert-secondary" role="alert">
+							این یک پیام تستی است!
+						</div>
+						<div class="alert alert-success" role="alert">
+							این یک پیام تستی است!
+						</div>
+						<div class="alert alert-danger" role="alert">
+							این یک پیام تستی است!
+						</div>
+						<div class="alert alert-warning" role="alert">
+							این یک پیام تستی است!
+						</div>
+						<div class="alert alert-info" role="alert">
+							این یک پیام تستی است!
+						</div>
+						<div class="alert alert-light" role="alert">
+							این یک پیام تستی است!
+						</div>
+						<div class="alert alert-dark" role="alert">
+							این یک پیام تستی است!
+						</div>
+					</div>
+
+					<div class="tab-pane" id="tab-2" role="tabpanel">
+				<div class="position-relative">
+				<pre id="copy-1" class="my-3 language-markup"><code class=" language-markup" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-primary<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-secondary<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-success<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-danger<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-warning<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-info<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-light<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-dark<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تستی است!
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+				<button id="copy_id-1" data-clipboard-action="copy" data-clipboard-target="#copy-1" class="copy-link btn btn-primary btn-sm">کپی</button>
+				</div>
+				</div>
+				</div>
+				<!-- Tab END -->
+
+
+				<!-- Link-color Examples -->
+				<h4 class="mt-5">رنگ بندی لینک</h4>
+				<p>با استفاده از <code>alert-link</code> می توانید لینک های رنگی مطابق با هر alert ارائه دهید.</p>
+
+				<!-- Tab START -->
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item" role="presentation"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-5" aria-selected="true" role="tab">نتیجه</a> </li>
+					<li class="nav-item" role="presentation"> <a class="nav-link" data-bs-toggle="tab" href="#tab-6" aria-selected="false" tabindex="-1" role="tab">HTML</a> </li>
+				</ul>
+				<div class="tab-content bg-light p-4">
+					<div class="tab-pane show active" id="tab-5" role="tabpanel">
+						<div class="alert alert-primary" role="alert">
+							این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+						<div class="alert alert-secondary" role="alert">
+						  این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+						<div class="alert alert-success" role="alert">
+						  این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+						<div class="alert alert-danger" role="alert">
+						  این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+						<div class="alert alert-warning" role="alert">
+						  این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+						<div class="alert alert-info" role="alert">
+						  این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+						<div class="alert alert-light" role="alert">
+						  این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+						<div class="alert alert-dark" role="alert">
+						  این یک پیام تست با <a href="#" class="alert-link">یک لینک تست</a> است. میتوانید روی آن کلیک کنید.
+						</div>
+					</div>
+
+					<div class="tab-pane" id="tab-6" role="tabpanel">
+				<div class="position-relative">
+				<pre id="copy-3" class="my-3 language-markup"><code class=" language-markup" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-primary<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-secondary<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-success<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-danger<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-warning<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-info<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-light<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-dark<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					این یک پیام تست با <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-link<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>یک لینک تست<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.است. میتوانید روی آن کلیک کنید
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+				<button id="copy_id-3" data-clipboard-action="copy" data-clipboard-target="#copy-3" class="copy-link btn btn-primary btn-sm">کپی</button>
+				</div>
+				</div>
+				</div>
+				<!-- Tab END -->
+
+
+				<!-- Additional content Examples -->
+				<h4 class="mt-5">متنی</h4>
+				<p>هشدارها همچنین می توانند حاوی عناصر اضافی HTML مانند عنوان، پاراگراف ها و تقسیم کننده ها باشند.</p>
+
+				<!-- Tab START -->
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item" role="presentation"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-7" aria-selected="true" role="tab">نتیجه</a> </li>
+					<li class="nav-item" role="presentation"> <a class="nav-link" data-bs-toggle="tab" href="#tab-8" aria-selected="false" tabindex="-1" role="tab">HTML</a> </li>
+				</ul>
+				<div class="tab-content bg-light p-4">
+					<div class="tab-pane show active" id="tab-7" role="tabpanel">
+						<div class="alert alert-success" role="alert">
+						<h5 class="alert-heading">عنوان</h5>
+						  <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+						  <hr>
+						  <p class="mb-0">حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+						</div>
+					</div>
+
+					<div class="tab-pane" id="tab-8" role="tabpanel">
+				<div class="position-relative">
+				<pre id="copy-4" class="my-3 language-markup"><code class=" language-markup" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-success<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-heading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>عنوان<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mb-0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+				<button id="copy_id-4" data-clipboard-action="copy" data-clipboard-target="#copy-4" class="copy-link btn btn-primary btn-sm">کپی</button>
+				</div>
+				</div>
+				</div>
+				<!-- Tab END -->
+
+				<!-- Dismissing Examples -->
+				<h4 class="mt-5">قابلیت close نسخه 1</h4>
+
+				<!-- Tab START -->
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item" role="presentation"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-9" aria-selected="true" role="tab">نتیجه</a> </li>
+					<li class="nav-item" role="presentation"> <a class="nav-link" data-bs-toggle="tab" href="#tab-10" aria-selected="false" tabindex="-1" role="tab">HTML</a> </li>
+				</ul>
+				<div class="tab-content bg-light p-4">
+					<div class="tab-pane show active" id="tab-9" role="tabpanel">
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							<strong>سلام! </strong> با کلیک روی دکمه بستن در سمت راست ، این باکس را میتوانید ببندید.
+						  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					</div>
+
+				<div class="tab-pane" id="tab-10" role="tabpanel">
+				<div class="position-relative">
+				<pre id="copy-5" class="my-3 language-markup"><code class=" language-markup" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-warning alert-dismissible fade show<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">&gt;</span></span>سلام!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">&gt;</span></span>  با کلیک روی دکمه بستن در سمت راست ، این باکس را میتوانید ببندید.
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn-close<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-dismiss</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Close<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+				<button id="copy_id-5" data-clipboard-action="copy" data-clipboard-target="#copy-5" class="copy-link btn btn-primary btn-sm">کپی</button>
+				</div>
+				</div>
+				</div>
+				<!-- Tab END -->
+
+				<!-- Custom Alerts -->
+				<h4 class="mt-5">قابلیت close نسخه 2</h4>
+				<!-- Tab START -->
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item" role="presentation"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-3" aria-selected="true" role="tab">نتیجه</a> </li>
+					<li class="nav-item" role="presentation"> <a class="nav-link" data-bs-toggle="tab" href="#tab-4" aria-selected="false" tabindex="-1" role="tab">نتیجه</a> </li>
+				</ul>
+				<div class="tab-content bg-light p-4">
+					<div class="tab-pane show active" id="tab-3" role="tabpanel">
+						<div class="alert alert-warning py-2 m-0 bg-primary border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden" role="alert">
+					  <p class="text-white m-0">
+						از قدمت و معماری هتل داد یزد چه می‌دانید؟<a href="#" class="btn btn-xs btn-dark me-2 mb-0">بیشتر بخوانید</a></p>
+					  <!-- Close button -->
+					  <button type="button" class="btn-close btn-close-white opacity-9 p-3" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+					</div>
+
+					<div class="tab-pane" id="tab-4" role="tabpanel">
+				<div class="position-relative">
+				<pre id="copy-2" class="my-3 language-markup"><code class=" language-markup" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-warning py-2 m-0 bg-primary border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text-white m-0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					از قدمت و معماری هتل داد یزد چه می‌دانید؟<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-xs btn-dark ms-2 mb-0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>بیشتر بخوانید<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+					<span class="token comment" spellcheck="true">&lt;!-- Close button --&gt;</span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn-close btn-close-white opacity-9 p-3<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-dismiss</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Close<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+				<button id="copy_id-2" data-clipboard-action="copy" data-clipboard-target="#copy-2" class="copy-link btn btn-primary btn-sm">کپی</button>
+				</div>
+				</div>
+				</div>
+				<!-- Tab END -->
+
+
+				<!-- Alerts with icon and content -->
+				<h4 class="mt-5">با آیکُن و متن</h4>
+				<!-- Tab START -->
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item" role="presentation"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-18" aria-selected="true" role="tab">نتیجه</a> </li>
+					<li class="nav-item" role="presentation"> <a class="nav-link" data-bs-toggle="tab" href="#tab-19" aria-selected="false" tabindex="-1" role="tab">HTML</a> </li>
+				</ul>
+				<div class="tab-content bg-light p-4">
+					<div class="tab-pane show active" id="tab-18" role="tabpanel">
+						<div class="alert alert-danger d-flex align-items-center rounded-3 mb-0" role="alert">
+							<h4 class="mb-0 alert-heading"><i class="bi bi-exclamation-octagon-fill ms-2"></i> </h4>
+							<div class="me-3">
+								<h6 class="mb-0 alert-heading">51% تخفیف تورهای نوروزی برای مدت محدود</h6>
+								<p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane" id="tab-19" role="tabpanel">
+				<div class="position-relative">
+				<pre id="copy-11" class="my-3 language-markup"><code class=" language-markup" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-danger d-flex align-items-center rounded-3 mb-0<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mb-0 alert-heading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>bi bi-exclamation-octagon-fill ms-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>me-3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mb-0 alert-heading<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>51% تخفیف تورهای نوروزی برای مدت محدود<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mb-0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+				<button id="copy_id-11" data-clipboard-action="copy" data-clipboard-target="#copy-11" class="copy-link btn btn-primary btn-sm">کپی</button>
+				</div>
+				</div>
+				</div>
+				<!-- Tab END -->
+
+				<!-- Dismissing alert with additional content -->
+				<h4 class="mt-5">قابلیت close نسخه 3</h4>
+				<!-- Tab START -->
+				<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+					<li class="nav-item" role="presentation"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-20" aria-selected="true" role="tab">نتیجه</a> </li>
+					<li class="nav-item" role="presentation"> <a class="nav-link" data-bs-toggle="tab" href="#tab-21" aria-selected="false" tabindex="-1" role="tab">HTML</a> </li>
+				</ul>
+				<div class="tab-content bg-light p-4">
+					<div class="tab-pane show active" id="tab-20" role="tabpanel">
+						<div class="alert alert-success alert-dismissible fade show my-3" role="alert">
+
+					  <!-- Title -->
+					  <div class="d-sm-flex align-items-center mb-3">
+						<h5 class="alert-heading mb-0">از 14,500,000 ریال</h5>
+					  </div>
+					  
+					  <!-- Content -->
+					  <p class="mb-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+
+					  <!-- Button and price -->
+					  <div class="d-sm-flex align-items-center">
+						<a href="#" class="btn btn-sm btn-success mb-2 mb-sm-0 ms-3"><i class="fa-regular fa-plus ms-2"></i>رزرو</a>
+						<h6 class="mb-0 text-dark">هر شب 850,000ریال</h6>
+					  </div>
+
+					  <!-- Close button -->
+					  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+					</div>
+
+					<div class="tab-pane" id="tab-21" role="tabpanel">
+				<div class="position-relative">
+				<pre id="copy-12" class="my-3 language-markup"><code class=" language-markup" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert alert-success alert-dismissible fade show my-3<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+				  <span class="token comment" spellcheck="true">&lt;!-- Title --&gt;</span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>d-sm-flex align-items-center mb-3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert-heading mb-0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>از 14,500,000 ریال<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">&gt;</span></span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				  
+				  <span class="token comment" spellcheck="true">&lt;!-- Content --&gt;</span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mb-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+
+				  <span class="token comment" spellcheck="true">&lt;!-- Button and price --&gt;</span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>d-sm-flex align-items-center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-sm btn-success mb-2 mb-sm-0 ms-3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fa-regular fa-plus ms-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>Add<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+					<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mb-0 text-dark<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>هر شب 850,000ریال<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">&gt;</span></span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+				  <span class="token comment" spellcheck="true">&lt;!-- Close button --&gt;</span>
+				  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn-close<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-dismiss</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alert<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Close<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+				<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+				<button id="copy_id-12" data-clipboard-action="copy" data-clipboard-target="#copy-12" class="copy-link btn btn-primary btn-sm">کپی</button>
+				</div>
+				</div>
+				</div>
+				<!-- Tab END -->
+
+				<p class="mt-5">کسب اطلاعات بیشتر در سایت رسمی <a href="https://getbootstrap.com/docs/5.0/components/alerts/">Bootstrap</a>
+				</p>
+				 
+
+			<!-- Page content END -->	
+			</div>
+		</div>
+		  
+		</main>
+	  </div>
+	</div>
+
+	
+	<!-- ======================Js Files ==================== -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/prism.js"></script>
+	
+	</body>
+</html>

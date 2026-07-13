@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoTrip - قالب HTML رزرو تور و آژانس مسافرتی ژِئوتریپ</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <!-- All Plugins -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+
+  <!-- Fontawesome & Bootstrap Icons CSS -->
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/persian-datepicker.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="./assets/js/vue.global.js"></script>
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    .passenger-card {
+      border-right: 4px solid var(--bs-primary);
+    }
+
+    .booking-error {
+      white-space: pre-line;
+    }
+  </style>
+
+</head>
+
+<body>
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper">
+
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+		<!-- Start Navigation -->
+			<div class="header header-dark">
+			  <div class="container">
+				<nav id="navigation" class="navigation navigation-landscape">
+				  <div class="nav-header">
+					<a class="nav-brand static-show" href="#"><img src="assets/img/logo-light.png" class="logo" alt=""></a>
+					<a class="nav-brand mob-show" href="#"><img src="assets/img/logo.png" class="logo" alt=""></a>
+					<div class="nav-toggle"></div>
+					<div class="mobile_nav">
+					  <ul>
+						<li>
+						  <a
+							href="my-profile.html"
+							class="p-0 d-inline-block"
+							style="border: none; background: transparent;"
+							title="پروفایل کاربر"
+						  >
+							<img
+							  src="assets/img/team-11.jpg"
+							  class="img-fluid"
+							  alt="پروفایل کاربر"
+							  style="
+							  width: 34px;
+							  height: 34px;
+							  border-radius: 50%;
+							  object-fit: cover;
+							  "
+							>
+						  </a>
+						</li>
+					  </ul>
+					</div>
+				  </div>
+			  <div class="nav-menus-wrapper" style="transition-property: none;">
+				<ul class="nav-menu">
+
+				  <li><a href="home-flight.html">صفحه اصلی<span class="submenu-indicator"></span></a>
+					<ul class="nav-dropdown nav-submenu">
+					  <li>
+						<a href="index.html">نسخه 1</a>
+					  </li>
+					  <li>
+						<a href="home-2.html">نسخه 2</a>
+					  </li>
+					  <li>
+						<a href="home-3.html">نسخه 3</a>
+					  </li>
+					  <li>
+						<a href="home-4.html">نسخه 4</a>
+					  </li>
+					  <li>
+						<a href="home-5.html">نسخه 5</a>
+					  </li>
+					  <li>
+						<a href="slider-home.html">نسخه 6</a>
+					  </li>
+					</ul>
+				  </li>
+				</ul>
+
+				<ul class="nav-menu nav-menu-social align-to-left">
+					  <li class="list-buttons light">
+						<a
+						  href="my-profile.html"
+						  class="p-0 d-inline-block"
+						  style="border: none; background: transparent;"
+						  title="پروفایل کاربر"
+						>
+						  <img
+							src="assets/img/team-11.jpg"
+							class="img-fluid"
+							alt="پروفایل کاربر"
+							style="
+							width: 38px;
+							height: 38px;
+							border-radius: 50%;
+							object-fit: cover;
+							"
+						  >
+						</a>
+					  </li>
+				</ul>
+			  </div>
+			</nav>
+		  </div>
+		</div>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+
+    <!-- ============================ Booking Page ================================== -->
+    <section id="bookingApp" v-cloak class="pt-4 gray-simple position-relative">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <div id="stepper" class="bs-stepper stepper-outline mb-5">
+              <div class="bs-stepper-header">
+
+                <div class="step completed" data-target="#step-1">
+                  <div class="text-center">
+                    <button type="button" class="step-trigger mb-0">
+                      <span class="bs-stepper-circle">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                    </button>
+                    <h6 class="bs-stepper-label d-none d-md-block">
+                      اطلاعات پرواز
+                    </h6>
+                  </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step active" data-target="#step-2">
+                  <div class="text-center">
+                    <button type="button" class="step-trigger mb-0">
+                      <span class="bs-stepper-circle">2</span>
+                    </button>
+                    <h6 class="bs-stepper-label d-none d-md-block">
+                      اطلاعات مسافران
+                    </h6>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading -->
+        <div v-if="loading" class="text-center py-5">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-3 mb-0">در حال دریافت اطلاعات پرواز...</p>
+        </div>
+
+        <!-- Initial error -->
+        <div v-else-if="loadError" class="alert alert-danger booking-error">
+          {{ loadError }}
+
+          <div class="mt-3">
+            <a href="booking-page.html" class="btn btn-sm btn-dark">
+              بازگشت به مرحله قبل
+            </a>
+
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-danger me-2"
+              @click="loadBooking"
+            >
+              تلاش مجدد
+            </button>
+          </div>
+        </div>
+
+        <template v-else-if="flight">
+          <div class="row mb-3">
+            <div class="col-12">
+              <div class="alert alert-light border d-flex flex-wrap gap-4 mb-0">
+                <span>
+                  شماره پرواز:
+                  <strong>{{ flight.flightNumber }}</strong>
+                </span>
+
+                <span>
+                  صندلی موجود:
+                  <strong>{{ flight.availableSeats }}</strong>
+                </span>
+
+                <span>
+                  قیمت هر بلیط:
+                  <strong>{{ formatPrice(ticketPrice) }} ریال</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col-xl-8 col-lg-8 col-md-12">
+
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row align-items-end">
+                    <div class="col-md-6">
+                      <label for="passengerCount" class="form-label">
+                        تعداد مسافران
+                      </label>
+
+                      <select
+                        id="passengerCount"
+                        v-model.number="passengerCount"
+                        class="form-select"
+                        :disabled="submitting"
+                        @change="updatePassengerCount"
+                      >
+                        <option
+                          v-for="number in maxPassengers"
+                          :key="number"
+                          :value="number"
+                        >
+                          {{ number }} مسافر
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-6 mt-3 mt-md-0">
+                      <div class="text-muted">
+                        حداکثر تعداد قابل انتخاب:
+                        <strong>{{ maxPassengers }} نفر</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <form id="passengersForm" @submit.prevent="submitBooking" novalidate>
+                <div
+                  v-for="(passenger, index) in passengers"
+                  :key="passenger.key"
+                  class="card passenger-card mb-3"
+                >
+                  <div class="card-header">
+                    <h4 class="mb-0">مسافر {{ index + 1 }}</h4>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="row">
+
+                      <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label :for="'firstName-' + index" class="form-label">
+                            نام
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <input
+                            :id="'firstName-' + index"
+                            v-model.trim="passenger.firstName"
+                            type="text"
+                            class="form-control"
+                            maxlength="50"
+                            autocomplete="off"
+                            required
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label :for="'lastName-' + index" class="form-label">
+                            نام خانوادگی
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <input
+                            :id="'lastName-' + index"
+                            v-model.trim="passenger.lastName"
+                            type="text"
+                            class="form-control"
+                            maxlength="50"
+                            autocomplete="off"
+                            required
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label :for="'birthDate-' + index" class="form-label">
+                            تاریخ تولد
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <input
+                            :id="'birthDate-' + index"
+                            v-model="passenger.birthDate"
+                            type="date"
+                            class="form-control"
+                            :max="today"
+                            required
+                          >
+
+                          <small class="text-muted">
+                            تاریخ را به میلادی انتخاب کنید.
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label :for="'nationalCode-' + index" class="form-label">
+                            کد ملی
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <input
+                            :id="'nationalCode-' + index"
+                            v-model="passenger.nationalCode"
+                            type="text"
+                            inputmode="numeric"
+                            class="form-control"
+                            maxlength="10"
+                            placeholder="کد ملی ۱۰ رقمی"
+                            autocomplete="off"
+                            @input="normalizeNationalCode(passenger)"
+                            required
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label :for="'gender-' + index" class="form-label">
+                            جنسیت
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <select
+                            :id="'gender-' + index"
+                            v-model="passenger.gender"
+                            class="form-select"
+                            required
+                          >
+                            <option value="" disabled>انتخاب جنسیت</option>
+                            <option :value="0">مرد</option>
+                            <option :value="1">زن</option>
+                          </select>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12">
+              <div class="side-block card rounded-2 p-3">
+                <h5 class="fs-6">خلاصه رزرو</h5>
+
+                <ul class="list-group list-group-borderless">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-1"
+                  >
+                    <span class="fw-medium text-sm text-muted mb-0">
+                      قیمت هر بلیط:
+                    </span>
+                    <span class="text-md">
+                      {{ formatPrice(ticketPrice) }} ریال
+                    </span>
+                  </li>
+
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-1"
+                  >
+                    <span class="fw-medium text-sm text-muted mb-0">
+                      تعداد مسافر:
+                    </span>
+                    <span class="text-md">
+                      {{ passengerCount }} نفر
+                    </span>
+                  </li>
+
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-1"
+                  >
+                    <span class="fw-medium text-sm text-muted mb-0">
+                      مبلغ:
+                    </span>
+                    <span class="text-md">
+                      {{ formatPrice(totalAmount) }} ریال
+                    </span>
+                  </li>
+
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-1"
+                  >
+                    <span class="fw-medium text-sm text-muted mb-0">
+                      مالیات:
+                    </span>
+                    <span class="text-md">۰ ریال</span>
+                  </li>
+
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-1"
+                  >
+                    <span class="fw-medium text-sm text-muted mb-0">
+                      مبلغ کل:
+                    </span>
+                    <span class="text-success text-md fw-bold">
+                      {{ formatPrice(totalAmount) }} ریال
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div v-if="submitError" class="alert alert-danger booking-error mt-3">
+                {{ submitError }}
+              </div>
+            </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12">
+              <div class="text-center d-flex align-items-center justify-content-center mt-4">
+                <a
+                  href="booking-page.html"
+                  class="btn btn-md btn-dark mx-2"
+                  :class="{ disabled: submitting }"
+                >
+                  <i class="fa-solid fa-arrow-right ms-2"></i>
+                  مرحله قبل
+                </a>
+
+                <button
+                  type="submit"
+                  form="passengersForm"
+                  class="btn btn-md btn-primary mx-2"
+                  :disabled="submitting || !canSubmit"
+                >
+                  <span
+                    v-if="submitting"
+                    class="spinner-border spinner-border-sm ms-2"
+                    aria-hidden="true"
+                  ></span>
+
+                  {{ submitting ? 'در حال ثبت رزرو...' : 'ثبت و پرداخت' }}
+
+                  <i
+                    v-if="!submitting"
+                    class="fa-solid fa-arrow-left me-2"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </template>
+
+      </div>
+    </section>
+    <!-- ============================ Booking Page End ================================== -->
+
+
+		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="fa-solid fa-sort-up"></i></a>
+
+
+	</div>
+	<!-- ============================================================== -->
+	<!-- End Wrapper -->
+	<!-- ============================================================== -->
+
+
+	<!-- ============================================================== -->
+	<!-- All Jquery -->
+	<!-- ============================================================== -->
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/dropzone.min.js"></script>
+    <script src="assets/js/flickity.pkgd.min.js"></script>
+    <script src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/rangeslider.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/counterup.min.js"></script>
+    <script src="assets/js/prism.js"></script>
+
+	<script src="assets/js/custom.js"></script>
+	<!-- Date Booking Script -->
+    <script src="assets/js/persian-date.min.js"></script>
+    <script src="assets/js/persian-datepicker.min.js"></script>
+    <script>
+  const { createApp } = Vue;
+
+  createApp({
+    data() {
+      return {
+        apiBaseUrl: 'http://localhost:5041/api',
+        flight: null,
+        flightId: null,
+        userId: null,
+        passengerCount: 1,
+        passengers: [],
+        loading: true,
+        submitting: false,
+        loadError: '',
+        submitError: '',
+        passengerKey: 0,
+        today: new Date().toISOString().slice(0, 10)
+      };
+    },
+
+    computed: {
+      ticketPrice() {
+        return Number(this.flight?.price) || 0;
+      },
+
+
+
+      totalAmount() {
+        return this.ticketPrice * this.passengerCount;
+      },
+
+      maxPassengers() {
+        const availableSeats = Number(this.flight?.availableSeats) || 0;
+        return Math.min(5, availableSeats);
+      },
+
+      canSubmit() {
+        return (
+          this.flight &&
+          this.maxPassengers > 0 &&
+          this.passengers.length === this.passengerCount
+        );
+      }
+    },
+
+    methods: {
+      
+      decodeJwtPayload(token) {
+        try {
+          const parts = token.split('.');
+
+          if (parts.length !== 3) {
+            return null;
+          }
+
+          let base64 = parts[1]
+            .replace(/-/g, '+')
+            .replace(/_/g, '/');
+
+          base64 += '='.repeat((4 - base64.length % 4) % 4);
+
+          const binary = atob(base64);
+          const bytes = Uint8Array.from(
+            binary,
+            character => character.charCodeAt(0)
+          );
+
+          return JSON.parse(new TextDecoder().decode(bytes));
+        } catch (error) {
+          console.error('JWT decode error:', error);
+          return null;
+        }
+      },
+
+      getUserIdFromToken() {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+          return null;
+        }
+
+        const payload = this.decodeJwtPayload(token);
+
+        if (!payload) {
+          return null;
+        }
+
+        if (payload.exp && Date.now() >= Number(payload.exp) * 1000) {
+          localStorage.removeItem('token');
+          return null;
+        }
+
+        const userId = Number(payload.user_id);
+
+        return Number.isInteger(userId) && userId > 0
+          ? userId
+          : null;
+      },
+
+      getStoredFlightId() {
+        const directFlightId = Number(
+          sessionStorage.getItem('selectedFlightId') ||
+          sessionStorage.getItem('flightId')
+        );
+
+        if (Number.isInteger(directFlightId) && directFlightId > 0) {
+          return directFlightId;
+        }
+
+        try {
+          const selectedFlight = JSON.parse(
+            sessionStorage.getItem('selectedFlight')
+          );
+
+          const storedFlightId = Number(selectedFlight?.id);
+
+          return Number.isInteger(storedFlightId) && storedFlightId > 0
+            ? storedFlightId
+            : null;
+        } catch (error) {
+          return null;
+        }
+      },
+
+      createEmptyPassenger() {
+        this.passengerKey += 1;
+
+        return {
+          key: this.passengerKey,
+          firstName: '',
+          lastName: '',
+          nationalCode: '',
+          birthDate: '',
+          gender: ''
+        };
+      },
+
+      updatePassengerCount() {
+        const requestedCount = Number(this.passengerCount);
+
+        if (
+          !Number.isInteger(requestedCount) ||
+          requestedCount < 1 ||
+          requestedCount > this.maxPassengers
+        ) {
+          this.passengerCount = 1;
+        }
+
+        while (this.passengers.length < this.passengerCount) {
+          this.passengers.push(this.createEmptyPassenger());
+        }
+
+        if (this.passengers.length > this.passengerCount) {
+          this.passengers.splice(this.passengerCount);
+        }
+
+        this.submitError = '';
+      },
+
+      normalizeNationalCode(passenger) {
+        passenger.nationalCode = this.toEnglishDigits(
+          passenger.nationalCode
+        )
+          .replace(/\D/g, '')
+          .slice(0, 10);
+      },
+
+      toEnglishDigits(value) {
+        return String(value || '')
+          .replace(/[۰-۹]/g, digit =>
+            String('۰۱۲۳۴۵۶۷۸۹'.indexOf(digit))
+          )
+          .replace(/[٠-٩]/g, digit =>
+            String('٠١٢٣٤٥٦٧٨٩'.indexOf(digit))
+          );
+      },
+
+      isValidNationalCode(nationalCode) {
+        const code = this.toEnglishDigits(nationalCode);
+
+        if (!/^\d{10}$/.test(code)) {
+          return false;
+        }
+
+        if (/^(\d)\1{9}$/.test(code)) {
+          return false;
+        }
+
+        const checkDigit = Number(code[9]);
+        let sum = 0;
+
+        for (let index = 0; index < 9; index += 1) {
+          sum += Number(code[index]) * (10 - index);
+        }
+
+        const remainder = sum % 11;
+        const expectedCheckDigit =
+          remainder < 2 ? remainder : 11 - remainder;
+
+        return checkDigit === expectedCheckDigit;
+      },
+      validatePassengers() {
+        const nationalCodes = new Set();
+
+        for (let index = 0; index < this.passengers.length; index += 1) {
+          const passenger = this.passengers[index];
+          const passengerNumber = index + 1;
+
+          if (!passenger.firstName.trim()) {
+            return `نام مسافر ${passengerNumber} را وارد کنید.`;
+          }
+
+          if (!passenger.lastName.trim()) {
+            return `نام خانوادگی مسافر ${passengerNumber} را وارد کنید.`;
+          }
+
+          if (!passenger.birthDate) {
+            return `تاریخ تولد مسافر ${passengerNumber} را انتخاب کنید.`;
+          }
+
+          if (passenger.birthDate > this.today) {
+            return `تاریخ تولد مسافر ${passengerNumber} نمی‌تواند در آینده باشد.`;
+          }
+
+          if (!this.isValidNationalCode(passenger.nationalCode)) {
+            return `کد ملی مسافر ${passengerNumber} معتبر نیست.`;
+          }
+
+          if (nationalCodes.has(passenger.nationalCode)) {
+            return `کد ملی مسافر ${passengerNumber} تکراری است.`;
+          }
+
+          nationalCodes.add(passenger.nationalCode);
+
+          if (passenger.gender !== 0 && passenger.gender !== 1) {
+            return `جنسیت مسافر ${passengerNumber} را انتخاب کنید.`;
+          }
+        }
+
+        return '';
+      },
+
+      formatPrice(amount) {
+        return new Intl.NumberFormat('fa-IR').format(Number(amount) || 0);
+      },
+
+      async loadBooking() {
+        this.loading = true;
+        this.loadError = '';
+        this.submitError = '';
+        this.flight = null;
+
+        this.userId = this.getUserIdFromToken();
+
+        if (!this.userId) {
+          this.loadError =
+            'اطلاعات ورود کاربر پیدا نشد یا اعتبار توکن تمام شده است. لطفاً دوباره وارد شوید.';
+          this.loading = false;
+          return;
+        }
+
+        this.flightId = this.getStoredFlightId();
+
+        if (!this.flightId) {
+          this.loadError =
+            'شناسه پرواز پیدا نشد. لطفاً به صفحه پروازها برگردید و پرواز را دوباره انتخاب کنید.';
+          this.loading = false;
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `${this.apiBaseUrl}/Flights/${this.flightId}`,
+            {
+              headers: {
+                Accept: 'application/json'
+              }
+            }
+          );
+
+          if (!response.ok) {
+            const errorText = await response.text();
+
+            throw new Error(
+              errorText || `خطای دریافت پرواز با کد ${response.status}`
+            );
+          }
+
+          const flight = await response.json();
+
+          if (!flight || Number(flight.id) !== this.flightId) {
+            throw new Error('اطلاعات پرواز دریافت‌شده معتبر نیست.');
+          }
+
+          this.flight = flight;
+
+          if (this.maxPassengers < 1) {
+            throw new Error('ظرفیت این پرواز تکمیل شده است.');
+          }
+
+          this.passengerCount = 1;
+          this.passengers = [this.createEmptyPassenger()];
+        } catch (error) {
+          this.flight = null;
+          this.loadError =
+            error.message || 'دریافت اطلاعات پرواز با خطا مواجه شد.';
+        } finally {
+          this.loading = false;
+        }
+      },
+
+      async submitBooking() {
+        if (this.submitting) {
+          return;
+        }
+
+        this.submitError = '';
+
+        const validationError = this.validatePassengers();
+
+        if (validationError) {
+          this.submitError = validationError;
+          return;
+        }
+
+        const token = localStorage.getItem('token');
+        this.userId = this.getUserIdFromToken();
+
+        if (!token || !this.userId) {
+          this.submitError =
+            'نشست کاربری منقضی شده است. لطفاً دوباره وارد شوید.';
+          return;
+        }
+
+        const requestBody = {
+          userId: this.userId,
+          flightId: this.flightId,
+          passengers: this.passengers.map(passenger => ({
+            firstName: passenger.firstName.trim(),
+            lastName: passenger.lastName.trim(),
+            nationalCode: passenger.nationalCode,
+            birthDate: passenger.birthDate,
+            gender: Number(passenger.gender)
+          }))
+        };
+
+        this.submitting = true;
+
+        try {
+          const response = await fetch(
+            `${this.apiBaseUrl}/Bookings`,
+            {
+              method: 'POST',
+              headers: {
+                Accept: '*/*',
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+              },
+              body: JSON.stringify(requestBody)
+            }
+          );
+
+          if (!response.ok) {
+            const errorText = await response.text();
+
+            throw new Error(
+              errorText || `ثبت رزرو با خطای ${response.status} مواجه شد.`
+            );
+          }
+
+          const completedBooking = {
+            userId: this.userId,
+            flightId: this.flightId,
+            flightNumber: this.flight.flightNumber,
+            passengerCount: this.passengers.length,
+            passengers: requestBody.passengers,
+            ticketPrice: this.ticketPrice,
+            totalAmount: this.totalAmount,
+            completedAt: new Date().toISOString()
+          };
+
+          sessionStorage.setItem(
+            'completedBooking',
+            JSON.stringify(completedBooking)
+          );
+
+          sessionStorage.setItem('bookingCompleted', 'true');
+
+          window.location.href = 'bookingpage-success.html';
+        } catch (error) {
+          this.submitError =
+            error.message || 'ثبت رزرو انجام نشد. دوباره تلاش کنید.';
+        } finally {
+          this.submitting = false;
+        }
+      }
+    },
+
+    mounted() {
+      this.loadBooking();
+    }
+  }).mount('#bookingApp');
+    </script>
+
+	<!-- ============================================================== -->
+	<!-- This page plugins -->
+	<!-- ============================================================== -->
+
+</body>
+
+</html>

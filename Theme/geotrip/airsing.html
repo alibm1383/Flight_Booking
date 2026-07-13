@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ثبت نام شرکت ایرلاین - رزرو تور و آژانس مسافرتی</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="./assets/js/vue.global.js"></script>
+</head>
+
+<body class="bg-light">
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+	<div id="main-wrapper">
+		<section class="py-5">
+			<div class="container">
+				<div class="row justify-content-center align-items-center m-auto">
+					<div class="col-12">
+						<div class="bg-mode card shadow-sm rounded-3 overflow-hidden">
+							<div class="row g-0">
+								<div class="col-lg-6 d-flex align-items-center order-2 order-lg-1">
+									<div class="p-3 p-lg-5">
+										<img src="assets/img/login.svg" class="img-fluid" alt="">
+									</div>
+									<div class="vr opacity-1 d-none d-lg-block"></div>
+								</div>
+
+								<div class="col-lg-6 order-1">
+									<div class="p-4 p-sm-7">
+											<img class="img-fluid mb-4" src="assets/img/logo-icon.png" width="70" alt="logo">
+										<h1 class="mb-2 fs-2">ثبت نام شرکت هواپیمایی</h1>
+										<p class="mb-0">آیا قبلا ثبت نام کرده اید؟<a href="login.html" class="fw-medium text-primary"> ورود به حساب کاربری</a></p>
+										<div id="app">
+											<form class="mt-4 text-end" @submit.prevent="handleSubmit">
+												<div class="form py-4">
+													<div class="form-group">
+														<label class="form-label">* نام شرکت</label>
+														<input type="text" class="form-control" v-model="form.companyName" placeholder="حداقل 3 کاراکتر">
+													</div>
+													<div class="form-group">
+														<label class="form-label">* شماره تماس</label>
+														<input type="text" class="form-control" v-model="form.phoneNumber" placeholder="09xxxxxxxxx">
+													</div>
+													<div class="form-group">
+														<label class="form-label">ایمیل (اختیاری)</label>
+														<input type="email" class="form-control" v-model="form.email" placeholder="info@example.com">
+													</div>
+													<div class="form-group">
+														<label class="form-label">* رمز عبور</label>
+														<div class="position-relative">
+															<input type="password" class="form-control" id="password-field" v-model="form.password" placeholder="حداقل 8 کاراکتر">
+															<span class="fa-solid fa-eye toggle-password position-absolute top-50 start-0 translate-middle-y ms-3"></span>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="form-label">* تایید رمز عبور</label>
+														<input type="password" class="form-control" v-model="form.confirmPassword">
+													</div>
+													<div class="form-group">
+														<button type="submit" class="btn btn-primary full-width btn-lg">ایجاد حساب</button>
+													</div>
+													<div class="text-primary-hover mt-3 text-center">2026 کلیه حقوق این سایت محفوظ است.</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script>
+		const { createApp } = Vue;
+		createApp({
+			data() {
+				return {
+					form: {
+						companyName: '',
+						phoneNumber: '',
+						email: '',
+						password: '',
+						confirmPassword: '',
+					}
+				};
+			},
+			methods: {
+				async handleSubmit() {
+					const { companyName, phoneNumber, email, password, confirmPassword } = this.form;
+
+					if (!companyName || !phoneNumber || !password || !confirmPassword) {
+						alert("لطفاً تمام فیلدهای الزامی (*) را پر کنید.");
+						return;
+					}
+
+					if (companyName.length < 3) {
+						alert("نام شرکت باید حداقل 3 کاراکتر باشد.");
+						return;
+					}
+
+					const phoneRegex = /^09\d{9}$/;
+					if (!phoneRegex.test(phoneNumber)) {
+						alert("شماره تماس باید 11 رقم و با 09 شروع شود.");
+						return;
+					}
+
+					if (email) {
+						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+						if (!emailRegex.test(email)) {
+							alert("لطفاً یک آدرس ایمیل معتبر وارد کنید.");
+							return;
+						}
+					}
+
+					if (password.length < 8) {
+						alert("رمز عبور باید حداقل 8 کاراکتر باشد.");
+						return;
+					}
+
+					if (password !== confirmPassword) {
+						alert("رمز عبور و تکرار رمز عبور مطابقت ندارند.");
+						return;
+					}
+
+					const signupData = {
+						CompanyName: companyName,
+						PhoneNumber: phoneNumber,
+						Password: password
+					};
+
+					if (email) {
+						signupData.Email = email;
+					}
+
+					try {
+						const response = await fetch('http://127.0.0.1:8000/auth/register/airline', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+								'Accept': 'application/json'
+							},
+							body: JSON.stringify(signupData)
+						});
+
+						const responseData = await response.json();
+
+						if (!response.ok) {
+							let errorMsg = "خطا در ثبت‌نام.";
+							if (responseData.detail && Array.isArray(responseData.detail)) {
+								errorMsg = responseData.detail.map(err => {
+									const field = err.loc && err.loc.length > 1 ? err.loc[1] : 'server';
+									return `${field}: ${err.msg}`;
+								}).join("\n");
+							} else if (responseData.detail) {
+								errorMsg = responseData.detail;
+							}
+							throw new Error(errorMsg);
+						}
+
+						if (responseData.access_token) {
+							localStorage.setItem('auth_token', responseData.access_token);
+						}
+
+						alert("ثبت‌نام شرکت با موفقیت انجام شد!");
+						window.location.href = 'login.html';
+					} catch (error) {
+						console.error("Error during signup:", error);
+						alert("خطا:\n" + error.message);
+					}
+				}
+			}
+		}).mount('#app');
+	</script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/dropzone.min.js"></script>
+	<script src="assets/js/flatpickr.js"></script>
+	<script src="assets/js/flickity.pkgd.min.js"></script>
+	<script src="assets/js/lightbox.min.js"></script>
+	<script src="assets/js/rangeslider.js"></script>
+	<script src="assets/js/select2.min.js"></script>
+	<script src="assets/js/counterup.min.js"></script>
+	<script src="assets/js/prism.js"></script>
+	<script src="assets/js/custom.js"></script>
+</body>
+
+</html>
