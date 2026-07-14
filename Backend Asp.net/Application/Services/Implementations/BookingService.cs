@@ -17,11 +17,14 @@ namespace Application.Services.Implementations
         private readonly IBookingRepository _bookingRepository;
         private readonly IFlightRepository _flightRepository;
         private readonly IMapper _mapper;
-        public BookingService(IBookingRepository bookingRepository, IFlightRepository flightRepository , IMapper mapper)
+        private readonly ISmsSender _smsSender;
+        public BookingService(IBookingRepository bookingRepository
+            , IFlightRepository flightRepository , IMapper mapper,ISmsSender smsSender)
         {
             _bookingRepository = bookingRepository;
             _flightRepository = flightRepository;
             _mapper = mapper;
+            _smsSender = smsSender;
         }
 
         public async Task AddBookingAsync(CreateBookingDto createBookingDto)
@@ -44,6 +47,8 @@ namespace Application.Services.Implementations
             await _bookingRepository.AddBookingAsync(booking);
             //TODO unit of work
             await _bookingRepository.SaveChangesAsync();
+            string message = $"پرواز شما با موفقیت رزرو شد.\n شماره رزرو : {booking.PnrCode}";
+            await _smsSender.SendSmsAsync("09372792737", message);
         }
 
         public async Task<List<BookingDto>> GetBookingsByUserId(int userId)

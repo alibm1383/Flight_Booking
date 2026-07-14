@@ -4,3 +4,20 @@
 .vs/
 *.user
 *.suo
+
+**/appsettings.Development.json
+
+# .NET
+**/bin/
+**/obj/
+
+# Python
+**/__pycache__/
+*.pyc
+.env
+
+# Visual Studio
+.vs/
+
+# Local settings
+**/appsettings.Development.json

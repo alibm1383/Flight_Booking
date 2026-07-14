@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,8 @@ namespace Domain.DTOs
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
         public FlightSortBy SortBy { get; set; } = FlightSortBy.TimeAsc;
+        public int PageNumber { get; set; } = 1;
+        [Range(1,100)]
+        public int PageSize { get; set; } = 10;
     }
 }

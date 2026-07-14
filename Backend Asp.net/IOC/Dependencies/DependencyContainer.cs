@@ -22,6 +22,7 @@ namespace IOC.Dependencies
             services.AddScoped<IFlightService, FlightService>();
             services.AddScoped<IBookingService, BookingService>();
             services.AddScoped<IFileService, FileService>();
+            services.AddScoped<ISmsSender, SmsSender>();
             #endregion
 
             #region Repository
