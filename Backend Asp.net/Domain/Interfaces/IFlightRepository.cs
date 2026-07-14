@@ -10,7 +10,7 @@ namespace Domain.Interfaces
 {
     public interface IFlightRepository
     {
-        Task<IEnumerable<Flight>> SearchAsync(SearchFlightDto searchFlightDto);
+        Task<PagedResult<Flight>> SearchAsync(SearchFlightDto searchFlightDto);
         Task<Flight?> GetFlightByIdAsync(int flightId);
         Task<IEnumerable<Flight>> GetFlightsByAirlineIdAsync(int airlineId);
         Task<IEnumerable<Passenger>> GetPassengersByFlightIdAsync(int flightId);

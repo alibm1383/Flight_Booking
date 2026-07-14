@@ -19,7 +19,7 @@ namespace FlightBooking.API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FlightDto>>> Search([FromQuery]SearchFlightDto searchFlightDto)
+        public async Task<ActionResult<PagedResult<FlightDto>>> Search([FromQuery]SearchFlightDto searchFlightDto)
         {
             var flights = await _flightService.SearchAsync(searchFlightDto);
             return Ok(flights);

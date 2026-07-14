@@ -10,7 +10,7 @@ namespace Application.Services.Interfaces
 {
     public interface IFlightService
     {
-        Task<IEnumerable<FlightDto>> SearchAsync(SearchFlightDto searchFlightDto);
+        Task<PagedResult<FlightDto>> SearchAsync(SearchFlightDto searchFlightDto);
         Task<IEnumerable<FlightDto>> GetFlightsByAirlineIdAsync(int airlineId);
         Task<IEnumerable<PassengerDto>> GetPassengersByFlightIdAsync(int flightId);
         Task<FlightDto?> GetFlightByIdAsync(int flightId);

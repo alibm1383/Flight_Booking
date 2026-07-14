@@ -30,10 +30,16 @@ namespace Application.Services.Implementations
             await _flightRepository.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<FlightDto>> SearchAsync(SearchFlightDto searchFlightDto)
+        public async Task<PagedResult<FlightDto>> SearchAsync(SearchFlightDto searchFlightDto)
         {
-            var flights = await _flightRepository.SearchAsync(searchFlightDto);
-            return _mapper.Map<IEnumerable<FlightDto>>(flights);
+            var pageResult = await _flightRepository.SearchAsync(searchFlightDto);
+            return new PagedResult<FlightDto>()
+            {
+                Items = _mapper.Map<List<FlightDto>>(pageResult.Items),
+                TotalCount = pageResult.TotalCount,
+                PageNumber = pageResult.PageNumber,
+                PageSize = pageResult.PageSize
+            };
         }
 
         public async Task<FlightDto?> GetFlightByIdAsync(int flightId)

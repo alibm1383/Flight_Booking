@@ -25,7 +25,7 @@ namespace Data.Repositories
             await _context.Flights.AddAsync(flight);
         }
 
-        public async Task<IEnumerable<Flight>> SearchAsync(SearchFlightDto searchFlightDto)
+        public async Task<PagedResult<Flight>> SearchAsync(SearchFlightDto searchFlightDto)
         {
             DateTime startDate;
             DateTime endDate;
@@ -76,7 +76,17 @@ namespace Data.Repositories
                     query = query.OrderBy(f => f.DepartureTime);
                     break;
             }
-            return await query.ToListAsync();
+
+            int totalCount = await query.CountAsync();
+            var flights =  await query.Skip((searchFlightDto.PageNumber-1) * searchFlightDto.PageSize)
+                .Take(searchFlightDto.PageSize).ToListAsync();
+            return new PagedResult<Flight>()
+            {
+                Items = flights,
+                TotalCount = totalCount,
+                PageSize = searchFlightDto.PageSize,
+                PageNumber = searchFlightDto.PageNumber
+            };
         }
 
         public Task<Flight?> GetFlightByIdAsync(int flightId)
