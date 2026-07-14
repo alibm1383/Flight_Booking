@@ -119,6 +119,12 @@ def authenticate_user(db: Session, form_data: OAuth2PasswordRequestForm):
             headers={"WWW-Authenticate": "Bearer"},
         )
     
+    if not user.IsActive:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Your account has been deactivated or blocked by the admin."
+        )
+    
     user.LastLoginAt = datetime.now(timezone.utc)
     db.commit()
 

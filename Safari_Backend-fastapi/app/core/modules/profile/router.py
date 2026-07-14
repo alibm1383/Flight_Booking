@@ -27,7 +27,7 @@ def get_my_profile(current_user: models.User = Depends(security.get_current_user
 @router.post(
     "/upload-avatar",
     response_model=schemas.AvatarUploadResponse,  
-    status_code=status.HTTP_200_OK,
+    status_code=status.HTTP_201_CREATED,
     summary="Upload profile picture",
     description="Receive the physical image file from the frontend, save it on the server, and automatically update the logged-in user's profile."
 )
