@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoTrip - قالب HTML رزرو تور و آژانس مسافرتی ژِئوتریپ</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="./assets/js/vue.global.js"></script>
+</head>
+
+<body>
+
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+
+	<div id="main-wrapper">
+
+		<div class="header header-light">
+			<div class="container">
+				<nav id="navigation" class="navigation navigation-landscape">
+					<div class="nav-header">
+						<a class="nav-brand" href="#"><img src="assets/img/logo.png" class="logo" alt=""></a>
+						<div class="nav-toggle"></div>
+						<div class="mobile_nav">
+							<ul>
+								<li class="languageDropdown ms-3">
+									<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+										<span class="d-flex align-items-center gap-2">فارسی |<i class="bi bi-globe h-auto"></i></span>
+									</a>
+								</li>
+								<li class="notificationsDropdown btn-group account-drop ms-2">
+									<a href="#" class="nav-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+											class="fa-regular fa-bell fs-6"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="nav-menus-wrapper" style="transition-property: none;">
+						<ul class="nav-menu">
+
+							<li>
+   							 <a href="home-flight.html" class="home-button-style">صفحه اصلی</a>
+					  </li>
+
+              
+
+              <li><a href="JavaScript:Void(0);">صفحات<span class="submenu-indicator"></span></a>
+                <ul class="nav-dropdown nav-submenu">
+                  <li><a href="JavaScript:Void(0);">وبلاگ<span class="submenu-indicator"></span></a>
+                    <ul class="nav-dropdown nav-submenu">
+                      <li><a href="classic-blog.html">لیست نسخه 1</a></li>
+                      <li><a href="blog.html">لیست نسخه 2</a></li>
+                      <li><a href="blog-detail.html">جزئیات</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="JavaScript:Void(0);">اعتبارسنجی<span class="submenu-indicator"></span></a>
+                    <ul class="nav-dropdown nav-submenu">
+                      <li><a href="login.html">ورود</a></li>
+                      <li><a href="register.html">ثبت نام</a></li>
+                      <li><a href="forgot-password.html">فراموشی رمز</a></li>
+                      <li><a href="two-factor-auth.html">اعتبارسنجی دو مرحله ای</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="about-us.html">درباره ما</a></li>
+                  <li><a href="career-page.html">فرصت های شغلی</a></li>
+                  <li><a href="help-center.html">پشتیبانی</a></li>
+                  <li><a href="faq.html">سوالات متداول</a></li>
+                  <li><a href="404.html">صفحه 404</a></li>
+                  <li><a href="pricing.html">قیمت گذاری</a></li>
+                  <li><a href="privacy-policy.html">شرایط استفاده</a></li>
+                  <li><a href="JavaScript:Void(0);">تماس با ما<span class="submenu-indicator"></span></a>
+                    <ul class="nav-dropdown nav-submenu">
+                      <li><a href="contact-v1.html">نسخه 1</a></li>
+                      <li><a href="contact-v2.html">نسخه 2</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li><a href="JavaScript:Void(0);">منو<span class="submenu-indicator"></span></a>
+						<ul class="nav-dropdown nav-submenu xxl-menu">
+						  <li>
+							<a href="home-flight.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-primary fs-4"><i
+									class="fa-solid fa-plane"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">پرواز</h6>
+								  <p class="text-sm-muted m-0">رزرو بلیط هواپیما</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						  <li>
+							<a href="my-profile.html">
+							  <div class="mega-advance-menu">
+								<div class="mega-first square--50 rounded-2 gray-simple text-purple fs-4"><i
+									class="fa-solid fa-eye"></i></div>
+								<div class="mega-last pe-2">
+								  <h6 class="lh-base fs-6 font--bold m-0">دانلود بلیط رزرو شده</h6>
+								  <p class="text-sm-muted m-0">بلیط خودرا هم اکنون دریافت کنید</p>
+								</div>
+							  </div>
+							</a>
+						  </li>
+						</ul>
+					  </li>
+
+              <li><a href="documantion/index.html" target="_blank">داکیومنت</a></li>
+
+						</ul>
+
+						<ul class="nav-menu nav-menu-social align-to-left">
+							<li class="languageDropdown ms-2">
+									<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+										<span class="d-flex align-items-center gap-2">فارسی |<i class="bi bi-globe h-auto"></i></span>
+									</a>
+								</li>
+							<li class="notificationsDropdown btn-group account-drop ms-2">
+								<a href="#" class="nav-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+										class="fa-regular fa-bell fs-6"></i></a>
+								<div class="dropdown-menu pull-right animated flipInX">
+									<div class="bg-primary px-3 py-3 border-bottom d-flex align-items-center justify-content-between"></div>
+								</div>
+							</li>
+							<li>
+								<div class="btn-group account-drop">
+									<button type="button" class="btn btn-order-by-filt" data-bs-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false">
+										<img src="assets/img/team-11.jpg" class="img-fluid" alt="">
+									</button>
+									<div class="dropdown-menu pull-right animated flipInX">
+										<div class="drp_menu_headr">
+											<h4><span id="navbar-username">کاربر</span></h4>
+											<div class="drp_menu_headr-right"><button type="button"
+													class="btn btn-md fw-medium btn-whites text-dark">خروج</button></div>
+										</div>
+										<ul>
+											<li><a href="my-profile.html"><i class="fa-regular fa-id-card ms-2"></i>پروفایل<span
+														class="notti_coun style-1">4</span></a></li>
+											<li><a href="my-booking.html"><i class="fa-solid fa-ticket ms-2"></i>لیست رزروها</a></li>
+											<li><a href="travelers.html"><i class="fa-solid fa-user-group ms-2"></i>لیست مسافران</a></li>
+											<li><a href="payment-detail.html"><i class="fa-solid fa-wallet ms-2"></i>جزئیات پرداخت</a></li>
+											<li><a href="my-wishlists.html"><i class="fa-solid fa-shield-heart ms-2"></i>لیست علاقه مندی ها</a></li>
+											<li><a href="login.html"><i class="fa-solid fa-power-off ms-2"></i>خروج</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	<div id="passengersApp">
+		<div class="py-5 bg-primary position-relative">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="text-white mb-1">لیست مسافران پرواز</h2>
+						<p class="text-white mb-0 opacity-75" v-if="flight">
+							{{ flight.airline_name }} — {{ flight.origin_airport_code }} به {{ flight.destination_airport_code }} — {{ flight.flight_date }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="gray-simple py-5">
+			<div class="container">
+
+				<div class="row mb-4" v-if="flight">
+					<div class="col-12">
+						<div class="bg-white rounded-3 p-4 shadow-sm">
+							<div class="row align-items-center gy-3">
+								<div class="col-xl-3 col-lg-3 col-md-6">
+									<span class="text-muted d-block small mb-1">ایرلاین</span>
+									<span class="fw-medium">{{ flight.airline_name }}</span>
+								</div>
+								<div class="col-xl-3 col-lg-3 col-md-6">
+									<span class="text-muted d-block small mb-1">مسیر</span>
+									<span class="fw-medium">{{ flight.origin_airport_code }} <i class="fa-solid fa-arrow-left-long mx-1 text-muted small"></i> {{ flight.destination_airport_code }}</span>
+								</div>
+								<div class="col-xl-2 col-lg-2 col-md-6">
+									<span class="text-muted d-block small mb-1">تاریخ پرواز</span>
+									<span class="fw-medium">{{ flight.flight_date }}</span>
+								</div>
+								<div class="col-xl-2 col-lg-2 col-md-6">
+									<span class="text-muted d-block small mb-1">ساعت پرواز / فرود</span>
+									<span class="fw-medium">{{ flight.departure_time }} - {{ flight.arrival_time }}</span>
+								</div>
+								<div class="col-xl-2 col-lg-2 col-md-6">
+									<span class="text-muted d-block small mb-1">شماره پرواز</span>
+									<span class="fw-medium">{{ flight.flightNumber || '-' }}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" v-if="!flight">
+					<div class="col-12">
+						<div class="bg-white rounded-3 p-4 text-center">
+							<p class="text-muted mb-3">هیچ پروازی انتخاب نشده است.</p>
+							<a href="flight-list-01.html" class="btn btn-primary btn-sm">بازگشت به لیست پروازها</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" v-if="flight">
+					<div class="col-12">
+						<div class="bg-white rounded-3 shadow-sm">
+							<div class="p-4 border-bottom d-flex align-items-center justify-content-between flex-wrap gap-2">
+								<h5 class="m-0">مسافران رزروشده</h5>
+								<a href="flight-list-01.html" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-arrow-right ms-1"></i>بازگشت به لیست پروازها</a>
+							</div>
+
+							<div class="p-4" v-if="loading">
+								<p class="text-muted mb-0 text-center">در حال دریافت لیست مسافران...</p>
+							</div>
+
+							<div class="p-4" v-if="!loading && error">
+								<div class="alert alert-danger mb-0">{{ error }}</div>
+							</div>
+
+							<div class="p-4" v-if="!loading && !error && passengers.length === 0">
+								<p class="text-muted mb-0 text-center">تا کنون هیچ مسافری برای این پرواز رزرو نکرده است.</p>
+							</div>
+
+							<div class="p-4 pt-0" v-if="!loading && !error && passengers.length > 0">
+								<div class="row g-3">
+									<div class="col-12" v-for="(p, index) in passengers" :key="pf(p,'id') || index">
+										<div class="border rounded-3 p-3 d-flex align-items-center justify-content-between flex-wrap gap-3">
+											<div class="d-flex align-items-center gap-3">
+												<div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width:44px;height:44px;">
+													<i class="fa-solid fa-user"></i>
+												</div>
+												<div>
+													<h6 class="mb-1">{{ pf(p,'firstName') }} {{ pf(p,'lastName') }}</h6>
+													<span class="text-muted small">شناسه مسافر: {{ pf(p,'id') }}</span>
+													<span class="text-muted small ms-2">شناسه رزرو: {{ pf(p,'bookingId') }}</span>
+													<span class="text-muted small ms-2"><i class="fa-solid fa-cake-candles ms-1"></i>تاریخ تولد: {{ pf(p,'birthDate') ? formatDate(pf(p,'birthDate')) : '-' }}</span>
+												</div>
+											</div>
+											<div class="d-flex flex-wrap gap-2">
+												<span class="badge bg-light text-dark border" v-if="pf(p,'nationalCode')">
+													<i class="fa-solid fa-id-card ms-1"></i>کد ملی: {{ pf(p,'nationalCode') }}
+												</span>
+												<span class="badge bg-light text-dark border" v-if="pf(p,'gender') !== null && pf(p,'gender') !== undefined && pf(p,'gender') !== ''">
+													<i class="fa-solid fa-venus-mars ms-1"></i>{{ genderLabel(pf(p,'gender')) }}
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</div><!-- end passengersApp -->
+
+		<div class="clearfix"></div>
+
+		<footer class="footer skin-light-footer">
+			<div class="footer-bottom border-top">
+				<div class="container">
+					<div class="row align-items-center justify-content-between">
+						<div class="col-xl-6 col-lg-6 col-md-6">
+							<p class="mb-0">کلیه حقوق این سایت محفوظ و متعلق به شرکت خدمات گردشگری است.</p>
+						</div>
+						<div class="col-xl-6 col-lg-6 col-md-6">
+							<ul class="p-0 d-flex justify-content-start justify-content-md-end text-start text-md-end m-0">
+								<li><a href="#">شرایط و قوانین</a></li>
+								<li class="me-3"><a href="#">درباره ما</a></li>
+								<li class="me-3"><a href="#">کوکی ها</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- ============================ Footer End ================================== -->
+
+		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="fa-solid fa-sort-up"></i></a>
+	</div>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/custom.js"></script>
+	<script>
+	const { createApp } = Vue;
+	createApp({
+		data() {
+			return {
+				flight: null,
+				passengers: [],
+				loading: true,
+				error: '',
+			};
+		},
+		async mounted() {
+			// فقط ادمین ایرلاین (RoleId === 2) اجازه‌ی دیدن این صفحه را دارد
+			try {
+				const token = localStorage.getItem('token');
+				if (!token) {
+					window.location.href = 'flight-list-01.html';
+					return;
+				}
+				const res = await fetch('http://127.0.0.1:8000/profile/me', {
+					headers: { 'Authorization': `Bearer ${token}` }
+				});
+				if (!res.ok) {
+					window.location.href = 'flight-list-01.html';
+					return;
+				}
+				const profileData = await res.json();
+				if (profileData.RoleId !== 2) {
+					window.location.href = 'flight-list-01.html';
+					return;
+				}
+			} catch (e) {
+				window.location.href = 'flight-list-01.html';
+				return;
+			}
+
+			// خواندن پروازِ انتخاب‌شده (که از flight-list-01.html هنگام کلیک ذخیره شده)
+			const savedFlight = sessionStorage.getItem('selectedFlight');
+			if (!savedFlight) {
+				this.loading = false;
+				return;
+			}
+			this.flight = JSON.parse(savedFlight);
+
+			const flightId = this.flight.id || (this.flight.raw && this.flight.raw.id);
+			if (!flightId) {
+				this.loading = false;
+				this.error = 'شناسه‌ی پرواز معتبر نیست.';
+				return;
+			}
+
+			try {
+				const token = localStorage.getItem('token');
+				const res = await fetch(`http://localhost:5041/api/Flights/${flightId}/passengers`, {
+					headers: { 'Authorization': `Bearer ${token}` }
+				});
+				if (!res.ok) throw new Error('خطا در دریافت لیست مسافران این پرواز.');
+				const data = await res.json();
+				this.passengers = Array.isArray(data) ? data : [];
+			} catch (e) {
+				this.error = e.message;
+			} finally {
+				this.loading = false;
+			}
+		},
+		methods: {
+			// خواندن یک فیلد از آبجکت مسافر، بدون توجه به camelCase یا PascalCase بودن کلید
+			// (چون سریالایزر پیش‌فرض ASP.NET Core معمولاً کلیدها را camelCase برمی‌گرداند،
+			// در حالی که در دیتابیس/سوئگر PascalCase دیده می‌شوند: Id, FirstName, ...)
+			pf(obj, key) {
+				if (!obj) return undefined;
+				if (obj[key] !== undefined) return obj[key];
+				const pascal = key.charAt(0).toUpperCase() + key.slice(1);
+				if (obj[pascal] !== undefined) return obj[pascal];
+				const foundKey = Object.keys(obj).find(k => k.toLowerCase() === key.toLowerCase());
+				return foundKey ? obj[foundKey] : undefined;
+			},
+			formatDate(val) {
+				if (!val) return '';
+				try {
+					const d = window.NativeDate ? new window.NativeDate(val) : new Date(val);
+					if (isNaN(d.getTime())) return val;
+					return d.toLocaleDateString('fa-IR');
+				} catch (e) {
+					return val;
+				}
+			},
+			genderLabel(val) {
+				// مقدار دقیق نگاشت Gender در بک‌اند مشخص نبود؛ رایج‌ترین حالت را فرض کرده‌ایم.
+				// اگر عدد دیگری بود، همان مقدار خام نمایش داده می‌شود.
+				const map = { 1: 'مرد', 2: 'زن' };
+				return map[val] !== undefined ? map[val] : ('جنسیت: ' + val);
+			}
+		}
+	}).mount('#passengersApp');
+	</script>
+</body>
+</html>

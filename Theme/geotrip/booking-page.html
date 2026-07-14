@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoTrip - قالب HTML رزرو تور و آژانس مسافرتی ژِئوتریپ</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <!-- All Plugins -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+
+  <!-- Fontawesome & Bootstrap Icons CSS -->
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="./assets/js/vue.global.js"></script>
+  <style>
+	[v-cloak] {
+		display: none !important;
+	}
+	</style>
+
+</head>
+
+<body>
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper" v-cloak>
+
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+		<!-- Start Navigation -->
+		<div class="header header-dark">
+						  <div class="container">
+				<nav id="navigation" class="navigation navigation-landscape">
+				  <div class="nav-header">
+					<a class="nav-brand static-show" href="#"><img src="assets/img/logo-light.png" class="logo" alt=""></a>
+					<a class="nav-brand mob-show" href="#"><img src="assets/img/logo.png" class="logo" alt=""></a>
+					<div class="nav-toggle"></div>
+					<div class="mobile_nav">
+					  <ul>
+						<li class="languageDropdown ms-3">
+						  <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#countryModal">
+							<span class="d-flex align-items-center gap-2">فارسی | <i class="bi bi-globe h-auto"></i></span>
+						  </a>
+						</li>
+						<li>
+						  <a href="#" class="text-primary rounded" data-bs-toggle="modal" data-bs-target="#login">
+							<svg width="34" height="34" viewBox="0 0 24 24" class="fill-primary" xmlns="http://www.w3.org/2000/svg">
+								<path opacity="0.3" d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z"/>
+								<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z"/>
+							</svg>
+						  </a>
+						</li>
+					  </ul>
+					</div>
+				  </div>
+			  <div class="nav-menus-wrapper" style="transition-property: none;">
+				<ul class="nav-menu">
+				  <li><a href="home-flight.html">صفحه اصلی<span class="submenu-indicator"></span></a>
+				  </li>
+				</ul>
+
+				<ul class="nav-menu nav-menu-social align-to-left">
+					<!-- کاربر وارد نشده است -->
+					<a
+					v-if="!isLoggedIn"
+					href="login.html"
+					class="btn btn-order-by-filt"
+					>
+					<i class="fa-regular fa-user"></i>
+					<span>ثبت‌نام / ورود</span>
+					</a>
+					<!-- کاربر وارد شده است -->
+					<a
+					v-else
+					href="my-profile.html"
+					class="btn btn-order-by-filt p-0"
+					style="border: none; background: transparent;"
+					title="پروفایل کاربر"
+					>
+					<img
+						src="assets/img/team-11.jpg"
+						class="img-fluid"
+						alt="پروفایل کاربر"
+						style="
+						width: 38px;
+						height: 38px;
+						border-radius: 50%;
+						object-fit: cover;
+						"
+					>
+					</a>
+				</ul>
+			  </div>
+			</nav>
+		  </div>
+		</div>
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+
+
+<!-- ============================ Booking Page ================================== -->
+		<section class="pt-4 gray-simple position-relative">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div id="stepper" class="bs-stepper stepper-outline mb-5">
+							<div class="bs-stepper-header">
+
+								<!-- Step 1 -->
+								<div class="step active" data-target="#step-1">
+									<div class="text-center">
+										<button
+											type="button"
+											class="step-trigger mb-0"
+											id="steppertrigger1"
+										>
+											<span class="bs-stepper-circle">1</span>
+										</button>
+
+										<h6 class="bs-stepper-label d-none d-md-block">
+											شرایط و ضوابط
+										</h6>
+									</div>
+								</div>
+
+								<div class="line"></div>
+
+								<!-- Step 2 -->
+								<div class="step" data-target="#step-2">
+									<div class="text-center">
+										<button
+											type="button"
+											class="step-trigger mb-0"
+											id="steppertrigger2"
+										>
+											<span class="bs-stepper-circle">2</span>
+										</button>
+
+										<h6 class="bs-stepper-label d-none d-md-block">
+											اطلاعات مسافران
+										</h6>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Loading -->
+				<div v-if="loading" class="row">
+					<div class="col-12">
+						<div class="card p-5 text-center">
+							<div
+								class="spinner-border text-primary mx-auto mb-3"
+								role="status"
+							>
+								<span class="visually-hidden">در حال دریافت اطلاعات...</span>
+							</div>
+
+							<div class="text-muted">
+								در حال دریافت اطلاعات پرواز...
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Error -->
+				<div v-else-if="errorMessage" class="row">
+					<div class="col-12">
+						<div class="alert alert-danger text-center mb-3">
+							<i class="fa-solid fa-circle-exclamation ms-2"></i>
+							{{ errorMessage }}
+						</div>
+
+						<div class="text-center">
+							<button
+								type="button"
+								class="btn btn-primary"
+								@click="loadBooking"
+							>
+								تلاش مجدد
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Flight content -->
+				<div v-else-if="flight" class="row align-items-start">
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="row align-items-start">
+
+							<div class="col-xl-12 col-lg-8 col-md-12">
+								<div class="card p-3 mb-xl-0 mb-lg-0 mb-3">
+
+									<!-- Flight info -->
+									<div class="flight-boxyhc mt-4">
+										<h4 class="fs-5">جزئیات بلیط هواپیما</h4>
+
+										<div class="flights-accordion">
+											<div class="flights-list-item bg-white border rounded-3 p-2">
+												<div class="row gy-4 align-items-center justify-content-between">
+
+													<div class="col">
+														<div class="row">
+
+															<div class="col-xl-12 col-lg-12 col-md-12">
+																<div class="d-flex align-items-center mb-2">
+
+																	<span class="label bg-light-primary text-primary ms-2">
+																		تاریخ رفت
+																	</span>
+
+																	<span class="text-muted text-sm">
+																		{{ departureDate }}
+																	</span>
+
+																</div>
+															</div>
+
+															<div class="col-xl-12 col-lg-12 col-md-12">
+																<div class="row gx-lg-5 gx-3 gy-4 align-items-center">
+
+																	<!-- Airline -->
+																	<div class="col-sm-auto">
+																		<div class="d-flex align-items-center justify-content-start">
+
+																			<div class="d-start fl-pic">
+																				<img
+																					class="img-fluid"
+																					src="assets/img/air-4.png"
+																					width="45"
+																					alt="تصویر ایرلاین"
+																				>
+																			</div>
+
+																			<div class="d-end fl-title pe-2">
+																				<div class="text-dark fw-medium">
+																					{{ airlineName }}
+																				</div>
+
+																				<div class="text-sm text-muted">
+																					شماره پرواز {{ flight.flightNumber || 'نامشخص' }}
+																				</div>
+																			</div>
+
+																		</div>
+																	</div>
+
+																	<!-- Route -->
+																	<div class="col">
+																		<div class="row gx-3 align-items-center">
+
+																			<!-- Departure -->
+																			<div class="col-auto">
+																				<div class="text-dark">
+																					{{ departureTime }}
+																				</div>
+
+																				<div class="text-muted text-sm fw-medium">
+																					{{ sourceCode }}
+																				</div>
+
+																				<div class="text-muted text-sm">
+																					{{ sourceName }}
+																				</div>
+																			</div>
+
+																			<!-- Flight line -->
+																			<div class="col text-center">
+																				<div class="flightLine departure">
+																					<div></div>
+																					<div></div>
+																				</div>
+
+																				<div class="text-muted text-sm fw-medium mt-3">
+																					بدون توقف
+																				</div>
+																			</div>
+
+																			<!-- Arrival -->
+																			<div class="col-auto">
+																				<div class="text-dark">
+																					{{ arrivalTime }}
+																				</div>
+
+																				<div class="text-muted text-sm fw-medium">
+																					{{ destinationCode }}
+																				</div>
+
+																				<div class="text-muted text-sm">
+																					{{ destinationName }}
+																				</div>
+																			</div>
+
+																		</div>
+																	</div>
+
+																	<!-- Duration -->
+																	<div class="col-md-auto">
+																		<div class="text-dark fw-medium">
+																			{{ durationText }}
+																		</div>
+
+																		<div class="text-muted text-sm fw-medium">
+																			بدون توقف
+																		</div>
+																	</div>
+
+																</div>
+															</div>
+
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Ticket price -->
+									<div class="flight-boxyhc mt-4">
+										<div class="d-flex align-items-center justify-content-between border rounded-3 p-3">
+											<div>
+												<h4 class="fs-6 mb-1">قیمت بلیط</h4>
+
+												<span class="text-muted text-sm">
+													قیمت برای هر مسافر
+												</span>
+											</div>
+
+											<div class="text-start">
+												<template v-if="ticketPrice !== null">
+													<span class="fw-bold fs-5 text-primary">
+														{{ formattedTicketPrice }}
+													</span>
+
+													<span class="text-muted me-1">
+														ریال
+													</span>
+												</template>
+
+												<span v-else class="text-muted">
+													قیمت نامشخص
+												</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- Rules -->
+									<div class="flight-boxyhc mt-4">
+										<h4 class="fs-5">شرایط و مقررات کلی سفر</h4>
+
+										<div class="effloration-wrap">
+											<ul class="row align-items-center g-1 mb-0 p-0">
+
+												<li
+													v-if="hasFlightDescription"
+													class="col-12"
+												>
+													<span class="text-success text-md">
+														<i class="fa-solid fa-circle-dot ms-2"></i>
+														{{ flight.description }}
+													</span>
+												</li>
+
+												<li class="col-12">
+													<span class="text-muted-2 text-md">
+														<i class="fa-solid fa-circle-dot ms-2"></i>
+														مسئولیت کنترل پاسپورت و ممنوعیت خروج از کشور
+														بر عهده مسافر است.
+													</span>
+												</li>
+
+												<li class="col-12">
+													<span class="text-muted-2 text-md">
+														<i class="fa-solid fa-circle-dot ms-2"></i>
+														از همراه داشتن هرگونه اشیای ممنوعه پرهیز فرمایید.
+													</span>
+												</li>
+
+												<li class="col-12">
+													<span class="text-muted-2 text-md">
+														<i class="fa-solid fa-circle-dot ms-2"></i>
+														مسافر موظف است پیش از پرواز اطلاعات بلیط، تاریخ
+														و ساعت حرکت را بررسی کند.
+													</span>
+												</li>
+
+											</ul>
+
+											<div class="form-check mt-4">
+												<input
+													id="acceptTerms"
+													v-model="acceptedTerms"
+													class="form-check-input"
+													type="checkbox"
+												>
+
+												<label
+													class="form-check-label text-dark fw-medium"
+													for="acceptTerms"
+												>
+													شرایط و مقررات سفر را مطالعه کرده‌ام و با آن موافقم.
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!-- Next step -->
+					<!-- Next step -->
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="text-center mt-4">
+
+							<button
+								type="button"
+								class="btn btn-md btn-primary"
+								:disabled="!flight || !acceptedTerms || goingToNextStep"
+								@click="goToNextStep"
+							>
+								<span v-if="goingToNextStep">
+									<span
+										class="spinner-border spinner-border-sm ms-2"
+										role="status"
+										aria-hidden="true"
+									></span>
+
+									در حال انتقال...
+								</span>
+
+								<span v-else>
+									مرحله بعد
+									<i class="fa-solid fa-arrow-left me-2"></i>
+								</span>
+							</button>
+
+							<div
+								v-if="!acceptedTerms"
+								class="text-muted text-sm mt-2"
+							>
+								برای ادامه، پذیرش شرایط و مقررات الزامی است.
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+		</section>
+<!-- ============================ Booking Page End ================================== -->
+
+
+		<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="fa-solid fa-sort-up"></i></a>
+
+
+	</div>
+	<!-- ============================================================== -->
+	<!-- End Wrapper -->
+	<!-- ============================================================== -->
+
+
+	<!-- ============================================================== -->
+	<!-- All Jquery -->
+	<!-- ============================================================== -->
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/dropzone.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
+    <script src="assets/js/flickity.pkgd.min.js"></script>
+    <script src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/rangeslider.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/counterup.min.js"></script>
+    <script src="assets/js/prism.js"></script>
+
+	<script src="assets/js/custom.js"></script>
+	<!-- Vue 3 -->
+	<script>
+		const { createApp } = Vue;
+
+		createApp({
+			data() {
+				return {
+					apiBaseUrl: 'http://localhost:5041/api',
+
+					flightId: null,
+					flight: null,
+					sourceAirport: null,
+					destinationAirport: null,
+
+					loading: true,
+					goingToNextStep: false,
+					errorMessage: '',
+					acceptedTerms: false
+				};
+			},
+
+			computed: {
+				airlineName() {
+					if (!this.flight || this.flight.airlineId == null) {
+						return 'ایرلاین نامشخص';
+					}
+
+					return `ایرلاین شماره ${this.flight.airlineId}`;
+				},
+
+				sourceName() {
+					return this.sourceAirport?.name || 'مبدأ نامشخص';
+				},
+
+				sourceCode() {
+					return this.sourceAirport?.iataCode || '---';
+				},
+
+				destinationName() {
+					return this.destinationAirport?.name || 'مقصد نامشخص';
+				},
+
+				destinationCode() {
+					return this.destinationAirport?.iataCode || '---';
+				},
+
+				departureDate() {
+					return this.formatPersianDate(
+						this.flight?.departureTime
+					);
+				},
+
+				departureTime() {
+					return this.formatTehranTime(
+						this.flight?.departureTime
+					);
+				},
+
+				arrivalTime() {
+					return this.formatTehranTime(
+						this.flight?.arrivalTime
+					);
+				},
+
+				durationText() {
+					if (
+						!this.flight?.departureTime ||
+						!this.flight?.arrivalTime
+					) {
+						return 'مدت نامشخص';
+					}
+
+					const departure = new Date(
+						this.flight.departureTime
+					);
+
+					const arrival = new Date(
+						this.flight.arrivalTime
+					);
+
+					if (
+						Number.isNaN(departure.getTime()) ||
+						Number.isNaN(arrival.getTime())
+					) {
+						return 'مدت نامشخص';
+					}
+
+					const difference =
+						arrival.getTime() - departure.getTime();
+
+					if (difference < 0) {
+						return 'مدت نامشخص';
+					}
+
+					const totalMinutes = Math.floor(
+						difference / 60000
+					);
+
+					const hours = Math.floor(
+						totalMinutes / 60
+					);
+
+					const minutes = totalMinutes % 60;
+
+					if (hours === 0) {
+						return `${this.toPersianNumber(minutes)} دقیقه`;
+					}
+
+					if (minutes === 0) {
+						return `${this.toPersianNumber(hours)} ساعت`;
+					}
+
+					return `${this.toPersianNumber(hours)} ساعت و ${this.toPersianNumber(minutes)} دقیقه`;
+				},
+
+				ticketPrice() {
+					if (!this.flight) {
+						return null;
+					}
+
+					/*
+						فیلد price در اولویت است. نام‌های دیگر برای
+						سازگاری با پاسخ‌های احتمالی متفاوت API هستند.
+					*/
+					const price =
+						this.flight.price ??
+						this.flight.ticketPrice ??
+						this.flight.amount ??
+						this.flight.basePrice;
+
+					if (
+						price === null ||
+						price === undefined ||
+						price === ''
+					) {
+						return null;
+					}
+
+					const numericPrice = Number(price);
+
+					if (
+						!Number.isFinite(numericPrice) ||
+						numericPrice < 0
+					) {
+						return null;
+					}
+
+					return numericPrice;
+				},
+
+				formattedTicketPrice() {
+					if (this.ticketPrice === null) {
+						return 'قیمت نامشخص';
+					}
+
+					return new Intl.NumberFormat('fa-IR', {
+						maximumFractionDigits: 0
+					}).format(this.ticketPrice);
+				},
+
+				hasFlightDescription() {
+					if (!this.flight?.description) {
+						return false;
+					}
+
+					const description =
+						String(this.flight.description).trim();
+
+					return (
+						description !== '' &&
+						description.toLowerCase() !== 'string'
+					);
+				}
+			},
+
+			methods: {
+				checkLoginStatus() {
+					const token = localStorage.getItem('token');
+					this.isLoggedIn = Boolean(token);
+				},
+				
+				getFlightId() {
+					const query = new URLSearchParams(
+						window.location.search
+					);
+
+					const urlFlightId = query.get('flightId');
+
+					const storedFlightId =
+						sessionStorage.getItem('selectedFlightId');
+
+					const flightId =
+						urlFlightId || storedFlightId;
+
+					if (!flightId) {
+						return null;
+					}
+
+					const numericFlightId = Number(flightId);
+
+					if (
+						!Number.isInteger(numericFlightId) ||
+						numericFlightId <= 0
+					) {
+						return null;
+					}
+
+					return numericFlightId;
+				},
+
+				getRequestHeaders() {
+					const headers = {
+						Accept: 'application/json'
+					};
+
+					const token =
+						localStorage.getItem('token') ||
+						localStorage.getItem('accessToken');
+
+					if (token) {
+						headers.Authorization = `Bearer ${token}`;
+					}
+
+					return headers;
+				},
+
+				async request(url) {
+					const response = await fetch(url, {
+						method: 'GET',
+						headers: this.getRequestHeaders()
+					});
+
+					if (response.status === 401) {
+						throw new Error(
+							'برای مشاهده اطلاعات پرواز باید وارد حساب کاربری شوید.'
+						);
+					}
+
+					if (response.status === 403) {
+						throw new Error(
+							'شما اجازه دسترسی به اطلاعات این پرواز را ندارید.'
+						);
+					}
+
+					if (response.status === 404) {
+						throw new Error(
+							'اطلاعات موردنظر پیدا نشد.'
+						);
+					}
+
+					if (!response.ok) {
+						throw new Error(
+							`خطا در ارتباط با سرور؛ کد خطا: ${response.status}`
+						);
+					}
+
+					return await response.json();
+				},
+
+				async loadBooking() {
+					this.loading = true;
+					this.errorMessage = '';
+					this.acceptedTerms = false;
+					this.goingToNextStep = false;
+
+					this.flight = null;
+					this.sourceAirport = null;
+					this.destinationAirport = null;
+
+					sessionStorage.removeItem(
+						'acceptedBookingTerms'
+					);
+
+					try {
+						this.flightId = this.getFlightId();
+
+						if (!this.flightId) {
+							throw new Error(
+								'شناسه پرواز مشخص نیست. لطفاً دوباره پرواز خود را انتخاب کنید.'
+							);
+						}
+
+						this.flight = await this.request(
+							`${this.apiBaseUrl}/Flights/${encodeURIComponent(this.flightId)}`
+						);
+
+						if (
+							!this.flight ||
+							this.flight.id == null
+						) {
+							throw new Error(
+								'پاسخ دریافت‌شده برای پرواز معتبر نیست.'
+							);
+						}
+
+						sessionStorage.setItem(
+							'selectedFlightId',
+							String(this.flight.id)
+						);
+
+						sessionStorage.setItem(
+							'selectedFlight',
+							JSON.stringify(this.flight)
+						);
+
+						await this.loadAirports();
+					} catch (error) {
+						console.error(
+							'Booking page error:',
+							error
+						);
+
+						this.errorMessage =
+							error?.message ||
+							'دریافت اطلاعات پرواز با مشکل مواجه شد.';
+					} finally {
+						this.loading = false;
+					}
+				},
+
+				async loadAirports() {
+					const sourceId = this.flight?.sourceId;
+					const destinationId =
+						this.flight?.destinationId;
+
+					if (
+						sourceId == null ||
+						destinationId == null
+					) {
+						throw new Error(
+							'اطلاعات مبدأ یا مقصد این پرواز کامل نیست.'
+						);
+					}
+
+					const [
+						sourceResult,
+						destinationResult
+					] = await Promise.allSettled([
+						this.request(
+							`${this.apiBaseUrl}/Airports/${encodeURIComponent(sourceId)}`
+						),
+						this.request(
+							`${this.apiBaseUrl}/Airports/${encodeURIComponent(destinationId)}`
+						)
+					]);
+
+					if (sourceResult.status === 'fulfilled') {
+						this.sourceAirport = sourceResult.value;
+					} else {
+						console.error(
+							'Source airport error:',
+							sourceResult.reason
+						);
+					}
+
+					if (
+						destinationResult.status === 'fulfilled'
+					) {
+						this.destinationAirport =
+							destinationResult.value;
+					} else {
+						console.error(
+							'Destination airport error:',
+							destinationResult.reason
+						);
+					}
+
+					if (
+						sourceResult.status === 'rejected' &&
+						destinationResult.status === 'rejected'
+					) {
+						throw new Error(
+							'دریافت اطلاعات فرودگاه مبدأ و مقصد امکان‌پذیر نبود.'
+						);
+					}
+				},
+
+				formatPersianDate(value) {
+					if (!value) {
+						return 'تاریخ نامشخص';
+					}
+
+					const date = new Date(value);
+
+					if (Number.isNaN(date.getTime())) {
+						return 'تاریخ نامشخص';
+					}
+
+					try {
+						return new Intl.DateTimeFormat(
+							'fa-IR-u-ca-persian',
+							{
+								timeZone: 'Asia/Tehran',
+								day: 'numeric',
+								month: 'long',
+								year: 'numeric'
+							}
+						).format(date);
+					} catch (error) {
+						return date.toLocaleDateString(
+							'fa-IR'
+						);
+					}
+				},
+
+				formatTehranTime(value) {
+					if (!value) {
+						return '--:--';
+					}
+
+					const date = new Date(value);
+
+					if (Number.isNaN(date.getTime())) {
+						return '--:--';
+					}
+
+					try {
+						return new Intl.DateTimeFormat(
+							'fa-IR',
+							{
+								timeZone: 'Asia/Tehran',
+								hour: '2-digit',
+								minute: '2-digit',
+								hour12: false
+							}
+						).format(date);
+					} catch (error) {
+						return date.toLocaleTimeString(
+							'fa-IR',
+							{
+								hour: '2-digit',
+								minute: '2-digit',
+								hour12: false
+							}
+						);
+					}
+				},
+
+				toPersianNumber(value) {
+					return String(value).replace(
+						/\d/g,
+						digit =>
+							'۰۱۲۳۴۵۶۷۸۹'[Number(digit)]
+					);
+				},
+
+				goToNextStep() {
+					if (
+						!this.flight ||
+						this.goingToNextStep
+					) {
+						return;
+					}
+
+					if (!this.acceptedTerms) {
+						return;
+					}
+
+					this.goingToNextStep = true;
+
+					sessionStorage.setItem(
+						'acceptedBookingTerms',
+						'true'
+					);
+
+					sessionStorage.setItem(
+						'selectedFlightId',
+						String(this.flight.id)
+					);
+
+					sessionStorage.setItem(
+						'selectedFlight',
+						JSON.stringify(this.flight)
+					);
+
+					const nextPage =
+						`bookingpage-02.html?flightId=${encodeURIComponent(this.flight.id)}`;
+
+					window.location.href = nextPage;
+				}
+			},
+
+			mounted() {
+				this.checkLoginStatus();
+				this.loadBooking();
+			}
+		}).mount('#main-wrapper');
+	</script>
+
+	<!-- ============================================================== -->
+	<!-- This page plugins -->
+	<!-- ============================================================== -->
+
+</body>
+
+</html>

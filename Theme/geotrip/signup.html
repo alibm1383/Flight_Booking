@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> رزرو تور و آژانس مسافرتی </title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="./assets/js/vue.global.js"></script>
+</head>
+
+<body class="bg-light">
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+	<div id="main-wrapper">
+		<section class="py-5">
+			<div class="container">
+				<div class="row justify-content-center align-items-center m-auto">
+					<div class="col-12">
+						<div class="bg-mode card shadow-sm rounded-3 overflow-hidden">
+							<div class="row g-0">
+								<div class="col-lg-6 d-flex align-items-center order-2 order-lg-1">
+									<div class="p-3 p-lg-5">
+										<img src="assets/img/login.svg" class="img-fluid" alt="">
+									</div>
+									<div class="vr opacity-1 d-none d-lg-block"></div></div>
+
+								<div class="col-lg-6 order-1">
+									<div class="p-4 p-sm-7">
+											<img class="img-fluid mb-4" src="assets/img/logo-icon.png" width="70" alt="logo">
+										<h1 class="mb-2 fs-2">ثبت نام</h1>
+										<p class="mb-0">آیا قبلا ثبت نام کرده اید؟<a href="login.html" class="fw-medium text-primary"> ورود به حساب کاربری</a></p>
+										<div id="app">
+										<form class="mt-4 text-end" @submit.prevent="handleSubmit">
+											<div class="form py-4">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="form-label">* نام</label>
+															<input type="text" class="form-control" id="firstName" v-model="form.firstName">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="form-label">* نام خانوادگی</label>
+															<input type="text" class="form-control" id="lastName" v-model="form.lastName">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="form-label">* شماره موبایل</label>
+															<input type="text" class="form-control" id="phoneNumber" placeholder="09xxxxxxxxx" v-model="form.phoneNumber">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="form-label">* ایمیل</label>
+															<input type="email" class="form-control" id="email" placeholder="name@example.com" v-model="form.email">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="form-label">تاریخ تولد</label>
+															<input type="date" class="form-control" id="birthDate" v-model="form.birthDate">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="form-label">جنسیت</label>
+															<select class="form-control" id="gender" v-model="form.gender">
+																<option value="0">مرد</option>
+																<option value="1">زن</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="form-label">* رمز عبور</label>
+													<div class="position-relative">
+														<input type="password" class="form-control" id="password-field" name="password" v-model="form.password">
+														<span class="fa-solid fa-eye toggle-password position-absolute top-50 start-0 translate-middle-y ms-3"></span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="form-label">* تایید رمز عبور</label>
+													<input type="password" class="form-control" id="confirmPassword" v-model="form.confirmPassword">
+												</div>
+												<div class="form-group">
+													<button type="submit" class="btn btn-primary full-width btn-lg">ایجاد حساب</button>
+													
+												</div>
+												<div  class="text-center">
+													<p class="mb-0"><a href="airsing.html" class="fw-medium text-primary">ثبت‌ نام به عنوان شرکت هواپیمایی </a></p>
+												</div>
+											<div class="text-primary-hover mt-3 text-center"> 2026 کلیه حقوق این سایت محفوظ است. </div>
+										</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script>
+		const { createApp } = Vue;
+		createApp({
+			data() {
+				return {
+					form: {
+						firstName: '',
+						lastName: '',
+						email: '',
+						phoneNumber: '',
+						birthDate: '',
+						gender: '0',
+						password: '',
+						confirmPassword: '',
+					}
+				};
+			},
+			methods: {
+				async handleSubmit() {
+					const { firstName, lastName, email, phoneNumber, birthDate, gender: genderValue, password, confirmPassword } = this.form;
+
+					if (!firstName || !lastName || !email || !phoneNumber || !password || !confirmPassword) {
+						alert("لطفاً تمام فیلدهای ستاره‌دار (*) را پر کنید.");
+						return;
+					}
+
+					const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+					if (!emailRegex.test(email)) {
+						alert("لطفاً یک آدرس ایمیل معتبر وارد کنید.");
+						return;
+					}
+					const phoneRegex = /^09[0-9]{9}$/;
+					if (!phoneRegex.test(this.form.phoneNumber)) {
+					alert('شماره موبایل معتبر نیست');
+					return;
+					}
+					if (firstName.length < 2 || lastName.length < 2) {
+						alert("نام و نام خانوادگی کاریر باید حداقل 2 کاراکتر باشد.");
+						return;
+					}
+
+					if (password.length < 8) {
+						alert("رمز عبور باید حداقل 8 کاراکتر باشد.");
+						return;
+					}
+
+					if (password !== confirmPassword) {
+						alert("رمز عبور و تکرار رمز عبور مطابقت ندارند.");
+						return;
+					}
+					let finalBirthDate = null;
+					if (birthDate) {
+						if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate)) {
+							alert("لطفاً تاریخ تولد را با فرمت YYYY-MM-DD انتخاب کنید.");
+							return;
+						}
+						finalBirthDate = birthDate;
+					}
+
+					let finalGender = null;
+					if (genderValue !== "") {
+						const parsedGender = parseInt(genderValue);
+						if (!isNaN(parsedGender) && (parsedGender === 0 || parsedGender === 1)) {
+							finalGender = parsedGender;
+						} else {
+							alert("لطفاً یک گزینه معتبر برای جنسیت انتخاب کنید.");
+							return;
+						}
+					}
+
+					const signupData = {
+						FirstName: firstName,
+						LastName: lastName,
+						PhoneNumber: phoneNumber,
+						Email: email,
+						BirthDate: finalBirthDate,
+						Gender: finalGender,
+						Password: password
+					};
+
+					try {
+						const response = await fetch('http://127.0.0.1:8000/auth/register/customer',{
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+								'Accept': 'application/json'
+							},
+							body: JSON.stringify(signupData)
+						});
+						const responseData = await response.json();
+						if (!response.ok) {
+							let errorMsg = "خطا در ثبت‌نام.";
+							if (responseData.detail && Array.isArray(responseData.detail)) {
+								errorMsg = responseData.detail.map(err => {
+									const field = err.loc && err.loc.length > 1 ? err.loc[1] : 'server';
+									return `${field}: ${err.msg}`;
+								}).join("\n");
+							} else if (responseData.detail) {
+								errorMsg = `server: ${responseData.detail}`;
+							} else {
+								errorMsg = "یک خطای ناشناخته از سرور دریافت شد.";
+							}
+							throw new Error(errorMsg);
+						}
+						alert("ثبت‌نام با موفقیت انجام شد!");
+						window.location.href = 'login.html';
+					} catch (error) {
+						console.error("Error during signup:", error);
+						alert("خطا:\n" + error.message);
+					}
+				}
+			}
+		}).mount('#app');
+	</script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/dropzone.min.js"></script>
+	<script src="assets/js/flatpickr.js"></script>
+	<script src="assets/js/flickity.pkgd.min.js"></script>
+	<script src="assets/js/lightbox.min.js"></script>
+	<script src="assets/js/rangeslider.js"></script>
+	<script src="assets/js/select2.min.js"></script>
+	<script src="assets/js/counterup.min.js"></script>
+	<script src="assets/js/prism.js"></script><script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>

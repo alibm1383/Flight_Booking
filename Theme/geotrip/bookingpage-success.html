@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>تکمیل رزرو پرواز | GeoTrip</title>
+
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/animation.css" rel="stylesheet">
+  <link href="assets/css/dropzone.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+  <link href="assets/css/flickity.min.css" rel="stylesheet">
+  <link href="assets/css/lightbox.min.css" rel="stylesheet">
+  <link href="assets/css/magnifypopup.css" rel="stylesheet">
+  <link href="assets/css/select2.min.css" rel="stylesheet">
+  <link href="assets/css/rangeSlider.min.css" rel="stylesheet">
+  <link href="assets/css/prism.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f7f8fa;
+    }
+
+    .booking-success-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .booking-success-card {
+      background-color: #ffffff;
+      border: 1px solid #edf0f2;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #ffffff;
+      background-color: #198754;
+    }
+
+    .booking-summary {
+      background-color: #f8fafb;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+    }
+
+    .summary-item {
+      padding: 12px 10px;
+    }
+
+    .summary-label {
+      display: block;
+      color: #6c757d;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .summary-value {
+      color: #212529;
+      font-size: 15px;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .passenger-card {
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 16px;
+      background-color: #ffffff;
+    }
+
+    .invoice-passengers th,
+    .invoice-passengers td {
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .empty-booking {
+      display: none;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+      }
+
+      body * {
+        visibility: hidden;
+      }
+
+      #invoicemodal,
+      #invoicemodal * {
+        visibility: visible;
+      }
+
+      #invoicemodal {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .modal {
+        position: absolute;
+        inset: 0;
+        display: block !important;
+        overflow: visible !important;
+      }
+
+      .modal-dialog {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .modal-content {
+        border: 0;
+        box-shadow: none;
+      }
+
+      .modal-header,
+      .invoice-bodyaction {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="preloader">
+    <div class="preloader">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="main-wrapper">
+
+    <main class="booking-success-wrapper">
+      <div class="container">
+
+        <section id="successSection" class="booking-success-card">
+          <div class="px-xl-5 px-lg-4 px-3 py-5">
+
+            <div class="text-center">
+              <div class="d-flex align-items-center justify-content-center mb-3">
+                <div class="success-icon">
+                  <i class="fa-solid fa-check-double fs-1"></i>
+                </div>
+              </div>
+
+              <h3 class="mb-2">رزرو شما با موفقیت ثبت شد!</h3>
+
+              <p class="text-muted mb-4">
+                اطلاعات رزرو و مسافران در ادامه نمایش داده شده است.
+              </p>
+            </div>
+
+            <div class="booking-summary p-3 p-md-4 mb-4">
+              <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="summary-item">
+                    <span class="summary-label">شماره پرواز</span>
+                    <span id="flightNumber" class="summary-value">—</span>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="summary-item">
+                    <span class="summary-label">تعداد مسافران</span>
+                    <span id="passengerCount" class="summary-value">۰ نفر</span>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <div class="summary-item">
+                    <span class="summary-label">تاریخ ثبت رزرو</span>
+                    <span id="completedAt" class="summary-value">—</span>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                  <div class="summary-item">
+                    <span class="summary-label">قیمت هر بلیط</span>
+                    <span id="ticketPrice" class="summary-value">۰ ریال</span>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                  <div class="summary-item">
+                    <span class="summary-label">مبلغ کل</span>
+                    <span id="totalAmount" class="summary-value text-success">
+                      ۰ ریال
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="mb-0">مشخصات مسافران</h5>
+                <span id="passengerBadge" class="badge bg-light-primary text-primary">
+                  ۰ مسافر
+                </span>
+              </div>
+
+              <div id="passengersList" class="row g-3"></div>
+            </div>
+
+            <div class="text-center d-flex flex-wrap align-items-center justify-content-center gap-2">
+              <a href="home-flight.html" class="btn btn-md btn-light-seegreen">
+                <i class="fa-solid fa-house ms-1"></i>
+                صفحه اصلی
+              </a>
+
+              <button
+                type="button"
+                class="btn btn-md btn-light-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#invoice"
+              >
+                <i class="fa-solid fa-ticket ms-1"></i>
+                مشاهده و دانلود بلیط
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="emptyBookingSection" class="booking-success-card empty-booking">
+          <div class="px-xl-5 px-lg-4 px-3 py-5 text-center">
+
+            <div class="d-flex align-items-center justify-content-center mb-3">
+              <div class="square--80 circle text-warning bg-light-warning">
+                <i class="fa-solid fa-triangle-exclamation fs-1"></i>
+              </div>
+            </div>
+
+            <h3 class="mb-2">اطلاعات رزرو در دسترس نیست</h3>
+
+            <p class="text-muted mb-4">
+              اطلاعات رزرو پیدا نشد. لطفاً دوباره پرواز موردنظر خود را انتخاب کنید.
+            </p>
+
+            <a href="home-flight.html" class="btn btn-primary">
+              بازگشت به صفحه پروازها
+            </a>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <div
+      class="modal modal-lg fade"
+      id="invoice"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="invoiceModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered invoice-pop-form" role="document">
+        <div class="modal-content" id="invoicemodal">
+
+          <div class="modal-header">
+            <h4 id="invoiceModalLabel" class="modal-title fs-6">
+              جزئیات بلیط
+            </h4>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="بستن"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="invoiceblock-wrap p-2 p-md-3">
+
+              <div class="invoice-header d-flex align-items-center justify-content-between mb-4">
+
+                <div class="d-flex align-items-center">
+                  <div class="square--60 circle bg-light-primary text-primary">
+                    <i class="fa-solid fa-file-invoice fs-2"></i>
+                  </div>
+
+                  <div class="pe-3">
+                    <span id="invoiceDate" class="text-sm text-muted lh-2">
+                      <i class="fa-regular fa-calendar ms-1"></i>
+                      تاریخ صدور: —
+                    </span>
+                  </div>
+                </div>
+
+                <span class="label text-success bg-light-success">
+                  ثبت شده
+                </span>
+              </div>
+
+              <div class="invoice-bodytop border rounded-2 p-3 mb-3">
+                <div class="row">
+
+                  <div class="col-md-4 mb-2 mb-md-0">
+                    <span class="text-muted text-sm d-block mb-1">
+                      شماره پرواز
+                    </span>
+                    <strong id="invoiceFlightNumber">—</strong>
+                  </div>
+
+                  <div class="col-md-4 mb-2 mb-md-0">
+                    <span class="text-muted text-sm d-block mb-1">
+                      تعداد مسافر
+                    </span>
+                    <strong id="invoicePassengerCount">۰ نفر</strong>
+                  </div>
+
+                  <div class="col-md-4">
+                    <span class="text-muted text-sm d-block mb-1">
+                      مبلغ کل
+                    </span>
+                    <strong id="invoiceTotalAmount" class="text-success">
+                      ۰ ریال
+                    </strong>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="invoice-bodybott py-2 mb-2">
+                <div class="table-responsive border rounded-2">
+                  <table class="table invoice-passengers mb-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">ردیف</th>
+                        <th scope="col">نام</th>
+                        <th scope="col">نام خانوادگی</th>
+                        <th scope="col">کد ملی</th>
+                        <th scope="col">تاریخ تولد</th>
+                        <th scope="col">جنسیت</th>
+                      </tr>
+                    </thead>
+
+                    <tbody id="invoicePassengers"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="border rounded-2 p-3 mt-3">
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="fw-medium">مبلغ پرداختی:</span>
+                  <strong id="invoiceFinalAmount" class="text-success fs-5">
+                    ۰ ریال
+                  </strong>
+                </div>
+              </div>
+
+              <div class="invoice-bodyaction mt-3">
+                <div class="d-flex justify-content-end">
+                  <button
+                    id="printInvoiceButton"
+                    type="button"
+                    class="btn btn-sm btn-success fw-medium"
+                  >
+                    <i class="fa-solid fa-print ms-1"></i>
+                    چاپ یا ذخیره PDF
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <a id="back2Top" class="top-scroll" title="بازگشت به بالا" href="#">
+      <i class="fa-solid fa-sort-up"></i>
+    </a>
+
+  </div>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/dropzone.min.js"></script>
+  <script src="assets/js/flatpickr.js"></script>
+  <script src="assets/js/flickity.pkgd.min.js"></script>
+  <script src="assets/js/lightbox.min.js"></script>
+  <script src="assets/js/rangeslider.js"></script>
+  <script src="assets/js/select2.min.js"></script>
+  <script src="assets/js/counterup.min.js"></script>
+  <script src="assets/js/prism.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const successSection = document.getElementById('successSection');
+      const emptyBookingSection = document.getElementById('emptyBookingSection');
+
+      let completedBooking = null;
+
+      try {
+        const storedBooking = sessionStorage.getItem('completedBooking');
+
+        if (storedBooking) {
+          completedBooking = JSON.parse(storedBooking);
+        }
+      } catch (error) {
+        console.error('خطا در خواندن اطلاعات رزرو:', error);
+      }
+
+      if (!completedBooking || !Array.isArray(completedBooking.passengers)) {
+        successSection.style.display = 'none';
+        emptyBookingSection.style.display = 'block';
+        return;
+      }
+
+      const passengers = completedBooking.passengers;
+      const passengerCount =
+        Number(completedBooking.passengerCount) || passengers.length;
+
+      const ticketPrice = Number(completedBooking.ticketPrice) || 0;
+      const totalAmount =
+        Number(completedBooking.totalAmount) ||
+        ticketPrice * passengerCount;
+
+      const flightNumber =
+        completedBooking.flightNumber ||
+        completedBooking.flightId ||
+        '—';
+
+      const completedAt = formatDateTime(completedBooking.completedAt);
+
+      document.getElementById('flightNumber').textContent = flightNumber;
+      document.getElementById('passengerCount').textContent =
+        `${formatNumber(passengerCount)} نفر`;
+
+      document.getElementById('completedAt').textContent = completedAt;
+      document.getElementById('ticketPrice').textContent =
+        formatPrice(ticketPrice);
+
+      document.getElementById('totalAmount').textContent =
+        formatPrice(totalAmount);
+
+      document.getElementById('passengerBadge').textContent =
+        `${formatNumber(passengerCount)} مسافر`;
+
+      document.getElementById('invoiceDate').innerHTML =
+        `<i class="fa-regular fa-calendar ms-1"></i>تاریخ صدور: ${escapeHtml(completedAt)}`;
+
+      document.getElementById('invoiceFlightNumber').textContent =
+        flightNumber;
+
+      document.getElementById('invoicePassengerCount').textContent =
+        `${formatNumber(passengerCount)} نفر`;
+
+      document.getElementById('invoiceTotalAmount').textContent =
+        formatPrice(totalAmount);
+
+      document.getElementById('invoiceFinalAmount').textContent =
+        formatPrice(totalAmount);
+
+      renderPassengerCards(passengers);
+      renderInvoicePassengers(passengers);
+
+      document
+        .getElementById('printInvoiceButton')
+        .addEventListener('click', function () {
+          window.print();
+        });
+    });
+
+    function renderPassengerCards(passengers) {
+      const passengersList = document.getElementById('passengersList');
+
+      passengersList.innerHTML = passengers.map(function (passenger, index) {
+        return `
+          <div class="col-lg-6">
+            <div class="passenger-card h-100">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <h6 class="mb-0">
+                  <i class="fa-solid fa-user text-primary ms-1"></i>
+                  مسافر ${formatNumber(index + 1)}
+                </h6>
+
+                <span class="badge bg-light-success text-success">
+                  تایید شده
+                </span>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <span class="summary-label">نام و نام خانوادگی</span>
+                  <span class="summary-value">
+                    ${escapeHtml(passenger.firstName || '—')}
+                    ${escapeHtml(passenger.lastName || '')}
+                  </span>
+                </div>
+
+                <div class="col-sm-6">
+                  <span class="summary-label">کد ملی</span>
+                  <span class="summary-value">
+                    ${escapeHtml(passenger.nationalCode || '—')}
+                  </span>
+                </div>
+
+                <div class="col-sm-6">
+                  <span class="summary-label">تاریخ تولد</span>
+                  <span class="summary-value">
+                    ${escapeHtml(formatBirthDate(passenger.birthDate))}
+                  </span>
+                </div>
+
+                <div class="col-sm-6">
+                  <span class="summary-label">جنسیت</span>
+                  <span class="summary-value">
+                    ${escapeHtml(getGenderLabel(passenger.gender))}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderInvoicePassengers(passengers) {
+      const invoicePassengers = document.getElementById('invoicePassengers');
+
+      invoicePassengers.innerHTML = passengers.map(function (passenger, index) {
+        return `
+          <tr>
+            <td>${formatNumber(index + 1)}</td>
+            <td>${escapeHtml(passenger.firstName || '—')}</td>
+            <td>${escapeHtml(passenger.lastName || '—')}</td>
+            <td>${escapeHtml(passenger.nationalCode || '—')}</td>
+            <td>${escapeHtml(formatBirthDate(passenger.birthDate))}</td>
+            <td>${escapeHtml(getGenderLabel(passenger.gender))}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function getGenderLabel(gender) {
+      const normalizedGender = Number(gender);
+
+      if (normalizedGender === 0) return 'مرد';
+      if (normalizedGender === 1) return 'زن';
+
+      return '—';
+    }
+
+    function formatBirthDate(dateValue) {
+      if (!dateValue) return '—';
+
+      const datePart = String(dateValue).split('T')[0];
+      const parts = datePart.split('-');
+
+      if (parts.length !== 3) return dateValue;
+
+      return `${parts[0]}/${parts[1]}/${parts[2]}`;
+    }
+
+    function formatDateTime(dateValue) {
+      if (!dateValue) return '—';
+
+      const date = new Date(dateValue);
+
+      if (Number.isNaN(date.getTime())) return '—';
+
+      return new Intl.DateTimeFormat('fa-IR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }).format(date);
+    }
+
+    function formatPrice(amount) {
+      const normalizedAmount = Number(amount) || 0;
+      return `${formatNumber(normalizedAmount)} ریال`;
+    }
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat('fa-IR').format(Number(value) || 0);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+  </script>
+
+</body>
+</html>
