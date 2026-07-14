@@ -21,11 +21,13 @@ class CustomerProfileUpdate(BaseModel):
     BirthDate: Optional[date] = Field(None, description="New birth date")
     Gender: Optional[Literal[0, 1]] = Field(None, description="Gender: 0 for male, 1 for female")
     Email: Optional[EmailStr] = Field(None, description="User's new email")
+    PhoneNumber: Optional[str] = Field(None, pattern=r"^09\d{9}$", description="User's new phone number") 
 
 
 class AirlineProfileUpdate(BaseModel):
     CompanyName: Optional[str] = Field(None, min_length=3, max_length=200, description="Airline's new company name")
     Email: Optional[EmailStr] = Field(None, description="Airline's new email")
+    PhoneNumber: Optional[str] = Field(None, pattern=r"^09\d{9}$", description="Airline's new phone number")  
 
 
 class AdminProfileUpdate(BaseModel):
@@ -34,6 +36,7 @@ class AdminProfileUpdate(BaseModel):
     BirthDate: Optional[date] = Field(None, description="Birth date")
     Gender: Optional[Literal[0, 1]] = Field(None, description="Gender")
     Email: Optional[EmailStr] = Field(None, description="Admin's new email")
+    PhoneNumber: Optional[str] = Field(None, pattern=r"^09\d{9}$", description="Admin's new phone number") 
 
 
 class CustomerInfoResponse(BaseModel):
@@ -81,3 +84,7 @@ class ProfileResponse(BaseModel):
 class AvatarUploadResponse(BaseModel):
     message: str = Field(..., description="Success message for the operation")
     ImageUrl: str = Field(..., description="URL of the uploaded image")
+
+
+class StandardMessageResponse(BaseModel):
+    message: str = Field(..., description="Success message for the operation")

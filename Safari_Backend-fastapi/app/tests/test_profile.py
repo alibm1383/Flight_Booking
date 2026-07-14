@@ -62,7 +62,7 @@ def test_get_my_information(client, db_session):
     user, _ = create_user_with_profile(db_session, role_id=3)
     app.dependency_overrides[security.get_current_user] = lambda: user
     
-    response = client.get("/profile/my-information")
+    response = client.get("/profile/me")
     
     assert response.status_code == 200
     data = response.json()
@@ -116,6 +116,46 @@ def test_update_customer_wrong_role(client, db_session):
     
     response = client.put("/profile/update/customer", json={"FirstName": "Test"})
     assert response.status_code == 403
+    app.dependency_overrides.clear()
+
+def test_update_profile_phone_number_success(client, db_session):
+    """Test successful update of phone number to a new valid number"""
+    user, _ = create_user_with_profile(db_session, role_id=3, phone="09101112233")
+    app.dependency_overrides[security.get_current_user] = lambda: user
+    
+    payload = {"PhoneNumber": "09109998877"}
+    response = client.put("/profile/update/customer", json=payload)
+    
+    assert response.status_code == 200
+    assert response.json()["PhoneNumber"] == "09109998877"
+    
+    app.dependency_overrides.clear()
+
+def test_update_profile_phone_duplicate(client, db_session):
+    """Test preventing setting a phone number already registered by another user (409 error)"""
+    user1, _ = create_user_with_profile(db_session, phone="09121111111")
+    user2, _ = create_user_with_profile(db_session, phone="09122222222")
+    
+    app.dependency_overrides[security.get_current_user] = lambda: user2
+    
+    payload = {"PhoneNumber": user1.PhoneNumber}
+    response = client.put("/profile/update/customer", json=payload)
+    
+    assert response.status_code == 409
+    assert "already registered" in response.json()["detail"].lower()
+    
+    app.dependency_overrides.clear()
+
+def test_update_profile_phone_invalid_format(client, db_session):
+    """Test Pydantic validation for invalid phone number format (422 error)"""
+    user, _ = create_user_with_profile(db_session)
+    app.dependency_overrides[security.get_current_user] = lambda: user
+    
+    payload = {"PhoneNumber": "123456"}
+    response = client.put("/profile/update/customer", json=payload)
+    
+    assert response.status_code == 422
+    
     app.dependency_overrides.clear()
 
 def test_update_profile_duplicate_email(client, db_session):
