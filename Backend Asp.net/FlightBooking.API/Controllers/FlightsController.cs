@@ -65,6 +65,5 @@ namespace FlightBooking.API.Controllers
             await _flightService.AddFlightAsync(createFlightDto,airlineId);
             return Created();
         }
-
     }
 }
