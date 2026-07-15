@@ -1,0 +1,21 @@
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Ignore Git files
+.git/
+.gitignore
+.gitattributes
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore actual uploaded files (we will mount them as volumes so they don't get overwritten)
+Safari_Backend/app/static/upload/*
+!Safari_Backend/app/static/upload/.gitkeep
