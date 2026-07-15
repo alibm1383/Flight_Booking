@@ -25,6 +25,11 @@ namespace Data.Repositories
             await _context.Bookings.AddAsync(booking);
         }
 
+        public async Task<Booking?> GetBookingByIdAsync(int bookingId)
+        {
+            return await _context.Bookings.FirstOrDefaultAsync(b => b.Id == bookingId);
+        }
+
         public async Task<List<BookingDto>> GetBookingsByUserId(int userId)
         {
             return await _context.Bookings

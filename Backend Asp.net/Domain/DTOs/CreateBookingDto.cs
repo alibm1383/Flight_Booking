@@ -8,7 +8,6 @@ namespace Domain.DTOs
 {
     public class CreateBookingDto
     {
-        public int UserId { get; set; } 
         public int FlightId { get; set; }
         public required List<CreatePassengerDto> Passengers { get; set; }
     }

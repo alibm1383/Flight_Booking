@@ -12,8 +12,8 @@ namespace Application.Services.Interfaces
     {
         Task<PagedResult<FlightDto>> SearchAsync(SearchFlightDto searchFlightDto);
         Task<IEnumerable<FlightDto>> GetFlightsByAirlineIdAsync(int airlineId);
-        Task<IEnumerable<PassengerDto>> GetPassengersByFlightIdAsync(int flightId);
+        Task<IEnumerable<PassengerDto>> GetPassengersByFlightIdAsync(int flightId,int airlineId);
         Task<FlightDto?> GetFlightByIdAsync(int flightId);
-        Task AddFlightAsync(CreateFlightDto createFlightDto);
+        Task AddFlightAsync(CreateFlightDto createFlightDto,int airlineId);
     }
 }

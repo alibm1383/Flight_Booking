@@ -1,6 +1,7 @@
 ﻿using Application.Services.Interfaces;
 using Domain.DTOs;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -41,7 +42,7 @@ namespace FlightBooking.API.Controllers
             return Ok(city);
         }
 
-        
+        [Authorize(Roles = "1")]
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] CreateCityDto createCityDto)
         {

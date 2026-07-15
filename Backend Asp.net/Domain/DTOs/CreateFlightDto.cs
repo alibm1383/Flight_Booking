@@ -11,7 +11,6 @@ namespace Domain.DTOs
 {
     public class CreateFlightDto
     {
-        public int AirlineId { get; set; }
         public int SourceId { get; set; }
         public int DestinationId { get; set; }
         [MaxLength(50)]

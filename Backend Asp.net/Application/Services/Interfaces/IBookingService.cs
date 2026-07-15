@@ -9,8 +9,8 @@ namespace Application.Services.Interfaces
 {
     public interface IBookingService
     {
-        Task AddBookingAsync(CreateBookingDto createBookingDto);
+        Task AddBookingAsync(CreateBookingDto createBookingDto,int userId);
         Task<List<BookingDto>> GetBookingsByUserId (int userId);
-        Task<List<PassengerDto>> GetPassengersByBookingId(int bookingId);
+        Task<List<PassengerDto>> GetPassengersByBookingId(int bookingId,int userId);
     }
 }

@@ -27,7 +27,7 @@ namespace Application.Services.Implementations
             _smsSender = smsSender;
         }
 
-        public async Task AddBookingAsync(CreateBookingDto createBookingDto)
+        public async Task AddBookingAsync(CreateBookingDto createBookingDto , int userId)
         {
             var flight = await _flightRepository.GetFlightByIdAsync(createBookingDto.FlightId);
             if (flight == null)
@@ -39,6 +39,7 @@ namespace Application.Services.Implementations
                 throw new BusinessException("Not enough seats.");
             }
             var booking = _mapper.Map<Booking>(createBookingDto);
+            booking.UserId = userId;
             booking.BookingDate = DateTime.UtcNow;
             booking.PnrCode = PnrGenerator.Generate();
             flight.AvailableSeats -= createBookingDto.Passengers.Count;
@@ -56,8 +57,17 @@ namespace Application.Services.Implementations
             return await _bookingRepository.GetBookingsByUserId(userId);
         }
 
-        public async Task<List<PassengerDto>> GetPassengersByBookingId(int bookingId)
+        public async Task<List<PassengerDto>> GetPassengersByBookingId(int bookingId,int userId)
         {
+            var booking = await _bookingRepository.GetBookingByIdAsync(bookingId);
+            if (booking == null)
+            {
+                throw new NotFoundException("Booking not found.");
+            }
+            if (booking.UserId != userId)
+            {
+                throw new ForbiddenException("Access denied.");
+            }
             var passengers = await _bookingRepository.GetPassengersByBookingId(bookingId);
             return _mapper.Map<List<PassengerDto>>(passengers);
         }

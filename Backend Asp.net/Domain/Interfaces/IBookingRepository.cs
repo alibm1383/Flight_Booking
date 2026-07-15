@@ -13,6 +13,7 @@ namespace Domain.Interfaces
         Task AddBookingAsync(Booking booking);
         Task<List<BookingDto>> GetBookingsByUserId(int userId);
         Task<List<Passenger>> GetPassengersByBookingId(int bookingId);
+        Task<Booking?> GetBookingByIdAsync(int bookingId);
         Task SaveChangesAsync();
     }
 }

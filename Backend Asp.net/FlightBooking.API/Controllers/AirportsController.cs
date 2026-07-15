@@ -1,5 +1,6 @@
 ﻿using Application.Services.Interfaces;
 using Domain.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlightBooking.API.Controllers
@@ -38,7 +39,7 @@ namespace FlightBooking.API.Controllers
             return Ok(airport);
         }
 
-
+        [Authorize(Roles = "1")]
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] CreateAirportDto createAirportDto)
         {
@@ -46,6 +47,5 @@ namespace FlightBooking.API.Controllers
             await _airportService.AddAirportAsync(createAirportDto);
             return Created();
         }
-
     }
 }
