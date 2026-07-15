@@ -118,8 +118,9 @@ def change_user_password(db: Session, current_user: models.User, password_data: 
     
     try:
         db.commit()
-    except Exception:
+    except Exception as e:
         db.rollback()
+        logger.error(f"Database error during password change for user {current_user.Id}: {str(e)}") 
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="An error occurred while saving the new password."
@@ -146,6 +147,18 @@ def _check_and_update_base_user(db: Session, current_user: models.User, update_d
                     detail="This email is already registered by another user."
                 )
             current_user.Email = update_dict["Email"]
+            current_user.IsEmailVerified = False
+    
+    if "PhoneNumber" in update_dict and update_dict["PhoneNumber"] is not None:
+        if update_dict["PhoneNumber"] != current_user.PhoneNumber:
+            existing_phone = db.query(models.User).filter(models.User.PhoneNumber == update_dict["PhoneNumber"]).first()
+            if existing_phone:
+                raise HTTPException(
+                    status_code=status.HTTP_409_CONFLICT,
+                    detail="This phone number is already registered by another user."
+                )
+            current_user.PhoneNumber = update_dict["PhoneNumber"]
+            current_user.IsPhoneVerified = False
         
     return update_dict
 
@@ -162,8 +175,9 @@ def update_customer_profile(db: Session, current_user: models.User, update_data:
     try:
         db.commit()
         db.refresh(current_user)
-    except IntegrityError:
+    except IntegrityError as e: 
         db.rollback()
+        logger.error(f"IntegrityError while updating profile for user {current_user.Id}: {str(e)}") 
         raise HTTPException(status_code=500, detail="Data integrity error in the database.")
         
     return get_user_profile(current_user)
@@ -178,8 +192,9 @@ def update_airline_profile(db: Session, current_user: models.User, update_data: 
     try:
         db.commit()
         db.refresh(current_user)
-    except IntegrityError:
+    except IntegrityError as e: 
         db.rollback()
+        logger.error(f"IntegrityError while updating profile for user {current_user.Id}: {str(e)}") 
         raise HTTPException(status_code=500, detail="Data integrity error in the database.")
         
     return get_user_profile(current_user)
@@ -197,8 +212,9 @@ def update_admin_profile(db: Session, current_user: models.User, update_data: sc
     try:
         db.commit()
         db.refresh(current_user)
-    except IntegrityError:
+    except IntegrityError as e: 
         db.rollback()
+        logger.error(f"IntegrityError while updating profile for user {current_user.Id}: {str(e)}") 
         raise HTTPException(status_code=500, detail="Data integrity error in the database.")
         
     return get_user_profile(current_user)

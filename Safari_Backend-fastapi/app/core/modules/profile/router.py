@@ -14,7 +14,7 @@ router = APIRouter(
 
 
 @router.get(
-    "/my-information", 
+    "/me", 
     response_model=schemas.ProfileResponse, 
     status_code=status.HTTP_200_OK,
     summary="Get my profile information",
@@ -27,7 +27,7 @@ def get_my_profile(current_user: models.User = Depends(security.get_current_user
 @router.post(
     "/upload-avatar",
     response_model=schemas.AvatarUploadResponse,  
-    status_code=status.HTTP_200_OK,
+    status_code=status.HTTP_201_CREATED,
     summary="Upload profile picture",
     description="Receive the physical image file from the frontend, save it on the server, and automatically update the logged-in user's profile."
 )
@@ -41,6 +41,7 @@ def upload_avatar(
 
 @router.delete(
     "/remove-avatar",
+    response_model=schemas.StandardMessageResponse, 
     status_code=status.HTTP_200_OK,
     summary="Delete profile picture",
     description="Deletes the physical image file from the server and clears the corresponding field in the database."
@@ -54,6 +55,7 @@ def remove_avatar(
 
 @router.put(
     "/change-password", 
+    response_model=schemas.StandardMessageResponse,  
     status_code=status.HTTP_200_OK,
     summary="Change password",
     description="Receive current password and change it to a new one."
@@ -71,6 +73,7 @@ def change_password(
     response_model=schemas.ProfileResponse, 
     status_code=status.HTTP_200_OK,
     summary="Update customer profile",
+    description="Update the personal details of the logged-in customer (e.g., Name, BirthDate, Gender). Only authorized for customer roles." 
 )
 def update_customer_profile(
     update_data: schemas.CustomerProfileUpdate, 
@@ -90,6 +93,7 @@ def update_customer_profile(
     response_model=schemas.ProfileResponse, 
     status_code=status.HTTP_200_OK,
     summary="Update airline company profile",
+    description="Update the company details of the logged-in airline. Only authorized for airline roles." 
 )
 def update_airline_profile(
     update_data: schemas.AirlineProfileUpdate, 
@@ -104,6 +108,7 @@ def update_airline_profile(
     response_model=schemas.ProfileResponse, 
     status_code=status.HTTP_200_OK,
     summary="Update admin profile",
+    description="Update the personal details of the logged-in admin. Only authorized for admin roles."
 )
 def update_admin_profile(
     update_data: schemas.AdminProfileUpdate, 
