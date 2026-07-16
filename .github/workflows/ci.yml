@@ -1,0 +1,65 @@
+name: Safari FastAPI CI Tests
+
+on:
+  push:
+    paths:
+      - 'Safari_Backend-fastapi/**'
+      - '.github/workflows/**'       
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'Safari_Backend-fastapi/**'
+      - '.github/workflows/**'
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: myuser
+          POSTGRES_PASSWORD: mypassword
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    defaults:
+      run:
+        working-directory: ./Safari_Backend-fastapi
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Create Test .env File
+        run: |
+          echo "DB_USER=myuser" > Safari_Backend/.env
+          echo "DB_PASSWORD=mypassword" >> Safari_Backend/.env
+          echo "DB_HOST=localhost" >> Safari_Backend/.env
+          echo "DB_PORT=5432" >> Safari_Backend/.env
+          echo "DB_NAME=testdb" >> Safari_Backend/.env
+          echo "SECRET_KEY=test_secret_key" >> Safari_Backend/.env
+          echo "ALGORITHM=HS256" >> Safari_Backend/.env
+          echo "ACCESS_TOKEN_EXPIRE_MINUTES=30" >> Safari_Backend/.env
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Pytest
+        run: pytest --md test_report.md
