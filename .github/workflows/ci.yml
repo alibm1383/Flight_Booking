@@ -3,12 +3,14 @@ name: Safari FastAPI CI Tests
 on:
   push:
     paths:
-      - 'Safari_Backend-fastapi/**'  
+      - 'Safari_Backend-fastapi/**'
+      - '.github/workflows/**'       
   pull_request:
     branches:
       - main
     paths:
       - 'Safari_Backend-fastapi/**'
+      - '.github/workflows/**'
 
 jobs:
   test-backend:
