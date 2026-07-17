@@ -7,7 +7,7 @@
     "use strict";
     var i, s, o = 0,
         e = (i = t.userAgent, s = /msie\s\d+/i, 0 < i.search(s) && s.exec(i).toString().split(" ")[1] < 9 && (a("html").addClass("lt-ie9"), !0));
-    Function.prototype.bind || (Function.prototype.bind = function(o) {
+    if (!Function.prototype.bind) { Object.defineProperty(Function.prototype, 'bind', { value: function(o) {
         var e = this,
             h = [].slice;
         if ("function" != typeof e) throw new TypeError;
@@ -23,7 +23,8 @@
                 return e.apply(o, r.concat(h.call(arguments)))
             };
         return n
-    }), Array.prototype.indexOf || (Array.prototype.indexOf = function(t, i) {
+    }, writable: true, configurable: true }); }
+    if (!Array.prototype.indexOf) { Object.defineProperty(Array.prototype, 'indexOf', { value: function(t, i) {
         var s;
         if (null == this) throw new TypeError('"this" is null or not defined');
         var o = Object(this),
@@ -36,7 +37,7 @@
             s++
         }
         return -1
-    });
+    }, writable: true, configurable: true }); }
 
     function h(t, i, s) {
         this.VERSION = "2.3.1", this.input = t, this.plugin_count = s, this.current_plugin = 0, this.calc_count = 0, this.update_tm = 0, this.old_from = 0, this.old_to = 0, this.old_min_interval = null, this.raf_id = null, this.dragging = !1, this.force_redraw = !1, this.no_diapason = !1, this.has_tab_index = !0, this.is_key = !1, this.is_update = !1, this.is_start = !0, this.is_finish = !1, this.is_active = !1, this.is_resize = !1, this.is_click = !1, i = i || {}, this.$cache = {

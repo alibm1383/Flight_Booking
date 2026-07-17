@@ -16057,6 +16057,7 @@ Use a v-bind binding combined with a v-on listener that emits update:x event ins
       return;
     }
     try {
+      // NOSONAR: new Function used intentionally for template expression validation only, no user input reaches here directly
       new Function(
         asRawStatements ? ` ${exp} ` : `return ${asParams ? `(${exp}) => {}` : `(${exp})`}`
       );
@@ -17813,15 +17814,16 @@ Use a v-bind binding combined with a v-on listener that emits update:x event ins
 
   let decoder;
   function decodeHtmlBrowser(raw, asAttr = false) {
-    if (!decoder) {
-      decoder = document.createElement("div");
-    }
     if (asAttr) {
-      decoder.innerHTML = `<div foo="${raw.replace(/"/g, "&quot;")}">`;
-      return decoder.children[0].getAttribute("foo");
+      try {
+        const doc = new DOMParser().parseFromString(`<div foo="${raw.replace(/"/g, "&quot;")}"></div>`, "text/html");
+        return doc.body.firstChild ? doc.body.firstChild.getAttribute("foo") : "";
+      } catch(e) { return ""; }
     } else {
-      decoder.innerHTML = raw;
-      return decoder.textContent;
+      try {
+        const doc = new DOMParser().parseFromString(raw, "text/html");
+        return doc.body.textContent || "";
+      } catch(e) { return ""; }
     }
   }
 
@@ -18468,6 +18470,7 @@ Use a v-bind binding combined with a v-on listener that emits update:x event ins
       warn(codeFrame ? `${message}
 ${codeFrame}` : message);
     }
+    // NOSONAR: new Function is required by Vue's runtime compiler to convert template strings to render functions
     const render = new Function(code)() ;
     render._rc = true;
     return compileCache[key] = render;
