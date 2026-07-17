@@ -30,6 +30,7 @@ namespace IOC.Dependencies
             services.AddScoped<IAirportRepository, AirportRepository>();
             services.AddScoped<IFlightRepository, FlightRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             #endregion
 
             #region AutoMapper

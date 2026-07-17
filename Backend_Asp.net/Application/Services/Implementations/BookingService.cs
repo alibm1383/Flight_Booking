@@ -18,13 +18,15 @@ namespace Application.Services.Implementations
         private readonly IFlightRepository _flightRepository;
         private readonly IMapper _mapper;
         private readonly ISmsSender _smsSender;
+        private readonly IUserRepository _userRepository;
         public BookingService(IBookingRepository bookingRepository
-            , IFlightRepository flightRepository , IMapper mapper,ISmsSender smsSender)
+            , IFlightRepository flightRepository , IMapper mapper,ISmsSender smsSender,IUserRepository userRepository)
         {
             _bookingRepository = bookingRepository;
             _flightRepository = flightRepository;
             _mapper = mapper;
             _smsSender = smsSender;
+            _userRepository = userRepository;
         }
 
         public async Task AddBookingAsync(CreateBookingDto createBookingDto , int userId)
@@ -38,6 +40,11 @@ namespace Application.Services.Implementations
             {
                 throw new BusinessException("Not enough seats.");
             }
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                throw new NotFoundException("User not found.");
+            }
             var booking = _mapper.Map<Booking>(createBookingDto);
             booking.UserId = userId;
             booking.BookingDate = DateTime.UtcNow;
@@ -46,10 +53,9 @@ namespace Application.Services.Implementations
             booking.TotalAmount = flight.Price * createBookingDto.Passengers.Count;
             booking.BookingDate = DateTime.UtcNow;
             await _bookingRepository.AddBookingAsync(booking);
-            //TODO unit of work
             await _bookingRepository.SaveChangesAsync();
             string message = $"پرواز شما با موفقیت رزرو شد.\n شماره رزرو : {booking.PnrCode}";
-            await _smsSender.SendSmsAsync("09372792737", message);
+            await _smsSender.SendSmsAsync(user.PhoneNumber, message);
         }
 
         public async Task<List<BookingDto>> GetBookingsByUserId(int userId)
