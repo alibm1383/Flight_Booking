@@ -1,15 +1,17 @@
-name: Safari FastAPI CI Tests
+name: Safari FastAPI CI Tests and Sonar Scan
 
 on:
   push:
     paths:
       - 'Safari_Backend-fastapi/**'
-      - '.github/workflows/**'       
+      - 'backend_asp.net/**'
+      - '.github/workflows/**'        
   pull_request:
     branches:
       - main
     paths:
       - 'Safari_Backend-fastapi/**'
+      - 'backend_asp.net/**'
       - '.github/workflows/**'
 
 jobs:
@@ -63,3 +65,39 @@ jobs:
 
       - name: Run Pytest
         run: pytest --md test_report.md
+
+  sonar-dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Java 17 (Required for Sonar)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Build and Analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # شروع اسکن (اتصال به SonarCloud با Organization و Project Key)
+          dotnet sonarscanner begin /k:"alibm1383_Flight_Booking" /o:"alibm1383" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          
+          # بیلد کردن کل سلوشن برای اینکه سونا کیوب همه پروژه‌های داخلش رو ببینه
+          dotnet build backend_asp.net/FlightBooking.sln
+          
+          # پایان اسکن و ارسال گزارش
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
