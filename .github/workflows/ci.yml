@@ -4,14 +4,14 @@ on:
   push:
     paths:
       - 'Safari_Backend-fastapi/**'
-      - 'backend_asp.net/**'
+      - 'Backend_Asp.net/**'
       - '.github/workflows/**'        
   pull_request:
     branches:
       - main
     paths:
       - 'Safari_Backend-fastapi/**'
-      - 'backend_asp.net/**'
+      - 'Backend_Asp.net/**'
       - '.github/workflows/**'
 
 jobs:
@@ -97,7 +97,7 @@ jobs:
           dotnet sonarscanner begin /k:"alibm1383_Flight_Booking" /o:"alibm1383" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           
           # بیلد کردن کل سلوشن برای اینکه سونا کیوب همه پروژه‌های داخلش رو ببینه
-          dotnet build backend_asp.net/FlightBooking.sln
+          dotnet build Backend_Asp.net/FlightBooking.sln
           
           # پایان اسکن و ارسال گزارش
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
